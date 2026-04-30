@@ -1,0 +1,16 @@
+{
+  "name": "skills",
+  "version": "0.0.1",
+  "description": "Installer helper for installing skill repos into a project",
+  "bin": {
+    "skills": "bin/skills.js"
+  },
+  "scripts": {
+    "start": "node bin/skills.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^9.0.0"
+  }
+}
