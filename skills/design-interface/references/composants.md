@@ -199,19 +199,41 @@ Informations personnelles
 
 ---
 
-## Tables de données
+## Tables de données et Composants Complexes
+
+Pour les vues très denses (Dashboards, Tables avec >10 colonnes), appliquer la **Loi de Miller** : l'humain ne peut traiter que ~7 éléments à la fois. La solution est le *Chunking* (regroupement visuel).
+
+### Chunking (Regroupement) dans les Tables
+Au lieu d'ajouter une colonne par donnée, fusionnez les données liées :
+```html
+<!-- AVANT : 3 colonnes (Avatar | Nom | Email) -->
+
+<!-- APRÈS : 1 colonne (Utilisateur) -->
+<td class="user-cell">
+  <img src="avatar.jpg" class="avatar" />
+  <div class="user-info">
+    <span class="name">Jane Doe</span>
+    <span class="email text-secondary">jane@example.com</span>
+  </div>
+</td>
+```
 
 ### Alignement
 
 | Type de donnée | Alignement |
 |---|---|
-| Texte | Gauche |
-| Nombres, montants | **Droite** (décimales alignées) |
-| Status, badges | Centre |
-| Actions | Centre ou droite |
-| Checkboxes | Centre |
+| Texte, Utilisateurs, Liens | Gauche |
+| Nombres, montants, dates | **Droite** (facilite la comparaison visuelle) |
+| Status, badges, icônes | Centre |
+| Actions (boutons, menu `...`) | Centre ou droite |
+| Checkboxes de sélection | Centre |
 
-### Structure recommandée
+### Gestion de la Complexité (Scroll & Filtres)
+- **Scroll horizontal :** Fixez (`position: sticky`) toujours la première colonne (l'identifiant clé) et le header de la table.
+- **Filtres :** Ne montrez pas 10 champs de filtres vides. Utilisez un bouton "Filtrer" qui ouvre un Popover/Drawer. Affichez les filtres actifs sous forme de "Tags" amovibles au-dessus de la table.
+- **Bulk Actions :** La barre d'actions groupées (Supprimer, Exporter) ne doit apparaître que lorsqu'au moins une ligne est sélectionnée, remplaçant souvent le header de la table ou flottant en bas de l'écran.
+
+### Structure CSS recommandée
 
 ```css
 /* En-têtes */
@@ -244,7 +266,7 @@ tr:hover td {
 Indiquer la colonne triée et sa direction :
 ```html
 <th aria-sort="ascending">
-  Nom <svg class="sort-icon">↑</svg>
+  Montant <svg class="sort-icon">↑</svg>
 </th>
 ```
 

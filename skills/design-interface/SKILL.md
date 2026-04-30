@@ -34,16 +34,17 @@ Ne charge pas tout — lis uniquement ce dont tu as besoin.
 
 | Fichier | Quand le lire |
 |---------|--------------|
-| `references/01-processus.md` | Démarrer un design, décider quoi designer en premier |
-| `references/02-hierarchie.md` | Hiérarchie visuelle, poids, emphasis, boutons |
-| `references/03-couleur.md` | Palette, contraste, HSL, accessibilité couleur |
-| `references/04-typographie.md` | Polices, échelle, line-height, alignement |
-| `references/05-espacement-layout.md` | Spacing system, grilles, ombres, profondeur |
-| `references/06-lois-ux.md` | Psychologie UX, Jakob, Fitts, Hick, Miller, etc. |
-| `references/07-composants.md` | Boutons, formulaires, tables, modales, états |
-| `references/08-tokens.md` | Valeurs concrètes : couleurs, espacement, typographie, ombres |
-| `references/09-antipatterns.md` | Erreurs fréquentes et corrections |
-| `references/10-checklists.md` | Checklists de review complètes par catégorie |
+| `references/processus-decisions.md` | Démarrer un design, décider quoi designer en premier |
+| `references/hierarchie-visuelle.md` | Hiérarchie visuelle, poids, emphasis, boutons |
+| `references/couleur-systeme.md` | Palette, contraste, HSL, accessibilité couleur |
+| `references/typographie.md` | Polices, échelle, line-height, alignement |
+| `references/espacement-layout.md` | Spacing system, grilles, ombres, profondeur |
+| `references/lois-ux.md` | Psychologie UX, Jakob, Fitts, Hick, Miller, etc. |
+| `references/composants.md` | Boutons, formulaires, tables, modales, états |
+| `references/tokens.md` | Valeurs concrètes : couleurs, espacement, typographie, ombres |
+| `references/antipatterns-ethique.md` | Erreurs fréquentes, Dark patterns et corrections |
+| `references/checklists.md` | Checklists de review complètes par catégorie |
+| `references/mode-sombre.md` | Inversion HSL, palette sombre, design de Dark Mode |
 
 ---
 
@@ -62,10 +63,11 @@ Ne charge pas tout — lis uniquement ce dont tu as besoin.
 
 ## Routing rapide
 
-**"Review ce composant"** → `02-hierarchie` + `07-composants` + `10-checklists`
-**"Crée une palette"** → `03-couleur` + `08-tokens`
-**"Design ce formulaire"** → `07-composants` + `05-espacement-layout`
-**"Quel shadow utiliser ?"** → `05-espacement-layout` + `08-tokens`
-**"Pourquoi ce design ne fonctionne pas ?"** → `02-hierarchie` + `09-antipatterns`
-**"Accessibilité de l'interface"** → `03-couleur` + `10-checklists`
-**"Justifier une décision design"** → `06-lois-ux`
+**"Review ce composant"** → `hierarchie-visuelle` + `composants` + `checklists`
+**"Crée une palette"** → `couleur-systeme` + `tokens`
+**"Design ce formulaire"** → `composants` + `espacement-layout`
+**"Quel shadow utiliser ?"** → `espacement-layout` + `tokens`
+**"Pourquoi ce design ne fonctionne pas ?"** → `hierarchie-visuelle` + `antipatterns-ethique`
+**"Accessibilité de l'interface"** → `couleur-systeme` + `checklists`
+**"Justifier une décision design"** → `lois-ux`
+**"Ajouter le mode sombre"** → `mode-sombre` + `couleur-systeme`

@@ -261,33 +261,40 @@ Adapter les teintes (hue) à la couleur brand du projet.
 
 ---
 
-## Transitions & Animations
+## Transitions & Animations (Loi de Doherty)
+
+Le mouvement doit être intentionnel, rapide (sous les 400ms pour garder l'attention), et guider l'utilisateur.
 
 ```css
 :root {
-  /* Durées */
-  --duration-fast:    100ms;
-  --duration-base:    150ms;
-  --duration-slow:    200ms;
-  --duration-slower:  300ms;
-  --duration-slowest: 500ms;
+  /* Durées (Doherty Threshold : l'interface doit répondre en < 400ms) */
+  --duration-fast:    100ms;  /* Micro-interactions: hover, toggle */
+  --duration-base:    150ms;  /* Standard: boutons, inputs, couleurs */
+  --duration-slow:    200ms;  /* Mouvement physique: cartes, petits déplacements */
+  --duration-slower:  300ms;  /* Entrées de composants: modales, popovers */
+  --duration-slowest: 500ms;  /* Grands changements de page (rare) */
 
   /* Easing */
-  --ease-in:       cubic-bezier(0.4, 0, 1, 1);
-  --ease-out:      cubic-bezier(0, 0, 0.2, 1);
-  --ease-in-out:   cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);  /* légère élasticité */
+  --ease-in:       cubic-bezier(0.4, 0, 1, 1);         /* Pour sortir de l'écran */
+  --ease-out:      cubic-bezier(0, 0, 0.2, 1);         /* Pour entrer dans l'écran */
+  --ease-in-out:   cubic-bezier(0.4, 0, 0.2, 1);       /* Pour bouger sur l'écran */
+  --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);  /* Légère élasticité (cartes, modals) */
 }
 
 /* Transitions standard par type */
 .btn         { transition: background var(--duration-base) var(--ease-out),
-                           box-shadow var(--duration-base) var(--ease-out); }
+                           box-shadow var(--duration-base) var(--ease-out),
+                           transform var(--duration-fast) var(--ease-out); }
+.btn:active  { transform: scale(0.97); } /* Micro-animation de clic */
+
 .input       { transition: border-color var(--duration-base) var(--ease-out),
                            box-shadow var(--duration-base) var(--ease-out); }
-.card        { transition: transform var(--duration-slow) var(--ease-out),
-                           box-shadow var(--duration-slow) var(--ease-out); }
+.card        { transition: transform var(--duration-slow) var(--ease-spring),
+                           box-shadow var(--duration-slow) var(--ease-spring); }
+.card:hover  { transform: translateY(-2px); }
+
 .modal       { transition: opacity var(--duration-slower) var(--ease-out),
-                           transform var(--duration-slower) var(--ease-out); }
+                           transform var(--duration-slower) var(--ease-spring); }
 ```
 
 ---

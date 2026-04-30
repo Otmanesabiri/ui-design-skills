@@ -207,7 +207,28 @@ Ajouter une légère teinte de la couleur brand aux gris pour maintenir la cohé
 
 Règle systématique : **finaliser le layout, la hiérarchie et l'espacement en grayscale avant d'ajouter de la couleur**.
 
+**Nuance importante :** Concevoir en noir et blanc pour la *structure*, mais s'autoriser la couleur pour l'*état* (Succès, En attente, Erreur) dans des flux complexes où elle agit comme un raccourci cognitif rapide.
+
 Bénéfices :
 - Force l'usage de l'espacement et du contraste comme seuls leviers
 - Révèle les problèmes de hiérarchie avant qu'ils soient masqués par la couleur
 - Produit une interface plus robuste visuellement
+
+---
+
+## Dark Mode : l'avantage du HSL
+
+Grâce à l'utilisation du HSL, créer un Dark Mode ne nécessite pas de recréer une palette de zéro. Il suffit d'**inverser la Lightness** tout en gardant la même Hue (Teinte) et Saturation.
+
+### Règle d'inversion :
+- `50` (Lightness ~97%) devient `900` (Lightness ~10%)
+- `100` devient `800`
+- `200` devient `700`
+- `300` devient `600`
+- `400` devient `500`
+- Et vice versa.
+
+### Couleurs sémantiques en Dark Mode :
+Attention : Ne pas inverser les couleurs sémantiques (succès, erreur, brand) de la même façon que les gris. Un bouton primaire doit rester identifiable (souvent autour de 500-600 en lightness).
+- Assombrir légèrement les fonds d'alertes (ex: 50 -> 900)
+- Garder les textes d'alerte lisibles en augmentant leur lightness (ex: 700 -> 300)
