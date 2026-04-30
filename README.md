@@ -5,7 +5,7 @@ Quickstart (30-second setup)
 Run the skills installer via npx:
 
 ```bash
-npx skills@latest add otmanesabiri/skills
+npx skills@latest add otmanesabiri/ui-design-skills
 ```
 
 Pick the skills you want, and which coding agents you want to install them on. Make sure you select `/setup-otmanesabiri-skills` in the repo you add, then run that setup script in your agent. It will:
