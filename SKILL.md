@@ -1,5 +1,4 @@
-name: ui-design-skills
-description: |
-  A curated set of UI/UX design skills, checklists, and best practices for coding agents and developers. Includes interface review, improvement, and generation skills, with ethical and accessibility guidelines.
-skills:
-  - design-interface
+name: "UI Design Skills"
+description: "A curated collection of UI design patterns, components, and examples to teach and demonstrate UI design skills."
+author: "Otmanesabiri"
+version: "0.1.0"
