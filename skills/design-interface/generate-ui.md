@@ -1,183 +1,183 @@
-# Generate UI - Procedure de creation
+# Generate UI - Creation Procedure
 
-Objectif : produire une interface utilisable des le premier ecran, coherente avec les references du skill, sans commencer par une page marketing ou une decoration gratuite.
+Objective: produce a usable interface from the first screen, consistent with the skill references, without starting with a marketing page or unnecessary decoration.
 
-References a mobiliser :
-- `references/processus-decisions.md` pour cadrer la feature
-- `references/checklists.md` pour les contraintes executables
-- `references/hierarchie-visuelle.md` pour prioriser les contenus
-- `references/espacement-layout.md` pour organiser la page
-- `references/couleur-systeme.md` et `references/tokens.md` pour les valeurs visuelles
-- `references/composants.md` pour les composants attendus
-- `references/antipatterns-ethique.md` pour les garde-fous
-
----
-
-## 1. Cadrer avant de dessiner
-
-Ne pas commencer par "faire une belle page". Commencer par la tache utilisateur.
-
-Questions obligatoires :
-- Qui utilise cette interface ?
-- Quelle action principale doit etre accomplie ?
-- Quelle information est necessaire avant cette action ?
-- Quelle information peut etre cachee, differee ou calculee ?
-- Quel est le risque principal : confusion, erreur, lenteur, manque de confiance ?
-
-Sortie attendue :
-- 1 objectif principal
-- 1 CTA primaire
-- 3 a 5 informations ou actions visibles en priorite
-- Les etats necessaires : loading, empty, error, success, disabled
+References to use:
+- `references/processus-decisions.md` to frame the feature
+- `references/checklists.md` for executable constraints
+- `references/hierarchie-visuelle.md` to prioritize content
+- `references/espacement-layout.md` to organize the page
+- `references/couleur-systeme.md` and `references/tokens.md` for visual values
+- `references/composants.md` for expected components
+- `references/antipatterns-ethique.md` for guardrails
 
 ---
 
-## 2. Construire la structure
+## 1. Frame Before Drawing
 
-Ordre de construction :
-1. Contenu et donnees
-2. Hierarchie
+Do not start with "making a beautiful page". Start with the user task.
+
+Mandatory Questions:
+- Who uses this interface?
+- What main action must be accomplished?
+- What information is necessary before this action?
+- What information can be hidden, deferred, or calculated?
+- What is the main risk: confusion, error, slowness, lack of trust?
+
+Expected Output:
+- 1 main objective
+- 1 primary CTA
+- 3 to 5 pieces of information or actions visible by priority
+- Necessary states: loading, empty, error, success, disabled
+
+---
+
+## 2. Build the Structure
+
+Construction order:
+1. Content and data
+2. Hierarchy
 3. Layout
-4. Composants
-5. Couleur
+4. Components
+5. Color
 6. Micro-interactions
 
-Regles :
-- Designer d'abord en grayscale mentalement : la couleur ne doit pas porter seule la hierarchie
-- 1 element dominant par zone de decision
-- 3 niveaux de hierarchie visibles maximum dans une zone
-- Les elements lies sont proches ; les groupes distincts sont clairement separes
-- Les lignes de texte courant restent a 80 caracteres maximum
+Rules:
+- Design in grayscale mentally first: color should not carry hierarchy alone
+- 1 dominant element per decision zone
+- 3 visible hierarchy levels maximum in a zone
+- Related elements are close; distinct groups are clearly separated
+- Lines of body text remain at 80 characters maximum
 
 ---
 
-## 3. Choisir le layout selon le produit
+## 3. Choose the Layout According to the Product
 
 ### SaaS, CRM, admin, dashboard
 
-Priorite : densite lisible, scan rapide, actions previsibles.
+Priority: readable density, fast scanning, predictable actions.
 
-Patterns recommandes :
-- Sidebar ou top nav conventionnelle
-- Header compact avec titre, contexte et actions
-- Tables ou listes scannables pour donnees repetitives
-- Filtres visibles seulement s'ils sont frequents
-- Panels, drawers ou pages detail pour complexite secondaire
+Recommended Patterns:
+- Sidebar or conventional top nav
+- Compact header with title, context, and actions
+- Scannable tables or lists for repetitive data
+- Filters visible only if frequent
+- Panels, drawers, or detail pages for secondary complexity
 
-Eviter :
-- Hero marketing
-- Grandes cards decoratives pour donnees tabulaires
-- Illustrations qui remplacent les controles utiles
-- Couleur utilisee comme seul signal
+Avoid:
+- Marketing hero
+- Large decorative cards for tabular data
+- Illustrations replacing useful controls
+- Color used as the only signal
 
-### App grand public
+### Consumer App
 
-Priorite : parcours simple, decision claire, feedback rassurant.
+Priority: simple path, clear decision, reassuring feedback.
 
-Patterns recommandes :
-- Navigation familiere
-- CTA primaire visible
-- Divulgation progressive
-- Empty states utiles
-- Confirmation claire en fin de flux
+Recommended Patterns:
+- Familiar navigation
+- Visible primary CTA
+- Progressive disclosure
+- Useful empty states
+- Clear confirmation at the end of the flow
 
-### Landing page ou page de marque
+### Landing Page or Brand Page
 
-Priorite : comprehension immediate de l'offre.
+Priority: immediate understanding of the offer.
 
-Patterns recommandes :
-- Le produit, lieu, service ou objet doit etre visible des le premier viewport
-- H1 = nom, offre ou categorie concrete
-- Image reelle ou scene visuelle pertinente
-- Un hint de la section suivante reste visible
-- CTA principal unique
-
----
-
-## 4. Appliquer les contraintes non negociables
-
-Avant d'implementer :
-- 1 CTA primaire maximum par decision active
-- 5 choix visibles maximum sans structuration
-- Choix nombreux autorises si groupes, filtres, hierarchises ou recherchables
-- 44 x 44px minimum pour cible touch
-- Feedback sous 300ms ou etat de progression
-- Aucun champ sans label persistant
-- Aucune erreur sans solution
-- Focus visible et navigation clavier complete
-- Contraste AA minimum sur texte et controles fonctionnels
-- Hierarchie lisible en grayscale
+Recommended Patterns:
+- Product, place, service, or object must be visible from the first viewport
+- H1 = concrete name, offer, or category
+- Real image or relevant visual scene
+- A hint of the next section remains visible
+- Single main CTA
 
 ---
 
-## 5. Composer les composants
+## 4. Apply Non-Negotiable Constraints
 
-### Boutons
+Before implementing:
+- 1 primary CTA maximum per active decision
+- 5 visible choices maximum without structuring
+- Many choices allowed if grouped, filtered, hierarchical, or searchable
+- 44 x 44px minimum for touch target
+- Feedback under 300ms or progress state
+- No field without a persistent label
+- No error without a solution
+- Visible focus and full keyboard navigation
+- Minimum AA contrast on text and functional controls
+- Hierarchy readable in grayscale
 
-- Texte avec verbe d'action precis
-- Primaire = action principale seulement
-- Secondaire = alternative utile mais moins importante
-- Tertiaire = action annexe, lien ou texte discret
-- Actions dangereuses separees spatialement
-- Loading state conserve la largeur du bouton si possible
+---
 
-### Formulaires
+## 5. Compose Components
 
-- Labels persistants au-dessus des champs
-- Champs groupes par theme
-- Multi-step si le formulaire devient dense
-- Validation au blur
-- Formats flexibles acceptes puis normalises
-- Erreurs actionnables sous le champ concerne
+### Buttons
+
+- Text with precise action verb
+- Primary = main action only
+- Secondary = useful but less important alternative
+- Tertiary = secondary action, link, or discreet text
+- Dangerous actions spatially separated
+- Loading state preserves button width if possible
+
+### Forms
+
+- Persistent labels above fields
+- Fields grouped by theme
+- Multi-step if the form becomes dense
+- Validation on blur
+- Flexible formats accepted then normalized
+- Actionable errors under the field concerned
 
 ### Navigation
 
-- Respecter les conventions du type de produit
-- Item actif visible sans dependance a la couleur seule
-- Regrouper par usage utilisateur
-- Mettre les destinations rares dans recherche, settings ou "Plus"
+- Respect conventions of the product type
+- Active item visible without dependence on color alone
+- Group by user usage
+- Put rare destinations in search, settings, or "More"
 
 ### Dashboard
 
-- KPIs principaux limites a 3-5
-- Donnees nombreuses autorisees si scannables
-- Filtres utiles en haut ou pres des donnees concernees
-- Nombres alignes a droite
-- Statuts accompagnes de texte ou icone, pas couleur seule
+- Main KPIs limited to 3-5
+- Many data allowed if scannable
+- Useful filters at the top or near the data concerned
+- Numbers right-aligned
+- Statuses accompanied by text or icon, not color alone
 
 ---
 
-## 6. Gerer les etats
+## 6. Manage States
 
-Chaque interface generee doit prevoir :
+Every generated interface must provide:
 
-| Etat | Exigence |
+| State | Requirement |
 |---|---|
-| Loading | Spinner local, skeleton ou optimistic UI selon duree |
-| Empty | Message utile + prochaine action |
-| Error | Cause claire + solution |
-| Success | Confirmation + prochaine etape |
-| Disabled | Raison explicite si l'action semble attendue |
-| Focus | Indicateur visible au clavier |
+| Loading | Local spinner, skeleton, or optimistic UI depending on duration |
+| Empty | Useful message + next action |
+| Error | Clear cause + solution |
+| Success | Confirmation + next step |
+| Disabled | Explicit reason if action is expected |
+| Focus | Visible indicator for keyboard |
 
-Regle Doherty :
-- Eviter l'attente avec cache, prefetch, pre-rendu ou optimistic UI
-- Si l'attente reste visible, montrer l'etat du systeme
+Doherty Rule:
+- Avoid waiting with cache, prefetch, pre-rendering, or optimistic UI
+- If waiting remains visible, show the system state
 
 ---
 
-## 7. Verifier avant livraison
+## 7. Verify Before Delivery
 
-Checklist finale :
-- L'objectif de l'ecran est clair en moins de 3 secondes
-- Le CTA primaire est unique
-- Les choix nombreux sont structures
-- La hierarchie fonctionne sans couleur
-- Les tailles touch respectent 44 x 44px
-- Les transitions de flux sont explicites
-- Les erreurs ne culpabilisent pas l'utilisateur
-- Le design n'utilise aucun dark pattern
-- L'interface reste lisible sur mobile et desktop
-- Aucun texte ne deborde de son conteneur
+Final Checklist:
+- Screen objective is clear in less than 3 seconds
+- Primary CTA is unique
+- Numerous choices are structured
+- Hierarchy works without color
+- Touch sizes respect 44 x 44px
+- Flow transitions are explicit
+- Errors do not blame the user
+- Design uses no dark patterns
+- Interface remains readable on mobile and desktop
+- No text overflows its container
 
-Resultat attendu : une UI fonctionnelle, scannable, accessible et directement exploitable.
+Expected Result: a functional, scannable, accessible, and directly exploitable UI.

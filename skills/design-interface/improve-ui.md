@@ -1,159 +1,159 @@
-# Improve UI - Procedure d'amelioration
+# Improve UI - Improvement Procedure
 
-Objectif : ameliorer une interface existante sans la reinventer inutilement. Priorite aux problemes qui bloquent la comprehension, l'action, l'accessibilite ou la confiance.
+Objective: improve an existing interface without reinventing it unnecessarily. Priority to problems that block understanding, action, accessibility, or trust.
 
-References a mobiliser :
-- `references/checklists.md` pour classer les problemes
-- `references/hierarchie-visuelle.md` pour corriger la priorisation
-- `references/espacement-layout.md` pour clarifier les groupes
-- `references/couleur-systeme.md` pour contraste et signaux
-- `references/composants.md` pour etats et patterns
-- `references/antipatterns-ethique.md` pour eviter les manipulations
-
----
-
-## 1. Diagnostiquer avant de modifier
-
-Lire l'interface comme un utilisateur presse.
-
-Questions :
-- Que dois-je faire ici ?
-- Quelle action est la plus importante ?
-- Qu'est-ce qui est secondaire ?
-- Ou puis-je me tromper ?
-- Qu'est-ce qui semble cliquable mais ne l'est pas ?
-- Qu'est-ce qui est cliquable mais ne se voit pas ?
-
-Classer les problemes :
-- Bloquant : empeche l'usage, l'accessibilite ou la decision
-- Majeur : ralentit, confond ou augmente le risque d'erreur
-- Mineur : polish, coherence, confort
+References to use:
+- `references/checklists.md` to classify problems
+- `references/hierarchie-visuelle.md` to correct prioritization
+- `references/espacement-layout.md` to clarify groups
+- `references/couleur-systeme.md` for contrast and signals
+- `references/composants.md` for states and patterns
+- `references/antipatterns-ethique.md` to avoid manipulation
 
 ---
 
-## 2. Ordre de correction
+## 1. Diagnose Before Modifying
 
-Ne pas commencer par la couleur.
+Read the interface like a rushed user.
 
-1. Clarifier l'objectif de la vue
-2. Reduire ou structurer les choix
-3. Reparer la hierarchie visuelle
-4. Corriger l'espacement et les groupes
-5. Corriger les composants et leurs etats
-6. Corriger accessibilite et clavier
-7. Ajouter le polish visuel
+Questions:
+- What should I do here?
+- Which action is most important?
+- What is secondary?
+- Where can I go wrong?
+- What looks clickable but isn't?
+- What is clickable but doesn't look it?
 
-Regle : si une correction est seulement esthetique mais ne resout aucun probleme de comprehension ou d'usage, la repousser.
-
----
-
-## 3. Corrections frequentes
-
-### Trop de bruit visuel
-
-Symptomes :
-- Plusieurs boutons semblent primaires
-- Trop de badges, couleurs ou shadows
-- Les titres, cartes et actions ont le meme poids
-
-Corrections :
-- Garder 1 element dominant par zone de decision
-- De-emphasiser les actions secondaires
-- Reduire les shadows et fonds decoratifs
-- Tester la page en grayscale
-
-### Trop de choix
-
-Symptomes :
-- Longues listes d'actions visibles
-- Filtres et options avancees toujours ouverts
-- L'utilisateur doit lire avant de savoir quoi faire
-
-Corrections :
-- Garder 3-5 choix non structures visibles
-- Grouper, filtrer ou rechercher les choix nombreux
-- Mettre les options rares derriere "Plus" ou "Avance"
-- Proposer une option recommandee si utile
-
-### Formulaire dur a remplir
-
-Symptomes :
-- Placeholders utilises comme labels
-- Erreurs tardives ou vagues
-- Format impose trop strict
-- Champs optionnels partout
-
-Corrections :
-- Labels persistants
-- Groupement par theme
-- Validation au blur
-- Formats flexibles puis affichage canonique
-- Erreur = probleme + solution
-- Champs optionnels reveles progressivement
-
-### Dashboard lourd
-
-Symptomes :
-- Trop de cards identiques
-- KPIs sans decision associee
-- Table illisible
-- Filtres trop nombreux
-
-Corrections :
-- Limiter les KPIs principaux a 3-5
-- Transformer les cards repetitives en table ou liste
-- Aligner nombres a droite
-- Ajouter tri, filtre, recherche si volume important
-- Garder un parcours de scan clair
-
-### Feedback faible
-
-Symptomes :
-- Rien ne se passe apres clic
-- Loading global pour une action locale
-- Erreur technique brute
-- Succes sans prochaine etape
-
-Corrections :
-- Feedback local sous 300ms
-- Optimistic UI pour actions reversibles
-- Skeleton pour contenu structure
-- Messages humains et actionnables
-- Fin de flux avec resultat + prochaine action
+Classify problems:
+- Blocking: prevents usage, accessibility, or decision
+- Major: slows down, confuses, or increases error risk
+- Minor: polish, consistency, comfort
 
 ---
 
-## 4. Regles d'intervention
+## 2. Order of Correction
 
-Faire :
-- Conserver les patterns existants quand ils fonctionnent
-- Corriger par petites passes verifiables
-- Utiliser les tokens existants avant d'en creer
-- Renforcer la hierarchie par taille, poids, espacement et contraste
-- Verifier mobile et desktop
+Do not start with color.
 
-Eviter :
-- Ajouter une nouvelle palette pour masquer un probleme de structure
-- Remplacer toutes les cards par d'autres cards
-- Ajouter une animation sans fonction
-- Utiliser la couleur seule pour signaler un etat
-- Casser une convention sans gain mesurable
+1. Clarify the objective of the view
+2. Reduce or structure choices
+3. Repair visual hierarchy
+4. Correct spacing and groups
+5. Correct components and their states
+6. Correct accessibility and keyboard
+7. Add visual polish
+
+Rule: if a correction is only aesthetic but does not solve any comprehension or usage problem, postpone it.
 
 ---
 
-## 5. Checklist avant/apres
+## 3. Frequent Corrections
 
-Avant de finir :
-- Le probleme initial est-il resolu ?
-- L'action principale est-elle plus evidente ?
-- Le nombre de choix non structures a-t-il baisse ?
-- Les zones liees sont-elles mieux groupees ?
-- Les contrastes et focus sont-ils conformes ?
-- Les etats loading, error, empty, success existent-ils ?
-- La densite reste-t-elle scannable ?
-- Aucun dark pattern n'a ete introduit ?
+### Too Much Visual Noise
 
-Livrable attendu :
-- Liste courte des changements
-- Pourquoi chaque changement ameliore l'usage
-- Risques restants ou points a tester
+Symptoms:
+- Several buttons seem primary
+- Too many badges, colors, or shadows
+- Titles, cards, and actions have the same weight
+
+Corrections:
+- Keep 1 dominant element per decision zone
+- De-emphasize secondary actions
+- Reduce decorative shadows and backgrounds
+- Test the page in grayscale
+
+### Too Many Choices
+
+Symptoms:
+- Long lists of visible actions
+- Filters and advanced options always open
+- User must read before knowing what to do
+
+Corrections:
+- Keep 3-5 unstructured choices visible
+- Group, filter, or search numerous choices
+- Put rare options behind "More" or "Advanced"
+- Propose a recommended option if useful
+
+### Hard-to-Fill Form
+
+Symptoms:
+- Placeholders used as labels
+- Late or vague errors
+- Too strict imposed format
+- Optional fields everywhere
+
+Corrections:
+- Persistent labels
+- Grouping by theme
+- Validation on blur
+- Flexible formats then canonical display
+- Error = problem + solution
+- Optional fields revealed progressively
+
+### Heavy Dashboard
+
+Symptoms:
+- Too many identical cards
+- KPIs without associated decision
+- Unreadable table
+- Too many filters
+
+Corrections:
+- Limit main KPIs to 3-5
+- Transform repetitive cards into table or list
+- Right-align numbers
+- Add sort, filter, search if volume is high
+- Keep a clear scan path
+
+### Weak Feedback
+
+Symptoms:
+- Nothing happens after click
+- Global loading for a local action
+- Raw technical error
+- Success without next step
+
+Corrections:
+- Local feedback under 300ms
+- Optimistic UI for reversible actions
+- Skeleton for structured content
+- Human and actionable messages
+- End of flow with result + next action
+
+---
+
+## 4. Intervention Rules
+
+Do:
+- Conserve existing patterns when they work
+- Correct by small, verifiable passes
+- Use existing tokens before creating new ones
+- Reinforce hierarchy by size, weight, spacing, and contrast
+- Check mobile and desktop
+
+Avoid:
+- Adding a new palette to mask a structural problem
+- Replacing all cards with other cards
+- Adding an animation without a function
+- Using color alone to signal a state
+- Breaking a convention without measurable gain
+
+---
+
+## 5. Before/After Checklist
+
+Before finishing:
+- Is the initial problem resolved?
+- Is the main action more obvious?
+- Has the number of unstructured choices decreased?
+- Are related zones better grouped?
+- Are contrasts and focus compliant?
+- Do loading, error, empty, and success states exist?
+- Does density remain scannable?
+- Has no dark pattern been introduced?
+
+Expected Deliverable:
+- Short list of changes
+- Why each change improves usage
+- Remaining risks or points to test

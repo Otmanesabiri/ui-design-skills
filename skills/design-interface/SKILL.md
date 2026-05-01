@@ -1,14 +1,15 @@
 ---
 name: ui-design-interface
-description: Génère, améliore et relit des interfaces utilisateur. Use when the user wants to review, improve, or generate UI layouts or components.
+description: Generates, improves, and reviews user interfaces. Use when the user wants to review, improve, or generate UI layouts or components.
 ---
 
 # UI Design Interface
 
 Quick start
-- Demandez "/generate-ui" pour générer une interface.
-- Demandez "/improve-ui" pour améliorer une maquette.
-- Demandez "/review-ui" pour obtenir un feedback structuré.
+- Ask "/generate-ui" to generate an interface.
+- Ask "/improve-ui" to improve a mockup.
+- Ask "/review-ui" to get structured feedback.
+
 ---
 name: ui-design-skill
 description: >
@@ -21,63 +22,63 @@ description: >
   generating or reviewing any interface code or design.
 ---
 
-# UI Design Skill — Index
+# UI Design Skill - Index
 
-Sources : **Refactoring UI** · **Laws of UX (2e éd.)** · **Practical UI**
-
----
-
-## Architecture des fichiers
-
-Lis le(s) fichier(s) de référence correspondant à la tâche demandée.
-Ne charge pas tout — lis uniquement ce dont tu as besoin.
-
-| Fichier | Quand le lire |
-|---------|--------------|
-| `references/processus-decisions.md` | Démarrer un design, décider quoi designer en premier |
-| `references/hierarchie-visuelle.md` | Hiérarchie visuelle, poids, emphasis, boutons |
-| `references/couleur-systeme.md` | Palette, contraste, HSL, accessibilité couleur |
-| `references/typographie.md` | Polices, échelle, line-height, alignement |
-| `references/espacement-layout.md` | Spacing system, grilles, ombres, profondeur |
-| `references/lois-ux.md` | Psychologie UX, Jakob, Fitts, Hick, Miller, etc. |
-| `references/composants.md` | Boutons, formulaires, tables, modales, états |
-| `references/tokens.md` | Valeurs concrètes : couleurs, espacement, typographie, ombres |
-| `references/antipatterns-ethique.md` | Erreurs fréquentes, Dark patterns et corrections |
-| `references/checklists.md` | Checklists de review complètes par catégorie |
-| `references/mode-sombre.md` | Inversion HSL, palette sombre, design de Dark Mode |
-| `references/math-typographie.md` | Type scale par ratio, Golden Ratio, baseline grid |
-| `references/responsive-math.md` | clamp(), min(), max(), calc(), grilles fluides |
-| `references/couleur-math.md` | Contrast ratio WCAG, palette HSL, OKLCH, dark mode |
-| `references/animations-math.md` | Cubic Bezier, spring, trigonométrie, durées |
-| `references/interactions-math.md` | Lerp, mapping, scroll vélocité, requestAnimationFrame |
+Sources: **Refactoring UI** - **Laws of UX (2nd ed.)** - **Practical UI**
 
 ---
 
-## Règles non-négociables
+## File Architecture
 
-1. **Partir d'une feature, pas d'un layout** — ne jamais commencer par la nav ou le shell
-2. **Hiérarchie avant esthétique** — si la hiérarchie est cassée, la couleur ne sauvera rien
-3. **Contraste WCAG AA minimum** — 4.5:1 texte normal, 3:1 grand texte et composants UI
-4. **Système, pas valeurs arbitraires** — espacement, couleur, typo depuis des échelles fixes
-5. **La couleur ne peut pas être le seul indicateur** — toujours doubler avec icône ou texte
-6. **1 bouton primaire par section** — pas deux actions de même poids en compétition
-7. **Concevoir en noir et blanc d'abord** — ajouter la couleur en dernier
-8. **Tout détail a une raison logique** — pas de décoration sans justification fonctionnelle
+Read the reference file(s) that match the task.
+Don't load everything -- only read what you need.
+
+| File | When to read it |
+|------|------------------|
+| `references/processus-decisions.md` | Start a design, decide what to design first |
+| `references/hierarchie-visuelle.md` | Visual hierarchy, weight, emphasis, buttons |
+| `references/couleur-systeme.md` | Palette, contrast, HSL, color accessibility |
+| `references/typographie.md` | Fonts, scale, line-height, alignment |
+| `references/espacement-layout.md` | Spacing system, grids, shadows, depth |
+| `references/lois-ux.md` | UX psychology: Jakob, Fitts, Hick, Miller, etc. |
+| `references/composants.md` | Buttons, forms, tables, modals, states |
+| `references/tokens.md` | Concrete values: colors, spacing, typography, shadows |
+| `references/antipatterns-ethique.md` | Common mistakes, dark patterns, and fixes |
+| `references/checklists.md` | Full review checklists by category |
+| `references/mode-sombre.md` | HSL inversion, dark palette, dark mode design |
+| `references/math-typographie.md` | Type scale ratios, golden ratio, baseline grid |
+| `references/responsive-math.md` | clamp(), min(), max(), calc(), fluid grids |
+| `references/couleur-math.md` | Exact WCAG contrast ratios, HSL palette, OKLCH, dark mode |
+| `references/animations-math.md` | Cubic Bezier, springs, trigonometry, durations |
+| `references/interactions-math.md` | Lerp, mapping, scroll velocity, requestAnimationFrame |
 
 ---
 
-## Routing rapide
+## Non-Negotiable Rules
 
-**"Review ce composant"** → `hierarchie-visuelle` + `composants` + `checklists`
-**"Crée une palette"** → `couleur-systeme` + `tokens`
-**"Design ce formulaire"** → `composants` + `espacement-layout`
-**"Quel shadow utiliser ?"** → `espacement-layout` + `tokens`
-**"Pourquoi ce design ne fonctionne pas ?"** → `hierarchie-visuelle` + `antipatterns-ethique`
-**"Accessibilité de l'interface"** → `couleur-systeme` + `checklists`
-**"Justifier une décision design"** → `lois-ux`
-**"Ajouter le mode sombre"** → `mode-sombre` + `couleur-systeme`
-**"Type scale harmonieuse"** → `math-typographie` + `typographie`
-**"Typographie / spacing fluide"** → `responsive-math` + `tokens`
-**"Contrast ratio exact"** → `couleur-math` + `couleur-systeme`
-**"Animer un composant"** → `animations-math`
-**"Effet scroll / parallax / cursor"** → `interactions-math`
+1. **Start from a feature, not a layout** -- never start with nav or shell
+2. **Hierarchy before aesthetics** -- if hierarchy is broken, color won't save it
+3. **WCAG AA minimum contrast** -- 4.5:1 normal text, 3:1 large text and UI components
+4. **System, not arbitrary values** -- spacing/color/type from fixed scales
+5. **Color can't be the only signal** -- always back it up with an icon or text
+6. **One primary button per section** -- don't make two equally-weighted actions compete
+7. **Design in black & white first** -- add color last
+8. **Every detail has a logical reason** -- no decoration without functional justification
+
+---
+
+## Quick Routing
+
+**"Review this component"** -> `hierarchie-visuelle` + `composants` + `checklists`
+**"Create a palette"** -> `couleur-systeme` + `tokens`
+**"Design this form"** -> `composants` + `espacement-layout`
+**"Which shadow should I use?"** -> `espacement-layout` + `tokens`
+**"Why doesn't this design work?"** -> `hierarchie-visuelle` + `antipatterns-ethique`
+**"Interface accessibility"** -> `couleur-systeme` + `checklists`
+**"Justify a design decision"** -> `lois-ux`
+**"Add dark mode"** -> `mode-sombre` + `couleur-systeme`
+**"Harmonious type scale"** -> `math-typographie` + `typographie`
+**"Fluid typography/spacing"** -> `responsive-math` + `tokens`
+**"Exact contrast ratio"** -> `couleur-math` + `couleur-systeme`
+**"Animate a component"** -> `animations-math`
+**"Scroll/parallax/cursor effect"** -> `interactions-math`

@@ -1,36 +1,36 @@
-# 08 — Design Tokens (Valeurs Concrètes)
+# 08 — Design Tokens (Concrete Values)
 
-Sources : Refactoring UI · Practical UI · Tailwind CSS conventions
-
----
-
-## Utilisation
-
-Ce fichier contient des valeurs numériques prêtes à l'emploi.
-Adapter les teintes (hue) à la couleur brand du projet.
+Sources: Refactoring UI · Practical UI · Tailwind CSS conventions
 
 ---
 
-## Couleurs
+## Usage
 
-### Gris (teintés bleu — cool gray)
+This file contains ready-to-use numerical values.
+Adapt tints (hue) to the project's brand color.
+
+---
+
+## Colors
+
+### Grays (blue tinted — cool gray)
 
 ```css
 :root {
-  --gray-50:  hsl(220, 20%, 98%);   /* fond de page */
-  --gray-100: hsl(220, 16%, 95%);   /* fond de section alternative */
-  --gray-200: hsl(220, 14%, 90%);   /* bordures légères */
-  --gray-300: hsl(220, 12%, 80%);   /* bordures normales */
+  --gray-50:  hsl(220, 20%, 98%);   /* page background */
+  --gray-100: hsl(220, 16%, 95%);   /* alternative section background */
+  --gray-200: hsl(220, 14%, 90%);   /* light borders */
+  --gray-300: hsl(220, 12%, 80%);   /* normal borders */
   --gray-400: hsl(220, 10%, 68%);   /* placeholder text */
-  --gray-500: hsl(220, 9%,  55%);   /* texte tertiaire */
-  --gray-600: hsl(220, 10%, 42%);   /* texte secondaire */
-  --gray-700: hsl(220, 12%, 30%);   /* texte corps */
-  --gray-800: hsl(220, 14%, 20%);   /* texte fort */
-  --gray-900: hsl(220, 16%, 10%);   /* texte primaire, quasi-noir */
+  --gray-500: hsl(220, 9%,  55%);   /* tertiary text */
+  --gray-600: hsl(220, 10%, 42%);   /* secondary text */
+  --gray-700: hsl(220, 12%, 30%);   /* body text */
+  --gray-800: hsl(220, 14%, 20%);   /* strong text */
+  --gray-900: hsl(220, 16%, 10%);   /* primary text, quasi-black */
 }
 ```
 
-### Gris chauds (pour les interfaces warm)
+### Warm Grays (for warm interfaces)
 
 ```css
 :root {
@@ -47,7 +47,7 @@ Adapter les teintes (hue) à la couleur brand du projet.
 }
 ```
 
-### Bleu (couleur brand par défaut)
+### Blue (default brand color)
 
 ```css
 :root {
@@ -56,7 +56,7 @@ Adapter les teintes (hue) à la couleur brand du projet.
   --blue-200: hsl(214, 90%,  85%);
   --blue-300: hsl(214, 82%,  74%);
   --blue-400: hsl(214, 74%,  62%);
-  --blue-500: hsl(214, 70%,  50%);  /* base bouton */
+  --blue-500: hsl(214, 70%,  50%);  /* button base */
   --blue-600: hsl(214, 72%,  42%);  /* hover */
   --blue-700: hsl(214, 75%,  34%);  /* active / pressed */
   --blue-800: hsl(214, 78%,  24%);  /* text on light */
@@ -64,23 +64,23 @@ Adapter les teintes (hue) à la couleur brand du projet.
 }
 ```
 
-### Couleurs sémantiques
+### Semantic Colors
 
 ```css
 :root {
-  /* Succès */
+  /* Success */
   --success-50:  hsl(142, 80%, 96%);
   --success-100: hsl(142, 70%, 88%);
   --success-500: hsl(142, 65%, 42%);
   --success-700: hsl(142, 70%, 28%);
 
-  /* Erreur */
+  /* Error */
   --error-50:  hsl(0, 90%, 97%);
   --error-100: hsl(0, 80%, 90%);
   --error-500: hsl(0, 72%, 50%);
   --error-700: hsl(0, 78%, 35%);
 
-  /* Avertissement */
+  /* Warning */
   --warning-50:  hsl(38, 100%, 96%);
   --warning-100: hsl(38, 95%,  88%);
   --warning-500: hsl(38, 90%,  50%);
@@ -96,7 +96,7 @@ Adapter les teintes (hue) à la couleur brand du projet.
 
 ---
 
-## Espacement
+## Spacing
 
 ```css
 :root {
@@ -125,18 +125,18 @@ Adapter les teintes (hue) à la couleur brand du projet.
 
 ---
 
-## Typographie
+## Typography
 
-### Échelle de tailles
+### Size Scale
 
 ```css
 :root {
-  --text-xs:   12px;   /* 0.75rem  — captions, labels minuscules */
+  --text-xs:   12px;   /* 0.75rem  — captions, tiny labels */
   --text-sm:   14px;   /* 0.875rem — helper text, small */
-  --text-base: 16px;   /* 1rem     — corps de texte */
-  --text-lg:   18px;   /* 1.125rem — corps large */
+  --text-base: 16px;   /* 1rem     — body text */
+  --text-lg:   18px;   /* 1.125rem — large body */
   --text-xl:   20px;   /* 1.25rem  — lead, intro */
-  --text-2xl:  24px;   /* 1.5rem   — H4, sous-titre */
+  --text-2xl:  24px;   /* 1.5rem   — H4, subheading */
   --text-3xl:  30px;   /* 1.875rem — H3 */
   --text-4xl:  36px;   /* 2.25rem  — H2 */
   --text-5xl:  48px;   /* 3rem     — H1 */
@@ -145,7 +145,7 @@ Adapter les teintes (hue) à la couleur brand du projet.
 }
 ```
 
-### Poids
+### Weights
 
 ```css
 :root {
@@ -169,7 +169,7 @@ Adapter les teintes (hue) à la couleur brand du projet.
   --leading-loose:   2;
 }
 
-/* Application contextuelle */
+/* Contextual Application */
 .display-text { line-height: var(--leading-none); }    /* 72px+ */
 .heading      { line-height: var(--leading-tight); }   /* 30-60px */
 .subheading   { line-height: var(--leading-snug); }    /* 24-30px */
@@ -179,7 +179,7 @@ Adapter les teintes (hue) à la couleur brand du projet.
 
 ---
 
-## Ombres
+## Shadows
 
 ```css
 :root {
@@ -212,10 +212,10 @@ Adapter les teintes (hue) à la couleur brand du projet.
   --shadow-none: none;
 }
 
-/* Usage par composant */
+/* Usage by component */
 /* button default    → --shadow-sm */
 /* button hover      → --shadow-md */
-/* card              → --shadow-sm ou --shadow-md */
+/* card              → --shadow-sm or --shadow-md */
 /* dropdown          → --shadow-lg */
 /* modal             → --shadow-xl */
 /* drawer            → --shadow-2xl */
@@ -229,14 +229,14 @@ Adapter les teintes (hue) à la couleur brand du projet.
 ```css
 :root {
   --radius-none: 0;
-  --radius-sm:   2px;   /* badges compacts, tags */
-  --radius-base: 4px;   /* inputs, boutons sm */
-  --radius-md:   6px;   /* boutons, cards compactes */
-  --radius-lg:   8px;   /* cards, modales */
-  --radius-xl:   12px;  /* grandes cards, drawers */
-  --radius-2xl:  16px;  /* sheets mobile, hero cards */
-  --radius-3xl:  24px;  /* elements marketing */
-  --radius-full: 9999px;/* pills, avatars, loaders circulaires */
+  --radius-sm:   2px;   /* compact badges, tags */
+  --radius-base: 4px;   /* inputs, sm buttons */
+  --radius-md:   6px;   /* buttons, compact cards */
+  --radius-lg:   8px;   /* cards, modals */
+  --radius-xl:   12px;  /* large cards, drawers */
+  --radius-2xl:  16px;  /* mobile sheets, hero cards */
+  --radius-3xl:  24px;  /* marketing elements */
+  --radius-full: 9999px;/* pills, avatars, circular loaders */
 }
 ```
 
@@ -248,44 +248,44 @@ Adapter les teintes (hue) à la couleur brand du projet.
 :root {
   --z-below:   -1;
   --z-base:     0;
-  --z-raised:   1;    /* cartes hover, éléments légèrement surélevés */
-  --z-dropdown: 10;   /* dropdowns, menus contextuels */
-  --z-sticky:   20;   /* headers sticky, sidebars fixed */
-  --z-overlay:  30;   /* overlays d'arrière-plan */
-  --z-modal:    40;   /* modales, drawers */
+  --z-raised:   1;    /* hover cards, slightly elevated elements */
+  --z-dropdown: 10;   /* dropdowns, context menus */
+  --z-sticky:   20;   /* sticky headers, fixed sidebars */
+  --z-overlay:  30;   /* background overlays */
+  --z-modal:    40;   /* modals, drawers */
   --z-toast:    50;   /* notifications, toasts */
   --z-tooltip:  60;   /* tooltips */
-  --z-top:      9999; /* éléments vraiment au-dessus de tout */
+  --z-top:      9999; /* elements really above everything */
 }
 ```
 
 ---
 
-## Transitions & Animations (Loi de Doherty)
+## Transitions & Animations (Doherty Law)
 
-Le mouvement doit être intentionnel, rapide (sous les 400ms pour garder l'attention), et guider l'utilisateur.
+Movement must be intentional, fast (under 400ms to keep attention), and guide the user.
 
 ```css
 :root {
-  /* Durées (Doherty Threshold : l'interface doit répondre en < 400ms) */
+  /* Durations (Doherty Threshold: interface must respond in < 400ms) */
   --duration-fast:    100ms;  /* Micro-interactions: hover, toggle */
-  --duration-base:    150ms;  /* Standard: boutons, inputs, couleurs */
-  --duration-slow:    200ms;  /* Mouvement physique: cartes, petits déplacements */
-  --duration-slower:  300ms;  /* Entrées de composants: modales, popovers */
-  --duration-slowest: 500ms;  /* Grands changements de page (rare) */
+  --duration-base:    150ms;  /* Standard: buttons, inputs, colors */
+  --duration-slow:    200ms;  /* Physical movement: cards, small displacements */
+  --duration-slower:  300ms;  /* Component entries: modals, popovers */
+  --duration-slowest: 500ms;  /* Large page changes (rare) */
 
   /* Easing */
-  --ease-in:       cubic-bezier(0.4, 0, 1, 1);         /* Pour sortir de l'écran */
-  --ease-out:      cubic-bezier(0, 0, 0.2, 1);         /* Pour entrer dans l'écran */
-  --ease-in-out:   cubic-bezier(0.4, 0, 0.2, 1);       /* Pour bouger sur l'écran */
-  --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);  /* Légère élasticité (cartes, modals) */
+  --ease-in:       cubic-bezier(0.4, 0, 1, 1);         /* For exiting the screen */
+  --ease-out:      cubic-bezier(0, 0, 0.2, 1);         /* For entering the screen */
+  --ease-in-out:   cubic-bezier(0.4, 0, 0.2, 1);       /* For moving on the screen */
+  --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);  /* Slight elasticity (cards, modals) */
 }
 
-/* Transitions standard par type */
+/* Standard transitions by type */
 .btn         { transition: background var(--duration-base) var(--ease-out),
                            box-shadow var(--duration-base) var(--ease-out),
                            transform var(--duration-fast) var(--ease-out); }
-.btn:active  { transform: scale(0.97); } /* Micro-animation de clic */
+.btn:active  { transform: scale(0.97); } /* Micro-click animation */
 
 .input       { transition: border-color var(--duration-base) var(--ease-out),
                            box-shadow var(--duration-base) var(--ease-out); }
@@ -304,21 +304,21 @@ Le mouvement doit être intentionnel, rapide (sous les 400ms pour garder l'atten
 ```css
 /* Mobile-first */
 :root {
-  --bp-sm:  640px;   /* Petites tablettes, grands téléphones paysage */
-  --bp-md:  768px;   /* Tablettes */
-  --bp-lg:  1024px;  /* Petits laptops */
-  --bp-xl:  1280px;  /* Laptops standard */
-  --bp-2xl: 1536px;  /* Grands écrans */
+  --bp-sm:  640px;   /* Small tablets, large landscape phones */
+  --bp-md:  768px;   /* Tablets */
+  --bp-lg:  1024px;  /* Small laptops */
+  --bp-xl:  1280px;  /* Standard laptops */
+  --bp-2xl: 1536px;  /* Large screens */
 }
 
-/* En Tailwind : sm: md: lg: xl: 2xl: */
+/* In Tailwind: sm: md: lg: xl: 2xl: */
 ```
 
 ---
 
-## Tokens sémantiques (couche abstraite)
+## Semantic Tokens (Abstract Layer)
 
-Définir des tokens sémantiques au-dessus des tokens primitifs :
+Define semantic tokens above primitive tokens:
 
 ```css
 :root {
@@ -328,14 +328,14 @@ Définir des tokens sémantiques au-dessus des tokens primitifs :
   --color-bg-input:     white;
   --color-bg-disabled:  var(--gray-100);
 
-  /* Textes */
+  /* Texts */
   --color-text-primary:   var(--gray-900);
   --color-text-secondary: var(--gray-600);
   --color-text-tertiary:  var(--gray-500);
   --color-text-disabled:  var(--gray-400);
   --color-text-inverse:   white;
 
-  /* Bordures */
+  /* Borders */
   --color-border-strong:  var(--gray-300);
   --color-border-normal:  var(--gray-200);
   --color-border-subtle:  var(--gray-100);
@@ -346,7 +346,7 @@ Définir des tokens sémantiques au-dessus des tokens primitifs :
   --color-brand-active:   var(--blue-700);
   --color-brand-subtle:   var(--blue-50);
 
-  /* États */
+  /* States */
   --color-success:        var(--success-500);
   --color-error:          var(--error-500);
   --color-warning:        var(--warning-500);

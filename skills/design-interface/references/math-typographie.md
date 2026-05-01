@@ -1,22 +1,22 @@
-# 11 — Mathématiques & Typographie
+# 11 — Mathematics & Typography
 
-Source : Math for Web Design — Paul McFedries
+Source: Math for Web Design — Paul McFedries
 
 ---
 
-## Type Scale : formule fondamentale
+## Type Scale: Fundamental Formula
 
-Chaque niveau d'une échelle typographique se calcule par :
+Each level of a typographic scale is calculated by:
 
 ```
-Taille = Base × Ratio^n
+Size = Base × Ratio^n
 ```
 
-- `Base` : taille de référence (16px recommandé)
-- `Ratio` : le multiplicateur choisi
-- `n` : l'échelon (positif = plus grand, négatif = plus petit)
+- `Base`: reference size (16px recommended)
+- `Ratio`: the chosen multiplier
+- `n`: the level (positive = larger, negative = smaller)
 
-### Exemple avec base 16px et ratio 1.25 (Major Third)
+### Example with 16px base and 1.25 ratio (Major Third)
 
 ```
 n = -2 → 16 × 1.25^-2 = 10.24px  → ~10px  (xs)
@@ -31,20 +31,20 @@ n =  5 → 16 × 1.25^5  = 48.83px  → 49px   (4xl)
 
 ---
 
-## Ratios disponibles et leurs usages
+## Available Ratios and Their Usages
 
-| Ratio | Nom | Valeur | Usage recommandé |
+| Ratio | Name | Value | Recommended Usage |
 |-------|-----|--------|-----------------|
-| Minor Second | Intervalle mineur | 1.067 | Interfaces très denses, peu de variation |
-| Major Second | Ton entier | 1.125 | UI compactes, dashboards |
-| Minor Third | Tierce mineure | 1.200 | **Interfaces UI standard** |
-| Major Third | Tierce majeure | 1.250 | **Bon équilibre — recommandé** |
-| Perfect Fourth | Quarte parfaite | 1.333 | Sites marketing, landing pages |
-| Augmented Fourth | Triton | 1.414 | Titres expressifs |
-| Perfect Fifth | Quinte parfaite | 1.500 | Affichage, grands écrans |
-| Golden Ratio | Nombre d'Or | 1.618 | Très grand écart entre niveaux |
+| Minor Second | Minor Second | 1.067 | Very dense interfaces, little variation |
+| Major Second | Major Second | 1.125 | Compact UI, dashboards |
+| Minor Third | Minor Third | 1.200 | **Standard UI interfaces** |
+| Major Third | Major Third | 1.250 | **Good balance — recommended** |
+| Perfect Fourth | Perfect Fourth | 1.333 | Marketing sites, landing pages |
+| Augmented Fourth | Augmented Fourth | 1.414 | Expressive titles |
+| Perfect Fifth | Perfect Fifth | 1.500 | Display, large screens |
+| Golden Ratio | Golden Ratio | 1.618 | Very large gap between levels |
 
-### Outil de calcul en JS
+### JS Calculation Tool
 
 ```javascript
 function typeScale(base, ratio, steps) {
@@ -54,54 +54,54 @@ function typeScale(base, ratio, steps) {
   }));
 }
 
-// Exemple : Major Third, base 16px, niveaux -2 à +5
+// Example: Major Third, 16px base, levels -2 to +5
 const scale = typeScale(16, 1.25, [-2, -1, 0, 1, 2, 3, 4, 5]);
 ```
 
 ---
 
-## Nombre d'Or (Golden Ratio — 1.618)
+## Golden Ratio (1.618)
 
-### En typographie
+### In Typography
 
-Le ratio 1.618 entre deux tailles crée une relation visuelle naturellement harmonieuse.
+The 1.618 ratio between two sizes creates a naturally harmonious visual relationship.
 
 ```css
-/* Corps de texte → Titre H1 */
+/* Body text → H1 Title */
 --text-base: 16px;
 --text-h1: calc(16px * 1.618 * 1.618); /* ~41.9px */
 
-/* Ou appliqué progressivement */
+/* Or applied progressively */
 --text-base: 1rem;     /* 16px */
 --text-lg: 1.618rem;   /* 25.9px */
 --text-xl: 2.618rem;   /* 41.9px */
 ```
 
-### En layout
+### In Layout
 
 ```css
-/* Sidebar / Contenu principal */
+/* Sidebar / Main Content */
 .layout {
   display: grid;
   grid-template-columns: 1fr 1.618fr;
-  /* Sidebar ≈ 38% | Contenu ≈ 62% */
+  /* Sidebar ≈ 38% | Content ≈ 62% */
 }
 
-/* Equivalent en 12 colonnes : sidebar 4-5 col, contenu 7-8 col */
+/* Equivalent in 12 columns: sidebar 4-5 col, content 7-8 col */
 ```
 
 ---
 
-## Line-height : les deux règles mathématiques
+## Line-height: The Two Mathematical Rules
 
-### Règle 1 : inversement proportionnel à la taille
-Plus la police est grande, moins il faut d'interligne supplémentaire.
+### Rule 1: Inversely Proportional to Size
+The larger the font, the less additional line spacing is needed.
 
 ```
-line-height ↓ quand font-size ↑
+line-height ↓ when font-size ↑
 ```
 
-| Taille | Line-height recommandé |
+| Size | Recommended Line-height |
 |--------|----------------------|
 | 12-14px | 1.6 – 1.8 |
 | 16-18px | 1.5 – 1.6 |
@@ -109,36 +109,36 @@ line-height ↓ quand font-size ↑
 | 30-36px | 1.2 – 1.35 |
 | 48px+   | 1.0 – 1.2 |
 
-### Règle 2 : proportionnel à la longueur de ligne
-Plus la colonne est large, plus le line-height doit être élevé pour aider l'œil au retour à la ligne.
+### Rule 2: Proportional to Line Length
+The wider the column, the higher the line-height must be to help the eye return to the next line.
 
 ```
-line-height ↑ quand line-length ↑
+line-height ↑ when line-length ↑
 ```
 
-| Largeur de colonne | Line-height recommandé |
+| Column Width | Recommended Line-height |
 |--------------------|----------------------|
-| < 45 caractères | 1.3 – 1.4 |
-| 45-65 caractères | 1.5 – 1.6 |
-| 65-80 caractères | 1.6 – 1.75 |
-| > 80 caractères | 1.75 – 2.0 |
+| < 45 characters | 1.3 – 1.4 |
+| 45-65 characters | 1.5 – 1.6 |
+| 65-80 characters | 1.6 – 1.75 |
+| > 80 characters | 1.75 – 2.0 |
 
 ---
 
-## Rythme vertical (Baseline Grid)
+## Vertical Rhythm (Baseline Grid)
 
-### Principe
-Tous les éléments de la page s'alignent sur une grille de lignes imaginaires espacées d'une valeur fixe. Cela crée un rythme visuel cohérent.
+### Principle
+All page elements align to a grid of imaginary lines spaced at a fixed value. This creates a consistent visual rhythm.
 
-### Calcul
+### Calculation
 
 ```
-Baseline unit = line-height en px du corps de texte
+Baseline unit = body text line-height in px
 
-Exemple : 16px × 1.5 = 24px → baseline unit = 24px
+Example: 16px × 1.5 = 24px → baseline unit = 24px
 ```
 
-Tous les espacements verticaux (margin, padding, gap) sont des multiples de cette valeur :
+All vertical spacings (margin, padding, gap) are multiples of this value:
 ```css
 :root {
   --baseline: 24px;  /* 16px × 1.5 */
@@ -151,12 +151,12 @@ Tous les espacements verticaux (margin, padding, gap) sont des multiples de cett
 }
 ```
 
-### Alignement baseline dans le code
+### Baseline Alignment in Code
 
 ```css
-/* Aligner par baseline, pas par centre */
+/* Align by baseline, not by center */
 .mixed-sizes {
   display: flex;
-  align-items: baseline;  /* jamais "center" pour du texte mixte */
+  align-items: baseline;  /* never "center" for mixed text */
 }
 ```

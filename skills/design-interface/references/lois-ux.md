@@ -1,64 +1,64 @@
-# 06 — Lois UX (Psychologie Appliquée)
+# 06 — UX Laws (Applied Psychology)
 
-Source : Laws of UX 2e éd. — Jon Yablonski
+Source: Laws of UX 2nd ed. — Jon Yablonski
 
 ---
 
-## Vue d'ensemble
+## Overview
 
-| Loi | Principe en une phrase | Impact principal |
+| Law | Principle in one sentence | Main Impact |
 |-----|----------------------|-----------------|
-| Jakob's Law | Les utilisateurs préfèrent ce qui ressemble à ce qu'ils connaissent | Navigation, patterns |
-| Fitts's Law | Plus c'est grand et proche, plus c'est facile à atteindre | Taille et position des cibles |
-| Miller's Law | La mémoire de travail est limitée à ~7 éléments | Groupement, progressive disclosure |
-| Hick's Law | Plus il y a de choix, plus la décision est lente | Simplification des options |
-| Postel's Law | Être strict dans ce qu'on produit, flexible dans ce qu'on accepte | Robustesse, accessibilité |
-| Peak-End Rule | On juge une expérience par son pic et sa fin | Onboarding, confirmation, erreur |
-| Aesthetic-Usability Effect | Les interfaces belles semblent plus faciles | Qualité visuelle et confiance |
-| Von Restorff Effect | Ce qui diffère est mémorisé | Mise en valeur des éléments clés |
-| Tesler's Law | La complexité est incompressible, elle se déplace | Simplification UX vs complexité backend |
-| Doherty Threshold | Productivité max sous 400ms de latence | Performance perçue, feedback |
+| Jakob's Law | Users prefer what looks like what they already know | Navigation, patterns |
+| Fitts's Law | The larger and closer it is, the easier it is to reach | Size and position of targets |
+| Miller's Law | Working memory is limited to ~7 elements | Grouping, progressive disclosure |
+| Hick's Law | The more choices, the slower the decision | Simplification of options |
+| Postel's Law | Be strict in what you produce, flexible in what you accept | Robustness, accessibility |
+| Peak-End Rule | We judge an experience by its peak and its end | Onboarding, confirmation, error |
+| Aesthetic-Usability Effect | Beautiful interfaces seem easier | Visual quality and trust |
+| Von Restorff Effect | What differs is remembered | Highlighting key elements |
+| Tesler's Law | Complexity is incompressible, it moves | UX simplification vs backend complexity |
+| Doherty Threshold | Max productivity under 400ms latency | Perceived performance, feedback |
 
 ---
 
 ## 1. Jakob's Law
 
-> "Les utilisateurs passent la plupart de leur temps sur d'autres sites. Ils préfèrent que votre site fonctionne comme tous les autres qu'ils connaissent déjà."
+> "Users spend most of their time on other sites. They prefer your site to work like all the others they already know."
 >
 > — Jakob Nielsen, 2000
 
-### Principe
-Les utilisateurs construisent des modèles mentaux de comment les interfaces fonctionnent à partir de leur expérience accumulée. Quand une nouvelle interface respecte ces modèles, la courbe d'apprentissage est quasi nulle.
+### Principle
+Users build mental models of how interfaces work from their accumulated experience. When a new interface respects these models, the learning curve is nearly zero.
 
-### Applications concrètes
-- Logo en haut à gauche → cliquable vers l'accueil
-- Navigation principale en haut ou à gauche
-- Bouton de fermeture (×) en haut à droite des modales
-- Champ de recherche avec icône loupe
-- Fil d'Ariane pour la navigation hiérarchique
-- Icône panier pour le e-commerce
+### Concrete Applications
+- Logo in top left → clickable to home
+- Main navigation at the top or left
+- Close button (×) in top right of modals
+- Search field with magnifying glass icon
+- Breadcrumbs for hierarchical navigation
+- Cart icon for e-commerce
 
-### Quand innover
-Innover sur le **contenu**, pas sur les **patterns d'interaction**. La rupture avec les conventions coûte de l'énergie cognitive à l'utilisateur. Ce coût doit être justifié par une valeur réelle.
+### When to Innovate
+Innovate on **content**, not on **interaction patterns**. Breaking with conventions costs the user cognitive energy. This cost must be justified by real value.
 
-### Erreur fréquente
-Créer une navigation non-conventionnelle pour se différencier. L'utilisateur veut accomplir une tâche, pas apprendre une nouvelle navigation.
+### Common Error
+Creating unconventional navigation to differentiate. The user wants to accomplish a task, not learn a new navigation.
 
 ---
 
 ## 2. Fitts's Law
 
-> "Le temps pour atteindre une cible est une fonction de la distance et de la taille de cette cible."
+> "The time to acquire a target is a function of the distance to and size of the target."
 >
 > — Paul Fitts, 1954
 
-### Formule simplifiée
-Plus la cible est **grande** et **proche** du point de départ, moins de temps il faut pour l'atteindre.
+### Simplified Formula
+The **larger** and **closer** the target is to the starting point, the less time it takes to reach it.
 
-### Applications concrètes
+### Concrete Applications
 
-**Taille des cibles touch (mobile)**
-Taille minimum recommandée : **44 × 44px** (Apple HIG, WCAG 2.5.5 niveau AAA : 44×44px, niveau AA : 24×24px)
+**Touch target size (mobile)**
+Recommended minimum size: **44 × 44px** (Apple HIG, WCAG 2.5.5 level AAA: 44×44px, level AA: 24×24px)
 ```css
 .btn {
   min-width: 44px;
@@ -66,278 +66,278 @@ Taille minimum recommandée : **44 × 44px** (Apple HIG, WCAG 2.5.5 niveau AAA :
 }
 ```
 
-**Actions fréquentes → en bas de l'écran sur mobile**
-La zone naturelle du pouce est en bas de l'écran. Les actions primaires (CTA, tab bar) doivent s'y trouver.
+**Frequent actions → bottom of the screen on mobile**
+The natural thumb zone is at the bottom of the screen. Primary actions (CTA, tab bar) should be there.
 
-**Éviter les actions dangereuses proches des actions courantes**
-Ne pas placer "Supprimer" à côté de "Sauvegarder" sans espace suffisant.
+**Avoid dangerous actions near common actions**
+Do not place "Delete" next to "Save" without sufficient space.
 
-**Bords et coins d'écran**
-Les bords et coins de l'écran sont des "cibles infiniment grandes" (le curseur s'y arrête naturellement). Les menus macOS en haut de l'écran exploitent ça.
+**Edges and corners of screen**
+Edges and corners of the screen are "infinitely large targets" (the cursor stops there naturally). macOS menus at the top of the screen exploit this.
 
-### Erreur fréquente
-Mettre "Accepter" et "Refuser" côte à côte en petite taille dans une dialog. L'utilisateur doit lever son pouce ou zoomer pour sélectionner le bon bouton.
+### Common Error
+Putting "Accept" and "Refuse" side by side in small size in a dialog. The user must lift their thumb or zoom to select the right button.
 
 ---
 
 ## 3. Miller's Law
 
-> "La personne moyenne peut garder 7 (±2) éléments en mémoire de travail."
+> "The average person can keep 7 (±2) items in working memory."
 >
 > — George Miller, 1956
 
-### Ce que cette loi ne dit pas
-Miller's Law ne dit **pas** que la navigation doit être limitée à 7 items. Utiliser ce chiffre comme limite stricte est une mauvaise application de la loi.
+### What this law does NOT say
+Miller's Law does **not** say that navigation must be limited to 7 items. Using this number as a strict limit is a poor application of the law.
 
-### Ce qu'elle dit vraiment
-La mémoire de travail est limitée. Les informations trop nombreuses ou trop denses créent une surcharge cognitive.
+### What it really says
+Working memory is limited. Too many or too dense pieces of information create cognitive overload.
 
-### Applications concrètes
-- **Chunking** : regrouper les informations en blocs logiques (ex: numéros de téléphone `06 12 34 56 78` et non `0612345678`)
-- **Progressive disclosure** : révéler l'information graduellement
-- **Formulaires multi-étapes** : découper les longs formulaires
+### Concrete Applications
+- **Chunking**: grouping information into logical blocks (e.g., phone numbers `06 12 34 56 78` and not `0612345678`)
+- **Progressive disclosure**: revealing information gradually
+- **Multi-step forms**: breaking up long forms
 
-### La taille réelle de la mémoire de travail
-Les recherches plus récentes (Cowan, 2001) suggèrent plutôt **4 éléments** comme limite. Miller's Law est moins précise qu'on ne le croit.
+### Real size of working memory
+More recent research (Cowan, 2001) suggests **4 items** as a limit. Miller's Law is less precise than believed.
 
 ---
 
 ## 4. Hick's Law
 
-> "Le temps de prise de décision augmente avec le nombre et la complexité des choix disponibles."
+> "Decision-making time increases with the number and complexity of available choices."
 >
 > — Hick & Hyman, 1952
 
-### Formule
-`T = b × log₂(n + 1)` — le temps de décision est logarithmique, pas linéaire.
+### Formula
+`T = b × log₂(n + 1)` — decision time is logarithmic, not linear.
 
-### Applications concrètes
+### Concrete Applications
 
-**Réduire les options visibles**
-Netflix a constaté que les utilisateurs prenaient en moyenne 18 minutes pour choisir quoi regarder. Solution : "Trending Now", "Popular on Netflix" — réduire le champ de choix perçu.
+**Reduce visible options**
+Netflix found users took an average of 18 minutes to choose what to watch. Solution: "Trending Now", "Popular on Netflix" — reduce perceived choice field.
 
 **Progressive disclosure**
-Montrer les options avancées uniquement quand l'utilisateur les demande explicitement.
+Show advanced options only when the user explicitly asks for them.
 ```
-[Options de base visibles]
-+ Afficher les options avancées ↓
+[Basic options visible]
++ Show advanced options ↓
 ```
 
-**Onboarding progressif**
-Ne pas présenter toutes les fonctionnalités au premier lancement. Introduire les features au moment où l'utilisateur en a besoin.
-Exemple Duolingo : déverrouiller les "Legendary Levels" uniquement après avoir complété un niveau normal.
+**Progressive onboarding**
+Do not present all features at first launch. Introduce features when the user needs them.
+Duolingo example: unlock "Legendary Levels" only after completing a normal level.
 
-**Recommandations**
-Proposer une option par défaut ou recommandée réduit la charge de décision.
+**Recommendations**
+Proposing a default or recommended option reduces decision load.
 ```
-○ Mensuel — 9.99€/mois
-● Annuel — 7.99€/mois  ← Recommandé (économisez 24%)
+○ Monthly — 9.99€/month
+● Yearly — 7.99€/month  ← Recommended (save 24%)
 ○ Lifetime — 199€
 ```
 
-### Erreur fréquente
-Afficher 12 options dans une dropdown alors que 4-5 couvrent 90% des cas. Ajouter "Autres options..." pour les cas rares.
+### Common Error
+Displaying 12 options in a dropdown when 4-5 cover 90% of cases. Add "Other options..." for rare cases.
 
 ---
 
 ## 5. Postel's Law (Robustness Principle)
 
-> "Sois conservateur dans ce que tu fais, libéral dans ce que tu acceptes des autres."
+> "Be conservative in what you do, be liberal in what you accept from others."
 >
 > — Jon Postel (RFC 793, 1981)
 
-### Principe
-L'interface doit être robuste et s'adapter à l'utilisateur, pas l'inverse.
+### Principle
+The interface must be robust and adapt to the user, not the other way around.
 
-### Applications concrètes
+### Concrete Applications
 
-**Inputs flexibles**
+**Flexible inputs**
 ```
-Téléphone accepté sous toutes les formes :
+Phone accepted in all forms:
 0612345678
 06 12 34 56 78
 +33 6 12 34 56 78
 06-12-34-56-78
 ```
 
-**Capitalisation flexible**
-Les champs email doivent accepter `JOHN@EXAMPLE.COM` et `john@example.com` indifféremment.
+**Flexible capitalization**
+Email fields should accept `JOHN@EXAMPLE.COM` and `john@example.com` indifferently.
 
 **Responsive design**
-S'adapter à toutes les tailles d'écran, résolutions et densités de pixels.
+Adapt to all screen sizes, resolutions, and pixel densities.
 
 **Font size customization**
-Amazon adapte sa navigation quand l'utilisateur augmente la taille de police du système : les liens de moindre importance disparaissent pour faire de la place.
+Amazon adapts its navigation when the user increases system font size: less important links disappear to make room.
 
 **Input methods**
-Accepter le clavier, la souris, le touch, et les technologies d'assistance (screen readers, switches).
+Accept keyboard, mouse, touch, and assistive technologies (screen readers, switches).
 
-### Erreur fréquente
-Rejeter un numéro de téléphone parce qu'il contient des espaces ou des tirets. Le formatage est la responsabilité de l'interface, pas de l'utilisateur.
+### Common Error
+Rejecting a phone number because it contains spaces or dashes. Formatting is the interface's responsibility, not the user's.
 
 ---
 
 ## 6. Peak-End Rule
 
-> "Les gens jugent une expérience principalement par son pic émotionnel et sa fin, pas par la moyenne."
+> "People judge an experience primarily by its emotional peak and its end, not by the average."
 >
 > — Kahneman & Fredrickson, 1993
 
-### Principe
-La mémorisation d'une expérience n'est pas la somme de tous ses moments. Elle est dominée par :
-1. Le **moment le plus intense** (positif ou négatif)
-2. La **fin** de l'expérience
+### Principle
+Memory of an experience is not the sum of all its moments. It is dominated by:
+1. The **most intense moment** (positive or negative)
+2. The **end** of the experience
 
-### Applications concrètes
+### Concrete Applications
 
-**Soigner la fin des flux**
-- Confirmation de paiement → message chaleureux, résumé clair, prochaine étape évidente
-- Inscription complétée → célébration visuelle, pas une page blanche
-- Suppression d'un compte → message compréhensif, option de récupération
+**Care for the end of flows**
+- Payment confirmation → warm message, clear summary, obvious next step
+- Completed signup → visual celebration, not a blank page
+- Account deletion → understanding message, recovery option
 
-**Créer des pics positifs**
-- Animation de succès après une action importante
-- Message personnalisé après l'onboarding
-- Easter egg ou micro-interaction surprise
+**Create positive peaks**
+- Success animation after an important action
+- Personalized message after onboarding
+- Easter egg or surprise micro-interaction
 
-**Atténuer les pics négatifs**
-- Message d'erreur humain et actionnable (pas "Error 500")
-- Page 404 utile avec des suggestions
-- Loading state avec du contenu partiel (skeleton) plutôt qu'un spinner vide
+**Mitigate negative peaks**
+- Human and actionable error message (not "Error 500")
+- Useful 404 page with suggestions
+- Loading state with partial content (skeleton) rather than a blank spinner
 
 **Duolingo**
-Le "streak" (nombre de jours consécutifs) est un pic émotionnel fort. Perdre son streak est un pic négatif mémorisé longtemps — ce qui crée de l'engagement par aversion à la perte.
+The "streak" (number of consecutive days) is a strong emotional peak. Losing your streak is a negative peak remembered for a long time — creating engagement through loss aversion.
 
 ---
 
 ## 7. Aesthetic-Usability Effect
 
-> "Les interfaces visuellement attractives sont perçues comme plus faciles à utiliser."
+> "Visually attractive interfaces are perceived as easier to use."
 >
 > — Kurosu & Kashimura, 1995 (Hitachi Design Center)
 
-### Étude originale
-26 layouts d'ATM testés avec 252 participants. Les designs visuellement attractifs étaient perçus comme plus faciles à utiliser, indépendamment de leur usabilité réelle.
+### Original Study
+26 ATM layouts tested with 252 participants. Visually attractive designs were perceived as easier to use, regardless of their real usability.
 
 ### Implications
-- Un beau design augmente la tolérance aux erreurs et aux bugs mineurs
-- Un design attrayant génère plus de confiance initiale
-- Les utilisateurs sont plus indulgents face aux problèmes si l'interface leur plaît
+- A beautiful design increases tolerance for minor errors and bugs
+- An attractive design generates more initial trust
+- Users are more forgiving of problems if they like the interface
 
-### Mise en garde
-Cet effet peut masquer des problèmes d'usabilité réels. Les utilisateurs n'identifient pas toujours les problèmes d'un design attractif. Cela rend les tests utilisateurs d'autant plus importants.
+### Caution
+This effect can mask real usability problems. Users do not always identify problems of an attractive design. This makes user testing all the more important.
 
 ---
 
 ## 8. Von Restorff Effect (Isolation Effect)
 
-> "Parmi plusieurs objets similaires, celui qui diffère des autres est le plus susceptible d'être mémorisé."
+> "Among several similar objects, the one that differs from the others is most likely to be remembered."
 >
 > — Hedwig von Restorff, 1933
 
-### Applications concrètes
-- Badge "Nouveau" ou "Populaire" sur une option de pricing
-- Bouton CTA d'une couleur qui rompt avec le reste de l'interface
-- Élément mis en avant dans une liste (fond coloré, icône distinctive)
+### Concrete Applications
+- "New" or "Popular" badge on a pricing option
+- CTA button of a color that breaks with the rest of the interface
+- Highlighted element in a list (colored background, distinctive icon)
 
-### Règle critique : ne pas sur-utiliser
-Si tout est mis en valeur, rien ne l'est. Réserver la différenciation pour **1 ou 2 éléments maximum** par vue.
+### Critical Rule: Do Not Over-use
+If everything is highlighted, nothing is. Reserve differentiation for **1 or 2 elements maximum** per view.
 
 ```
-✗ Mauvais : 3 boutons colorés différemment + 2 badges "Nouveau"
-✓ Bon : 1 bouton primaire clairement distinct + 1 badge "Recommandé"
+✗ Bad: 3 differently colored buttons + 2 "New" badges
+✓ Good: 1 clearly distinct primary button + 1 "Recommended" badge
 ```
 
 ---
 
 ## 9. Tesler's Law (Conservation of Complexity)
 
-> "Pour tout système, il existe une certaine complexité qui ne peut pas être réduite."
+> "For any system, there is a certain amount of complexity that cannot be reduced."
 >
 > — Larry Tesler
 
-### Principe
-La complexité ne disparaît pas — elle se déplace. Si on simplifie l'interface, la complexité est transférée au développeur ou au système backend.
+### Principle
+Complexity does not disappear — it moves. If the interface is simplified, complexity is transferred to the developer or backend system.
 
-### Applications concrètes
+### Concrete Applications
 
-**Bon exemple : formulaire d'adresse**
-Option simple (utilisateur) : saisir l'adresse complète en texte libre
-Option complexe (développeur) : parser, valider et normaliser l'adresse
-→ Transférer la complexité au système (autocomplétion d'adresse) est le bon choix ici.
+**Good example: address form**
+Simple option (user): enter the full address in free text
+Complex option (developer): parse, validate, and normalize the address
+→ Transferring complexity to the system (address autocompletion) is the right choice here.
 
-**Mauvais exemple : éditeur de code**
-Masquer la syntaxe pour "simplifier" un éditeur de code transfère la complexité vers l'utilisateur qui ne comprend plus ce qui se passe.
-→ Parfois la complexité doit rester visible à l'utilisateur.
+**Bad example: code editor**
+Hiding syntax to "simplify" a code editor transfers complexity to the user who no longer understands what is happening.
+→ Sometimes complexity must remain visible to the user.
 
-### Paradoxe de l'utilisateur actif
-Les utilisateurs commencent à utiliser un logiciel **immédiatement** sans lire la documentation. Ils préfèrent accomplir une tâche maintenant plutôt qu'apprendre le système d'abord. Concevoir en tenant compte de ce comportement.
+### Active User Paradox
+Users start using software **immediately** without reading documentation. They prefer to accomplish a task now rather than learn the system first. Design taking this behavior into account.
 
 ---
 
 ## 10. Doherty Threshold
 
-> "La productivité augmente considérablement quand système et utilisateur interagissent à moins de 400ms."
+> "Productivity increases significantly when system and user interact at less than 400ms."
 >
 > — Walter Doherty & Ahrvind Thadani, 1982
 
-### Seuils de perception
-| Délai | Perception | Comportement |
+### Perception Thresholds
+| Delay | Perception | Behavior |
 |-------|-----------|-------------|
-| < 100ms | Instantané | Sentiment de réactivité totale |
-| 100–300ms | Quasi-instantané | Acceptable, pas de feedback nécessaire |
-| 300–1000ms | Perceptible | Indicateur de chargement minimal recommandé |
-| 1–10s | Attente | Progress bar ou skeleton nécessaire |
-| > 10s | Abandon probable | Feedback détaillé + option d'annulation |
+| < 100ms | Instantaneous | Feeling of total responsiveness |
+| 100–300ms | Near-instantaneous | Acceptable, no feedback needed |
+| 300–1000ms | Perceptible | Minimal loading indicator recommended |
+| 1–10s | Waiting | Progress bar or skeleton necessary |
+| > 10s | Probable abandonment | Detailed feedback + cancellation option |
 
-### Applications concrètes
+### Concrete Applications
 
 **Optimistic UI**
-Mettre à jour l'interface immédiatement (avant la réponse serveur) et rollback en cas d'erreur. L'utilisateur perçoit une réactivité totale.
+Update the interface immediately (before server response) and rollback on error. The user perceives total responsiveness.
 
 **Skeleton screens**
-Afficher la structure de la page (gris, forme des éléments) avant que le contenu charge. Réduit la perception de l'attente.
+Show the page structure (gray, element shapes) before content loads. Reduces perception of waiting.
 
 **Gmail loading animation**
-Utiliser une animation de logo + barre de progression simple. Crée la perception d'un chargement plus court.
+Use a simple logo animation + progress bar. Creates the perception of a shorter load.
 
-**Progress bars animées**
-Les barres de progression qui s'animent légèrement semblent progresser plus vite. L'animation compense la perception de lenteur.
+**Animated progress bars**
+Progress bars that animate slightly seem to progress faster. Animation compensates for perception of slowness.
 
 ---
 
-## Principes de Gestalt (fondement de l'organisation visuelle)
+## Gestalt Principles (Foundation of Visual Organization)
 
-Bien qu'ils ne soient pas des "laws of UX" au sens strict, ils sous-tendent toutes les lois visuelles.
+While not "laws of UX" in the strict sense, they underlie all visual laws.
 
-| Principe | Description | Usage UI |
+| Principle | Description | UI Usage |
 |----------|-------------|---------|
-| **Proximité** | Les éléments proches semblent liés | Grouper les éléments d'un formulaire |
-| **Similarité** | Les éléments similaires semblent liés | Même style pour les items de même type |
-| **Continuité** | L'œil suit une ligne ou une courbe | Alignements, rails de scroll horizontal |
-| **Closure** | L'esprit complète les formes incomplètes | Icônes minimalistes, borders partielles |
-| **Common Region** | Les éléments dans un conteneur semblent liés | Cards, groupes dans un formulaire |
-| **Figure-Ground** | Distinguer l'objet principal de l'arrière-plan | Modales avec overlay, tooltips |
+| **Proximity** | Close elements seem related | Group form elements |
+| **Similarity** | Similar elements seem related | Same style for items of the same type |
+| **Continuity** | The eye follows a line or curve | Alignments, horizontal scroll rails |
+| **Closure** | The mind completes incomplete shapes | Minimalist icons, partial borders |
+| **Common Region** | Elements in a container seem related | Cards, form groups |
+| **Figure-Ground** | Distinguish main object from background | Modals with overlay, tooltips |
 
 ---
 
-## Éthique et responsabilité
+## Ethics and Responsibility
 
-> "Avec ce pouvoir vient une responsabilité."
+> "With great power comes great responsibility."
 
-### Dark patterns à identifier et éviter
+### Dark Patterns to Identify and Avoid
 
-| Pattern | Description | Exemple |
+| Pattern | Description | Example |
 |---------|-------------|---------|
-| **Confirmshaming** | Intituler le refus de manière culpabilisante | "Non merci, je préfère payer plus cher" |
-| **Hidden costs** | Révéler les frais uniquement à l'étape finale | Frais de service au checkout |
-| **Roach motel** | Facile à entrer, difficile à sortir | Abonnement facile, résiliation laborieuse |
-| **Misdirection** | Attirer l'attention loin de ce qui importe | Bouton désactivé vs option recommandée |
-| **Disguised ads** | Publicités imitant du contenu | "Article sponsorisé" indiscernable |
-| **Trick questions** | Formulaires avec pré-coches trompeuses | Newsletter cochée par défaut |
+| **Confirmshaming** | Naming refusal in a shaming way | "No thanks, I prefer paying more" |
+| **Hidden costs** | Revealing fees only at the final step | Service fees at checkout |
+| **Roach motel** | Easy to enter, hard to exit | Easy signup, laborious cancellation |
+| **Misdirection** | Drawing attention away from what matters | Disabled button vs recommended option |
+| **Disguised ads** | Ads imitating content | Indistinguishable "sponsored article" |
+| **Trick questions** | Forms with misleading pre-checks | Newsletter checked by default |
 
-### La ligne entre persuasion et manipulation
-- **Persuasion** : présenter la valeur réelle d'un produit, faciliter les bonnes décisions
-- **Manipulation** : exploiter les biais cognitifs pour obtenir des actions que l'utilisateur regretterait
+### The Line Between Persuasion and Manipulation
+- **Persuasion**: presenting real value of a product, facilitating good decisions
+- **Manipulation**: exploiting cognitive biases to obtain actions the user would regret
 
-La règle : un design éthique améliore l'expérience de l'utilisateur **et** sert les objectifs du business. Pas l'un au détriment de l'autre.
+The rule: ethical design improves user experience **and** serves business objectives. Not one at the expense of the other.

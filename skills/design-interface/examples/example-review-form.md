@@ -1,24 +1,24 @@
-# Exemple : Review d'un Formulaire
+# Example: Form Review
 
-**Requête de l'utilisateur :** "Peux-tu faire une review de mon formulaire de paiement ? Il a l'air un peu brouillon."
+**User Request:** "Can you review my payment form? It looks a bit messy."
 
-## Review de l'Agent (Basée sur les UI Skills)
+## Agent Response (Based on UI Skills)
 
-### Problèmes Bloquants 🔴
-- **Boutons Concurrents :** Les boutons "Annuler" et "Payer" ont le même poids visuel (tous les deux avec un fond plein). **Correction :** Le bouton "Payer" doit être le bouton primaire (`var(--color-brand)`), et "Annuler" doit être secondaire (texte seul ou contour simple).
-- **Loi de Fitts :** Les champs de texte et les boutons sont trop petits (hauteur de 32px). **Correction :** Augmenter la hauteur minimale à `44px` pour faciliter les clics, surtout sur mobile.
+### Blocking Issues 🔴
+- **Competing Buttons:** The "Cancel" and "Pay" buttons have the same visual weight (both with a solid background). **Fix:** The "Pay" button should be the primary button (`var(--color-brand)`), and "Cancel" should be secondary (text only or simple outline).
+- **Fitts's Law:** Text fields and buttons are too small (32px height). **Fix:** Increase the minimum height to `44px` to facilitate clicks, especially on mobile.
 
-### Améliorations Majeures 🟡
-- **Groupement Logique (Chunking) :** Les informations de la carte de crédit et l'adresse de facturation sont mélangées. **Correction :** Séparer en deux sections distinctes avec des titres clairs ("Informations de paiement" et "Adresse de facturation") avec un `margin-bottom` de `32px` (`var(--space-8)`) entre les sections.
-- **Labels et Placeholders :** L'utilisation de placeholders au lieu de vrais labels au-dessus des champs nuit à l'accessibilité si l'utilisateur oublie ce qu'il remplissait. **Correction :** Placer des labels clairs au-dessus de chaque champ avec un espacement serré `var(--space-1)` (4px).
+### Major Improvements 🟡
+- **Logical Grouping (Chunking):** Credit card information and billing address are mixed. **Fix:** Separate into two distinct sections with clear titles ("Payment Information" and "Billing Address") with a `margin-bottom` of `32px` (`var(--space-8)`) between sections.
+- **Labels and Placeholders:** Using placeholders instead of real labels above fields hurts accessibility if the user forgets what they were filling out. **Fix:** Place clear labels above each field with a tight `var(--space-1)` (4px) spacing.
 
-### Améliorations Mineures 🟢
-- **Couleur des bordures :** Les bordures des champs utilisent un noir trop dur (`#000000`). **Correction :** Utiliser `var(--color-border-normal)` pour adoucir le rendu visuel.
-- **Feedback visuel (Focus) :** L'état au clic sur un champ (focus) manque d'indication claire. **Correction :** Ajouter un contour de la couleur primaire (`var(--color-brand)`) lors du `focus` pour bien indiquer où l'utilisateur se trouve.
+### Minor Improvements 🟢
+- **Border Color:** Field borders use a black that is too harsh (`#000000`). **Fix:** Use `var(--color-border-normal)` to soften the visual rendering.
+- **Visual Feedback (Focus):** The state when clicking on a field (focus) lacks a clear indication. **Fix:** Add an outline in the primary color (`var(--color-brand)`) during `focus` to clearly indicate where the user is.
 
-### Résultat Proposé
+### Proposed Result
 ```css
-/* Application des nouveaux tokens pour le formulaire */
+/* Applying new tokens for the form */
 .form-section {
   margin-bottom: var(--space-8); /* 32px */
 }
@@ -53,5 +53,5 @@
 }
 ```
 
-### Résultat Attendu 👁️
-Le formulaire sera transformé en une vue structurée : deux blocs distincts bien séparés (informations de carte, adresse). Les champs auront des labels lisibles au-dessus, et une hauteur généreuse de 44px rendant la saisie confortable. Les boutons d'action seront évidents : le bouton "Payer" ressortira massivement grâce à sa couleur de marque (`--color-brand`), tandis que le bouton "Annuler" sera discret. La saisie sera accompagnée d'un contour clair au focus, améliorant l'accessibilité globale.
+### Expected Result 👁️
+The form will be transformed into a structured view: two well-separated distinct blocks (card info, address). Fields will have readable labels above, and a generous height of 44px making input comfortable. Action buttons will be obvious: the "Pay" button will stand out massively thanks to its brand color (`--color-brand`), while the "Cancel" button will be discreet. Saising will be accompanied by a clear outline on focus, improving overall accessibility.

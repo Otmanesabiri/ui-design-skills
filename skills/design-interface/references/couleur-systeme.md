@@ -1,32 +1,32 @@
-# 03 — Système de Couleur
+# 03 — Color System
 
-Sources : Refactoring UI ch.4 (Color) · Practical UI ch.3 (Colour)
+Sources: Refactoring UI ch.4 (Color) · Practical UI ch.3 (Colour)
 
-> **Note :** Ce fichier décrit les concepts stratégiques. Pour les formules mathématiques exactes et la génération programmatique de palettes (JS/CSS), voir `couleur-math.md`.
+> **Note:** This file describes strategic concepts. For exact mathematical formulas and programmatic palette generation (JS/CSS), see `couleur-math.md`.
 
 ---
 
-## HSL : le bon format
+## HSL: The Right Format
 
-Utiliser **HSL** (Hue, Saturation, Lightness) pour le web, pas HEX ou RGB.
+Use **HSL** (Hue, Saturation, Lightness) for the web, not HEX or RGB.
 
-| Composante | Description | Valeurs |
+| Component | Description | Values |
 |---|---|---|
-| **Hue** | Position sur la roue chromatique | 0°–360° (0=rouge, 120=vert, 240=bleu) |
-| **Saturation** | Intensité de la couleur | 0% (gris) → 100% (vibrant) |
-| **Lightness** | Luminosité | 0% (noir) → 50% (pur) → 100% (blanc) |
+| **Hue** | Position on the color wheel | 0°–360° (0=red, 120=green, 240=blue) |
+| **Saturation** | Intensity of the color | 0% (gray) → 100% (vibrant) |
+| **Lightness** | Brightness | 0% (black) → 50% (pure) → 100% (white) |
 
-> Ne pas confondre HSL et HSB. HSB est utilisé dans les outils de design (Figma), HSL est ce que le navigateur comprend. À 100% brightness et 100% saturation en HSB = 100% saturation et 50% lightness en HSL.
+> Do not confuse HSL and HSB. HSB is used in design tools (Figma), HSL is what the browser understands. 100% brightness and 100% saturation in HSB = 100% saturation and 50% lightness in HSL.
 
 ---
 
-## Structure d'une palette complète
+## Complete Palette Structure
 
-### Les trois catégories nécessaires
+### The Three Necessary Categories
 
-**1. Gris (la majorité de l'interface)**
-Textes, fonds, panneaux, bordures, inputs — presque tout est gris.
-Prévoir **8-10 nuances**. Trois ou quatre ne suffisent jamais.
+**1. Grays (the majority of the interface)**
+Text, backgrounds, panels, borders, inputs — almost everything is gray.
+Plan for **8-10 shades**. Three or four are never enough.
 
 ```css
 --gray-50:  hsl(220, 14%, 97%);
@@ -41,197 +41,201 @@ Prévoir **8-10 nuances**. Trois ou quatre ne suffisent jamais.
 --gray-900: hsl(220, 16%, 8%);
 ```
 
-**2. Couleur(s) primaire(s)**
-La couleur brand. 8-10 nuances également.
+**2. Primary Color(s)**
+The brand color. 8-10 shades as well.
 
-**3. Couleurs d'accent (sémantiques)**
-Pour les états et les communications système :
-- **Rouge** : erreur, action destructive
-- **Vert** : succès, positif
-- **Jaune/Orange** : avertissement
-- **Bleu** : information, lien
-- **Couleur brand** : feature en avant, CTA
+**3. Accent Colors (Semantic)**
+For system states and communications:
+- **Red**: error, destructive action
+- **Green**: success, positive
+- **Yellow/Orange**: warning
+- **Blue**: information, link
+- **Brand color**: highlighted feature, CTA
 
-Chaque couleur d'accent a besoin de **5-10 nuances** aussi.
+Each accent color needs **5-10 shades** too.
 
 ---
 
-## Créer une nuance de couleur : méthode
+## Creating a Color Shade: Method
 
-### Étape 1 : Choisir la couleur de base
-La couleur qui fonctionnerait bien comme fond d'un bouton. Aucune règle de lightness fixe — se fier à l'œil.
+### Step 1: Choose the Base Color
+The color that would work well as a button background. No fixed lightness rule — trust your eye.
 
-### Étape 2 : Trouver les extrêmes
-- **Nuance la plus foncée** (900) : pour du texte coloré sur fond blanc
-- **Nuance la plus claire** (50-100) : pour des fonds d'alertes ou de tags
+### Step 2: Find the Extremes
+- **Darkest shade** (900): for colored text on white background
+- **Lightest shade** (50-100): for alert or tag backgrounds
 
-### Étape 3 : Remplir les intermédiaires
-Nommer les nuances 100 à 900 (ou 50 à 950). 9 niveaux est idéal.
+### Step 3: Fill the Intermediates
+Name shades 100 to 900 (or 50 to 950). 9 levels is ideal.
 ```
-50  → ultra-light (fonds d'alertes)
-100 → light (fonds de tags)
+50  → ultra-light (alert backgrounds)
+100 → light (tag backgrounds)
 200 → light-medium
 300 → medium-light
 400 → medium
-500 → base (bouton standard)
+500 → base (standard button)
 600 → medium-dark
 700 → dark (hover state)
-800 → very-dark (text sur fond coloré)
-900 → darkest (titre sur fond coloré)
+800 → very-dark (text on colored background)
+900 → darkest (title on colored background)
 ```
 
-### Attention : la saturation diminue avec la luminosité
-Quand un couleur se rapproche de 0% ou 100% de lightness, la saturation semble moins intense. **Augmenter la saturation** pour les nuances très claires et très foncées afin de maintenir la vivacité.
+### Caution: Saturation Decreases with Lightness
+As a color approaches 0% or 100% lightness, saturation seems less intense. **Increase saturation** for very light and very dark shades to maintain vibrancy.
 
 ---
 
-## Rotation de teinte pour créer de la profondeur
+## Hue Rotation to Create Depth
 
-Plutôt que d'ajuster uniquement la lightness, **faire pivoter la teinte** vers les couleurs intrinsèquement lumineuses/sombres.
+Rather than adjusting lightness alone, **rotate the hue** towards colors that are intrinsically bright/dark.
 
-- Pour **éclaircir** : pivoter vers 60° (jaune), 180° (cyan), ou 300° (magenta)
-- Pour **assombrir** : pivoter vers 0° (rouge), 120° (vert), ou 240° (bleu)
+- To **lighten**: rotate towards 60° (yellow), 180° (cyan), or 300° (magenta)
+- To **darken**: rotate towards 0° (red), 120° (green), or 240° (blue)
 
-Ne pas dépasser 20-30° de rotation ou la couleur semblera être une autre couleur.
+Do not exceed 20-30° of rotation or the color will look like a different color.
 
-**Exemple pour le jaune :**
-Plutôt que d'assombrir en réduisant la lightness (→ marron terne), pivoter la teinte vers l'orange en assombrissant → résultat chaud et riche.
-
----
-
-## Gris saturés : pas de vrais gris
-
-Les vrais gris (saturation 0%) semblent froids et artificiels. Les gris d'interface sont légèrement saturés.
-
-### Température des gris
-- **Gris froids** : teinte bleue (hsl(220, 10-15%, ...))
-- **Gris chauds** : teinte orange/jaune (hsl(35, 10-15%, ...))
-
-Maintenir une température cohérente dans toute l'interface. Ne pas mélanger gris froids et chauds sans raison.
+**Example for yellow:**
+Rather than darkening by reducing lightness (→ dull brown), rotate the hue towards orange while darkening → warm and rich result.
 
 ---
 
-## Contraste (WCAG 2.1 niveau AA — obligatoire)
+## Saturated Grays: Not Real Grays
 
-| Contexte | Ratio minimum |
+Real grays (0% saturation) feel cold and artificial. Interface grays are slightly saturated.
+
+### Gray Temperature
+- **Cool grays**: blue tint (hsl(220, 10-15%, ...))
+- **Warm grays**: orange/yellow tint (hsl(35, 10-15%, ...))
+
+Maintain consistent temperature throughout the interface. Do not mix cool and warm grays without reason.
+
+---
+
+## Contrast (WCAG 2.1 level AA — mandatory)
+
+| Context | Minimum Ratio |
 |---|---|
-| Texte normal < 18px (ou bold < 14px) | **4.5:1** |
-| Grand texte ≥ 18px (ou bold ≥ 14px) | **3:1** |
-| Composants UI, bordures d'inputs, icônes | **3:1** |
-| Texte décoratif, logos, éléments inactifs | Aucune exigence |
+| Normal text < 18px (or bold < 14px) | **4.5:1** |
+| Large text ≥ 18px (or bold ≥ 14px) | **3:1** |
+| UI Components, input borders, icons | **3:1** |
+| Decorative text, logos, inactive elements | No requirement |
 
-### Outils de vérification
+### Verification Tools
 - [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
 - [Colour Contrast Analyser](https://www.tpgi.com/color-contrast-checker/)
-- Figma Plugin : Stark
+- Figma Plugin: Stark
 
 ---
 
-## Texte sur fond coloré : deux approches
+## Text on Colored Background: Two Approaches
 
-### Approche 1 : Inverser le contraste
-Plutôt que texte blanc sur fond coloré foncé (très présent, écrasant) → **texte foncé coloré sur fond coloré très clair**.
+### Approach 1: Invert Contrast
+Rather than white text on dark colored background (very present, overwhelming) → **dark colored text on very light colored background**.
 
 ```css
-/* Alerte information */
-background: hsl(220, 80%, 96%);  /* bleu très clair */
-color: hsl(220, 60%, 30%);       /* bleu foncé */
+/* Information alert */
+background: hsl(220, 80%, 96%);  /* very light blue */
+color: hsl(220, 60%, 30%);       /* dark blue */
 ```
 
-### Approche 2 : Rotation de teinte pour l'accessibilité
-Quand on a du texte coloré sur fond coloré, augmenter le contraste en pivotant la teinte vers une couleur plus lumineuse (jaune, cyan, magenta) plutôt qu'en allant vers le blanc.
+### Approach 2: Hue Rotation for Accessibility
+When having colored text on a colored background, increase contrast by rotating the hue towards a brighter color (yellow, cyan, magenta) rather than just going towards white.
 
 ---
 
-## Texte sur image de fond : 4 techniques
+## Text on Background Image: 4 Techniques
 
-**1. Overlay semi-transparent**
+**1. Semi-transparent Overlay**
 ```css
 background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('image.jpg');
 ```
 
-**2. Réduire le contraste de l'image**
-Baisser le contraste (-30 à -50%) et ajuster la luminosité pour compenser.
+**2. Reduce Image Contrast**
+Lower contrast (-30 to -50%) and adjust brightness to compensate.
 
-**3. Coloriser l'image**
-- Réduire le contraste
-- Désaturer (grayscale)
-- Appliquer un solid fill en mode "multiply"
+**3. Colorize the Image**
+- Reduce contrast
+- Desaturate (grayscale)
+- Apply a solid fill in "multiply" mode
 
-**4. Text shadow**
+**4. Text Shadow**
 ```css
-text-shadow: 0 0 20px rgba(0,0,0,0.6);  /* glow, pas un vrai shadow */
+text-shadow: 0 0 20px rgba(0,0,0,0.6);  /* glow, not a real shadow */
 ```
 
 ---
 
-## Ne jamais utiliser la couleur seule
+## Never Use Color Alone
 
-La couleur est aveugle aux daltoniens (8% des hommes sont daltoniens rouge-vert).
+Color is blind to colorblind people (8% of men are red-green colorblind).
 
-**Toujours doubler la couleur avec :**
-- Une icône (✓ ✗ ⚠)
-- Du texte ("Succès", "Erreur", "Attention")
-- Une forme ou un motif différent
+**Always back up color with:**
+- An icon (✓ ✗ ⚠)
+- Text ("Success", "Error", "Warning")
+- A different shape or pattern
 
 ```html
-<!-- Mauvais : couleur seule -->
-<span style="color: red">●</span> Erreur
+<!-- Bad: color alone -->
+<span style="color: red">●</span> Error
 
-<!-- Bon : couleur + icône -->
-<span style="color: red">✗</span> Erreur de validation
+<!-- Good: color + icon -->
+<span style="color: red">✗</span> Validation error
 ```
 
 ---
 
-## Appliquer la couleur brand
+## Apply Brand Color
 
-### 1 couleur brand = tous les éléments interactifs
+### 1 Brand Color = All Interactive Elements
 
-La couleur brand s'applique à :
-- Boutons primaires (fond)
-- Liens (texte)
-- États focus (outline)
-- Checkboxes et radios sélectionnés
-- Tabs actifs
-- Indicateurs de progression
+Brand color applies to:
+- Primary buttons (background)
+- Links (text)
+- Focus states (outline)
+- Selected checkboxes and radios
+- Active tabs
+- Progress indicators
 
-### Palette de gris : teinter avec la couleur brand
-Ajouter une légère teinte de la couleur brand aux gris pour maintenir la cohérence visuelle.
+### Gray Palette: Tint with Brand Color
+Add a slight tint of the brand color to grays to maintain visual consistency.
 ```css
-/* Gris légèrement teinté de bleu (brand bleu) */
---gray-500: hsl(220, 9%, 46%);   /* pas hsl(0, 0%, 46%) */
+/* Gray slightly tinted with blue (blue brand) */
+--gray-500: hsl(220, 9%, 46%);   /* not hsl(0, 0%, 46%) */
 ```
 
 ---
 
-## Designer en noir et blanc d'abord
+## Design in Black and White First
 
-Règle systématique : **finaliser le layout, la hiérarchie et l'espacement en grayscale avant d'ajouter de la couleur**.
+Systematic rule: **finalize layout, hierarchy, and spacing in grayscale before adding color**.
 
-**Nuance importante :** Concevoir en noir et blanc pour la *structure*, mais s'autoriser la couleur pour l'*état* (Succès, En attente, Erreur) dans des flux complexes où elle agit comme un raccourci cognitif rapide.
+**Important Nuance:** Design in black and white for *structure*, but allow color for *state* (Success, Pending, Error) in complex flows where it acts as a fast cognitive shortcut.
 
-Bénéfices :
-- Force l'usage de l'espacement et du contraste comme seuls leviers
-- Révèle les problèmes de hiérarchie avant qu'ils soient masqués par la couleur
-- Produit une interface plus robuste visuellement
+Benefits:
+- Forces usage of spacing and contrast as only levers
+- Reveals hierarchy problems before they are masked by color
+- Produces a more visually robust interface
 
 ---
 
-## Dark Mode : l'avantage du HSL
+## Dark Mode: The HSL Advantage
 
-Grâce à l'utilisation du HSL, créer un Dark Mode est logique, mais **attention : il ne suffit pas de simplement inverser la Lightness**. 
+By using HSL, creating a Dark Mode doesn't require recreating a palette from scratch. You just need to **inverse Lightness** while keeping the same Hue and Saturation.
 
-### Règle du HSL Mirroring
-Une simple inversion (ex: `100` devient `800`) crée des couleurs trop saturées et agressives sur fond sombre.
-Il faut appliquer la méthode du **HSL Mirroring** :
-1. **Lightness** : Inverser (un fond très clair devient très sombre).
-2. **Saturation** : Réduire de 10% à 30% pour éviter la vibration optique.
-3. **Hue (Teinte)** : Décaler légèrement (15-30°) pour un rendu plus riche.
+### Dark Mode: HSL Advantage
 
-> 👉 Pour les formules de calcul exactes du HSL Mirroring, consultez `couleur-math.md` et les principes d'élévation dans `mode-sombre.md`.
+By using HSL, creating a Dark Mode is logical, but **be careful: simply inverting Lightness is not enough**.
 
-### Couleurs sémantiques en Dark Mode :
-Attention : Ne pas inverser les couleurs sémantiques (succès, erreur, brand) de la même façon que les surfaces. Un bouton primaire doit rester identifiable (souvent autour de 500-600 en lightness).
-- Assombrir légèrement les fonds d'alertes.
-- Garder les textes d'alerte lisibles en augmentant leur lightness.
+### HSL Mirroring Rule
+A simple inversion (e.g., `100` becomes `800`) creates colors that are too saturated and aggressive on a dark background.
+You must apply the **HSL Mirroring** method:
+1. **Lightness**: Invert (a very light background becomes very dark).
+2. **Saturation**: Reduce by 10% to 30% to avoid optical vibration.
+3. **Hue**: Shift slightly (15-30°) for a richer look.
+
+> 👉 For exact HSL Mirroring calculation formulas, see `couleur-math.md` and elevation principles in `mode-sombre.md`.
+
+### Semantic Colors in Dark Mode:
+Caution: Do not invert semantic colors (success, error, brand) the same way as surfaces. A primary button must remain identifiable (often around 500-600 lightness).
+- Slightly darken alert backgrounds.
+- Keep alert text readable by increasing its lightness.

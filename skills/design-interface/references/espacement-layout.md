@@ -1,31 +1,31 @@
-# 05 — Espacement, Layout & Profondeur
+# 05 — Spacing, Layout & Depth
 
-Sources : Refactoring UI ch.3 (Spacing & Layout) · Practical UI ch.4 (Layout and Spacing)
+Sources: Refactoring UI ch.3 (Spacing & Layout) · Practical UI ch.4 (Layout and Spacing)
 
-> **Note :** Ce fichier décrit le système d'espacement statique et la théorie des grilles. Pour rendre ce système d'espacement fluide avec `clamp()` et créer des grilles mathématiques sans media queries, voir `responsive-math.md`.
+> **Note:** This file describes the static spacing system and grid theory. To make this spacing system fluid with `clamp()` and create mathematical grids without media queries, see `responsive-math.md`.
 
 ---
 
-## Système d'espacement
+## Spacing System
 
-### Règle fondamentale
-Définir un ensemble de valeurs prédéfinies. Ne jamais inventer une valeur arbitraire.
+### Fundamental Rule
+Define a set of predefined values. Never invent an arbitrary value.
 
-### Échelle recommandée (base 4px)
+### Recommended Scale (4px base)
 ```
-4px   → micro (séparation d'icône et label, gap interne)
-8px   → xs (padding interne compact)
-12px  → sm (padding bouton small, gap entre éléments proches)
-16px  → md (padding standard, gap entre champs de formulaire)
-24px  → lg (padding card, séparation de sections liées)
-32px  → xl (séparation de blocs)
-48px  → 2xl (séparation de sections)
-64px  → 3xl (séparation de sections majeures)
-96px  → 4xl (marges de page sur desktop)
-128px → 5xl (espacement hero)
+4px   → micro (separator for icon and label, internal gap)
+8px   → xs (compact internal padding)
+12px  → sm (small button padding, gap between close elements)
+16px  → md (standard padding, gap between form fields)
+24px  → lg (card padding, separation of related sections)
+32px  → xl (separation of blocks)
+48px  → 2xl (separation of sections)
+64px  → 3xl (separation of major sections)
+96px  → 4xl (page margins on desktop)
+128px → 5xl (hero spacing)
 ```
 
-### En CSS (custom properties)
+### In CSS (custom properties)
 ```css
 :root {
   --space-1: 4px;
@@ -41,196 +41,196 @@ Définir un ensemble de valeurs prédéfinies. Ne jamais inventer une valeur arb
 }
 ```
 
-En Tailwind, ce système correspond à `p-1, p-2, p-3, p-4, p-6, p-8, p-12, p-16, p-24, p-32`.
+In Tailwind, this system corresponds to `p-1, p-2, p-3, p-4, p-6, p-8, p-12, p-16, p-24, p-32`.
 
 ---
 
-## Espacer selon la proximité logique
+## Spacing According to Logical Proximity
 
-### Principe de Gestalt : proximité
-Les éléments proches sont perçus comme liés. L'espacement est le premier outil de groupement.
+### Gestalt Principle: Proximity
+Close elements are perceived as related. Spacing is the first tool for grouping.
 
-**Règle :** L'espace entre deux éléments non liés doit être **significativement plus grand** qu'entre deux éléments liés.
+**Rule:** Space between two unrelated elements must be **significantly larger** than between two related elements.
 
 ```
-Titre de section
-  Paragraphe lié au titre    ← petit espacement entre titre et contenu
+Section Title
+  Paragraph related to title    ← small spacing between title and content
   
-                             ← grand espacement avant la section suivante
-Section suivante
+                                ← large spacing before next section
+Next Section
 ```
 
-### L'espacement ambigu est une erreur
-Si l'espace entre A et B est identique à l'espace entre B et C, l'utilisateur ne sait pas si B est lié à A ou à C. Choisir explicitement.
+### Ambiguous Spacing is a Mistake
+If the space between A and B is identical to the space between B and C, the user doesn't know if B is related to A or C. Choose explicitly.
 
 ---
 
-## White space : être généreux
+## White Space: Be Generous
 
-La majorité des interfaces manquent d'espace, pas le contraire.
+Most interfaces lack space, not the other way around.
 
-### Erreurs fréquentes
-- Boutons avec padding insuffisant (`padding: 4px 8px` pour un bouton primaire)
-- Cartes avec contenu trop serré contre les bords
-- Sections avec trop peu d'espace entre elles
-- Texte dans un input trop proche du bord
+### Frequent Errors
+- Buttons with insufficient padding (`padding: 4px 8px` for a primary button)
+- Cards with content too tight against edges
+- Sections with too little space between them
+- Text in an input too close to the edge
 
-### Règle pratique
-Si l'interface semble "chargée", essayer de doubler l'espacement partout. La plupart du temps, ça améliore immédiatement.
+### Practical Rule
+If the interface looks "busy", try doubling spacing everywhere. Most of the time, it improves immediately.
 
 ---
 
-## L'espacement ne se scale pas proportionnellement
+## Spacing Does Not Scale Proportionally
 
-### Le problème du scaling relatif
-Si un bouton `sm` a `padding: 4px 8px` et un bouton `lg` a `padding: 12px 24px`, le bouton `lg` ne fait pas simplement "3x le padding sm" — il a un padding **proportionnellement plus généreux**.
+### The Problem of Relative Scaling
+If a `sm` button has `padding: 4px 8px` and a `lg` button has `padding: 12px 24px`, the `lg` button does not just have "3x the sm padding" — it has a **proportionally more generous** padding.
 
-Les grands éléments ont un padding **relativement plus grand** que les petits, pas juste plus grand en valeur absolue.
+Large elements have a **relatively larger** padding than small ones, not just larger in absolute value.
 
 ```css
-/* MAUVAIS : scaling proportionnel uniforme */
+/* BAD: uniform proportional scaling */
 .btn-sm { padding: 4px 8px; font-size: 12px; }   /* ratio 1:2 */
 .btn-md { padding: 8px 16px; font-size: 16px; }  /* ratio 1:2 */
 .btn-lg { padding: 12px 24px; font-size: 20px; } /* ratio 1:2 */
 
-/* BON : padding relativement plus généreux sur le grand */
+/* GOOD: relatively more generous padding on large */
 .btn-sm { padding: 4px 10px; font-size: 12px; }
 .btn-md { padding: 10px 20px; font-size: 16px; }
-.btn-lg { padding: 16px 32px; font-size: 20px; } /* plus généreux en proportion */
+.btn-lg { padding: 16px 32px; font-size: 20px; } /* more generous in proportion */
 ```
 
 ---
 
-## Grilles
+## Grids
 
-### Grille 12 colonnes comme base
-Aligner le layout principal sur une grille 12 colonnes. Elle offre suffisamment de flexibilité (divise par 1, 2, 3, 4, 6, 12).
+### 12-Column Grid as Base
+Align the main layout on a 12-column grid. It offers enough flexibility (divides by 1, 2, 3, 4, 6, 12).
 
-### Les grilles ne sont pas des règles absolues
-Pas tous les éléments doivent être fluides et basés sur des pourcentages :
-- Une sidebar peut avoir une largeur fixe (240px, 280px)
-- Une modal a une largeur max fixe
-- Un input a une largeur idéale selon le contenu attendu
+### Grids are Not Absolute Rules
+Not all elements must be fluid and based on percentages:
+- A sidebar can have a fixed width (240px, 280px)
+- A modal has a fixed max-width
+- An input has an ideal width according to expected content
 
-**Ne pas outsourcer toutes les décisions de layout à la grille.**
+**Do not outsource all layout decisions to the grid.**
 
 ---
 
-## Groupement (Gestalt)
+## Grouping (Gestalt)
 
-### Common Region : les conteneurs créent les groupes
-Les éléments à l'intérieur d'un même conteneur (bordure, fond, ombre) sont perçus comme appartenant au même groupe.
+### Common Region: Containers Create Groups
+Elements inside the same container (border, background, shadow) are perceived as belonging to the same group.
 
 ```
 ┌─────────────────────┐
-│ Élément A           │  ← A et B sont perçus comme liés
-│ Élément B           │
+│ Element A           │  ← A and B are perceived as related
+│ Element B           │
 └─────────────────────┘
 
-  Élément C              ← C est perçu comme séparé
+  Element C              ← C is perceived as separate
 ```
 
-### Types de conteneurs (du plus fort au plus subtil)
-1. **Background color** différent → groupe fort
-2. **Bordure** → groupe fort
-3. **Ombre (box-shadow)** → groupe fort
-4. **Proximité seule** → groupe implicite, moins puissant
+### Types of Containers (from strongest to subtlest)
+1. Different **Background color** → strong group
+2. **Border** → strong group
+3. **Shadow (box-shadow)** → strong group
+4. **Proximity alone** → implicit group, less powerful
 
 ---
 
-## Ombres et profondeur
+## Shadows and Depth
 
-### Principe de la source de lumière
-La lumière vient **du haut**. Simuler cela en interface :
+### Principle of Light Source
+Light comes **from the top**. Simulate this in the interface:
 
-- **Éléments surélevés** → bord supérieur plus clair + ombre sous l'élément
-- **Éléments en creux** (inset) → ombre en haut + bord inférieur plus clair
+- **Elevated elements** → lighter top edge + shadow under the element
+- **Inset elements** → shadow at the top + lighter bottom edge
 
-### Système d'élévation (5 niveaux)
+### Elevation System (5 levels)
 
 ```css
 :root {
-  /* Niveau 0 : au niveau de la surface, pas d'ombre */
+  /* Level 0: at surface level, no shadow */
   --shadow-none: none;
 
-  /* Niveau 1 : légèrement surélevé — boutons, badges */
+  /* Level 1: slightly elevated — buttons, badges */
   --shadow-sm:
     0 1px 2px hsla(220, 15%, 5%, 0.05),
     0 1px 1px hsla(220, 15%, 5%, 0.08);
 
-  /* Niveau 2 : cartes, inputs focalisés */
+  /* Level 2: cards, focused inputs */
   --shadow-md:
     0 2px 4px hsla(220, 15%, 5%, 0.06),
     0 4px 8px hsla(220, 15%, 5%, 0.08);
 
-  /* Niveau 3 : dropdowns, tooltips */
+  /* Level 3: dropdowns, tooltips */
   --shadow-lg:
     0 4px 8px hsla(220, 15%, 5%, 0.08),
     0 8px 16px hsla(220, 15%, 5%, 0.12);
 
-  /* Niveau 4 : modales, popovers */
+  /* Level 4: modals, popovers */
   --shadow-xl:
     0 8px 16px hsla(220, 15%, 5%, 0.10),
     0 16px 32px hsla(220, 15%, 5%, 0.16);
 }
 ```
 
-### Technique des deux ombres
-Combiner une ombre directe (petite, nette, peu de blur) et une ombre ambiante (grande, douce, blur élevé) :
+### Two-Shadow Technique
+Combine a direct shadow (small, sharp, low blur) and an ambient shadow (large, soft, high blur):
 
 ```css
 box-shadow:
-  0 2px 4px rgba(0,0,0,0.12),     /* ombre directe : lumière */
-  0 8px 24px rgba(0,0,0,0.08);    /* ombre ambiante : diffuse */
+  0 2px 4px rgba(0,0,0,0.12),     /* direct shadow: light */
+  0 8px 24px rgba(0,0,0,0.08);    /* ambient shadow: diffuse */
 ```
 
-L'ombre directe devient presque invisible aux niveaux d'élévation élevés (la modale est si haute que la lumière ambiante l'atteint de partout).
+Direct shadow becomes almost invisible at high elevation levels (the modal is so high that ambient light reaches it from everywhere).
 
-### Ombres et interaction
-- Bouton `default` → `--shadow-sm`
-- Bouton `hover` → `--shadow-md` (se soulève légèrement)
-- Bouton `active/pressed` → `--shadow-none` ou inset (s'enfonce)
-- Card `hover` (draggable) → `--shadow-lg` (pop to front)
+### Shadows and Interaction
+- `default` button → `--shadow-sm`
+- `hover` button → `--shadow-md` (raises slightly)
+- `active/pressed` button → `--shadow-none` or inset (sinks)
+- `hover` card (draggable) → `--shadow-lg` (pop to front)
 
 ---
 
-## Profondeur sans ombres (flat design)
+## Depth Without Shadows (Flat Design)
 
-### Couleur comme profondeur
-- Élément plus clair que le fond → perçu comme surélevé
-- Élément plus foncé que le fond → perçu comme en creux
+### Color as Depth
+- Element lighter than background → perceived as elevated
+- Element darker than background → perceived as inset
 
 ```css
-/* Fond de page */
+/* Page background */
 background: hsl(220, 14%, 97%);
 
-/* Card surélevée (plus claire) */
+/* Elevated card (lighter) */
 .card { background: hsl(0, 0%, 100%); }
 
-/* Well en creux (plus foncé) */
+/* Inset well (darker) */
 .well { background: hsl(220, 13%, 93%); }
 ```
 
-### Ombre solide (flat + profondeur)
+### Solid Shadow (flat + depth)
 ```css
-/* Ombre sans blur — effet flat mais avec profondeur */
+/* Shadow without blur — flat effect but with depth */
 .card-flat {
   box-shadow: 4px 4px 0 hsl(220, 12%, 86%);
 }
 ```
 
-### Overlap (superposition)
-Faire se chevaucher des éléments pour créer des couches visuelles :
-- Une card qui dépasse de son conteneur parent
-- Un avatar qui chevauche deux sections
-- Un badge qui sort d'une image
+### Overlap
+Overlap elements to create visual layers:
+- A card that overlaps its parent container
+- An avatar that overlaps two sections
+- A badge that pops out of an image
 
 ---
 
-## Images dans le layout
+## Images in Layout
 
-### Contrôler le shape des images utilisateur
-Ne jamais afficher les images à leur ratio intrinsèque dans un layout structuré. Utiliser des conteneurs fixes avec `object-fit: cover` :
+### Control User Image Shapes
+Never display images at their intrinsic ratio in a structured layout. Use fixed containers with `object-fit: cover`:
 
 ```css
 .avatar {
@@ -241,19 +241,19 @@ Ne jamais afficher les images à leur ratio intrinsèque dans un layout structur
 }
 ```
 
-### Prévenir le "background bleed"
-Quand une image a un fond similaire au fond de la page, utiliser une ombre interne plutôt qu'une bordure :
+### Prevent Background Bleed
+When an image has a background similar to the page background, use an internal shadow instead of a border:
 ```css
 .user-image {
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
 }
 ```
 
-### Icons : respecter la taille intentionnelle
-Une icône conçue pour 16-24px semblera "chunky" à 64px. Si on a besoin d'une grande icône, l'enfermer dans un conteneur coloré et la garder à sa taille native.
+### Icons: Respect Intentional Size
+An icon designed for 16-24px will look "chunky" at 64px. If a large icon is needed, enclose it in a colored container and keep it at its native size.
 
 ```html
-<div class="icon-container">  <!-- 64x64, background coloré, rounded -->
-  <svg class="icon">...</svg>   <!-- 20x20, taille native -->
+<div class="icon-container">  <!-- 64x64, colored background, rounded -->
+  <svg class="icon">...</svg>   <!-- 20x20, native size -->
 </div>
 ```

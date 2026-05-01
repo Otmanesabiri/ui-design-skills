@@ -1,298 +1,298 @@
-# 08 - Checklists d'Execution UI
+# 08 - UI Execution Checklists
 
-Sources : Laws of UX (Jakob, Hick, Fitts, Miller, Von Restorff, Doherty, Postel, Peak-End) - Refactoring UI - Practical UI
-
----
-
-## Role du document
-
-Ce fichier n'est pas une reference theorique. C'est la couche de controle avant production.
-
-Objectif : transformer les principes UI en decisions verifiables, composant par composant.
-
-Ordre d'application :
-1. Respecter les conventions utilisateur
-2. Reduire les choix visibles
-3. Rendre les cibles faciles a atteindre
-4. Structurer l'attention
-5. Donner un feedback rapide et utile
-
-Si deux regles se contredisent, privilegier l'utilisabilite, puis l'accessibilite, puis l'esthetique.
-
-Deviation autorisee uniquement si le gain est mesurable : temps de tache reduit, taux d'erreur reduit, conversion amelioree, comprehension amelioree en test utilisateur. Sans preuve, revenir au pattern conventionnel.
+Sources: Laws of UX (Jakob, Hick, Fitts, Miller, Von Restorff, Doherty, Postel, Peak-End) - Refactoring UI - Practical UI
 
 ---
 
-## Les 4 forces fondamentales
+## Role of the Document
 
-Les lois UX sont regroupees en forces operationnelles. Ne pas les appliquer une par une au hasard.
+This file is not a theoretical reference. It is the control layer before production.
 
-| Force | Lois principales | Question de controle |
+Objective: transform UI principles into verifiable decisions, component by component.
+
+Application Order:
+1. Respect user conventions
+2. Reduce visible choices
+3. Make targets easy to reach
+4. Structure attention
+5. Give fast and useful feedback
+
+If two rules contradict, prioritize usability, then accessibility, then aesthetics.
+
+Deviation authorized only if the gain is measurable: reduced task time, reduced error rate, improved conversion, improved comprehension in user testing. Without proof, go back to the conventional pattern.
+
+---
+
+## The 4 Fundamental Forces
+
+UX laws are grouped into operational forces. Do not apply them one by one at random.
+
+| Force | Main Laws | Control Question |
 |---|---|---|
-| Perception | Aesthetic-Usability, hierarchie visuelle, couleur | L'interface parait-elle claire avant meme d'etre lue ? |
-| Attention | Von Restorff, Gestalt | L'oeil voit-il immediatement ce qui compte ? |
-| Decision | Hick, Miller | Le choix principal est-il evident et limite ? |
-| Interaction | Fitts, Doherty, Postel | L'action est-elle facile, rapide et tolerante ? |
+| Perception | Aesthetic-Usability, visual hierarchy, color | Does the interface look clear even before being read? |
+| Attention | Von Restorff, Gestalt | Does the eye immediately see what matters? |
+| Decision | Hick, Miller | Is the main choice obvious and limited? |
+| Interaction | Fitts, Doherty, Postel | Is the action easy, fast, and tolerant? |
 
-### Priorite des lois
+### Law Priority
 
-| Niveau | Loi | Statut |
+| Level | Law | Status |
 |---|---|---|
-| 1 | Jakob | Baseline obligatoire : utiliser les conventions connues |
-| 1 | Hick | Limiter les choix visibles avant d'ajouter de la decoration |
-| 1 | Fitts | Garantir des cibles atteignables et confortables |
-| 2 | Miller | Grouper et decouper l'information dense |
-| 2 | Von Restorff | Mettre en avant 1 element dominant, pas plus |
-| 2 | Doherty | Repondre vite ou afficher un etat de progression |
-| 3 | Postel | Accepter les formats utilisateur flexibles |
-| 3 | Peak-End | Soigner les moments critiques et les fins de flux |
-| 3 | Aesthetic-Usability | Renforcer la confiance par une execution visuelle propre |
+| 1 | Jakob | Mandatory Baseline: use known conventions |
+| 1 | Hick | Limit visible choices before adding decoration |
+| 1 | Fitts | Guarantee reachable and comfortable targets |
+| 2 | Miller | Group and chunk dense information |
+| 2 | Von Restorff | Highlight 1 dominant element, no more |
+| 2 | Doherty | Respond quickly or show a progress state |
+| 3 | Postel | Accept flexible user formats |
+| 3 | Peak-End | Care for critical moments and flow ends |
+| 3 | Aesthetic-Usability | Build trust through clean visual execution |
 
 ---
 
-## Contraintes non negociables
+## Non-Negotiable Constraints
 
-Ces contraintes s'appliquent par defaut a toute interface.
+These constraints apply by default to every interface.
 
-- 1 CTA primaire maximum par vue ou par decision active
-- 5 choix visibles maximum sans structuration
-- Choix illimites seulement s'ils sont groupes, filtres, hierarchises ou recherchables
-- 44 x 44px minimum pour toute cible interactive tactile
-- Feedback visible sous 300ms, sinon spinner, skeleton ou optimistic UI
-- Aucun champ de formulaire sans label persistant
-- Aucune erreur sans cause comprehensible et solution concrete
-- Aucun bouton icon-only sans nom accessible et tooltip si le sens n'est pas universel
-- Aucun pattern non conventionnel pour navigation, fermeture, recherche, retour ou soumission
-- Aucun element mis en evidence si son action n'est pas prioritaire
-- Aucun etat vide sans explication et prochaine action utile
-- Hierarchie validee en grayscale avant ajout de couleur
-- Contraste AA minimum sur texte et controles fonctionnels
-- Focus visible et navigation clavier complete
-
----
-
-## Checklist globale de vue
-
-Avant de valider une page ou un ecran :
-
-- L'action principale est identifiable en moins de 3 secondes
-- Les actions secondaires sont visuellement moins fortes que l'action principale
-- Les informations sont groupees par proximite et similarite
-- Les sections non liees sont separees par plus d'espace que les elements lies
-- Les choix visibles sont limites aux options utiles maintenant
-- Les options rares ou avancees sont cachees derriere une divulgation progressive
-- Les conventions de navigation et d'interaction sont respectees
-- Les textes importants restent lisibles en contraste, taille et longueur
-- 3 niveaux de hierarchie maximum sont visibles simultanement dans une zone
-- La lecture rapide suit un parcours F ou Z selon le type de page
-- Les lignes de texte courant restent a 80 caracteres maximum
-- Les etats loading, empty, error, success et disabled existent
-- Le parcours se termine par une confirmation claire ou une prochaine etape evidente
+- 1 primary CTA maximum per view or active decision
+- 5 visible choices maximum without structuring
+- Unlimited choices only if grouped, filtered, hierarchical, or searchable
+- 44 x 44px minimum for any touch interactive target
+- Visible feedback under 300ms, otherwise spinner, skeleton, or optimistic UI
+- No form field without a persistent label
+- No error without understandable cause and concrete solution
+- No icon-only button without an accessible name and tooltip if meaning is not universal
+- No non-conventional pattern for navigation, closing, search, back, or submission
+- No element highlighted if its action is not priority
+- No empty state without explanation and useful next action
+- Hierarchy validated in grayscale before adding color
+- Minimum AA contrast on text and functional controls
+- Visible focus and full keyboard navigation
 
 ---
 
-## Controle de flux
+## Global View Checklist
 
-Une interface ne se valide pas seulement ecran par ecran. Le parcours complet doit rester coherent.
+Before validating a page or screen:
 
-Checklist :
-- Le debut du flux indique clairement l'objectif et les pre-requis
-- Chaque transition explique ce qui vient de changer
-- Les donnees saisies ou selectionnees sont conservees entre les etapes
-- Les retours en arriere ne punissent pas l'utilisateur
-- La fin confirme le resultat obtenu
-- La prochaine action utile est evidente apres la fin du flux
-- Les moments critiques ont un feedback plus soigne que les actions ordinaires
+- Main action is identifiable in less than 3 seconds
+- Secondary actions are visually weaker than the main action
+- Information is grouped by proximity and similarity
+- Unrelated sections are separated by more space than related elements
+- Visible choices are limited to useful options now
+- Rare or advanced options are hidden behind progressive disclosure
+- Navigation and interaction conventions are respected
+- Important texts remain readable in contrast, size, and length
+- 3 hierarchy levels maximum are visible simultaneously in a zone
+- Fast reading follows a coherent F or Z pattern according to page type
+- Body text lines remain at 80 characters maximum
+- Loading, empty, error, success, and disabled states exist
+- Path ends with a clear confirmation or an obvious next step
 
 ---
 
-## Mapping par composant
+## Flow Control
 
-### Boutons
+An interface is not validated only screen by screen. The full path must remain coherent.
 
-Lois dominantes : Fitts, Von Restorff, Hick.
+Checklist:
+- Beginning of the flow clearly indicates objective and prerequisites
+- Every transition explains what just changed
+- Entered or selected data is preserved between steps
+- Back buttons do not punish the user
+- The end confirms the result obtained
+- The next useful action is obvious after the flow ends
+- Critical moments have more cared-for feedback than ordinary actions
 
-Regles :
-- Taille interactive minimale : 44 x 44px
-- 1 bouton primaire maximum dans un groupe d'actions
-- Pas de double CTA equivalent
-- Texte = verbe d'action precis, pas "OK" ou "Submit"
-- Action dangereuse visuellement separee de l'action courante
-- Actions frequentes dans la zone du pouce sur mobile
-- Actions critiques isolees spatialement des actions ordinaires
-- Bords et coins utilises pour les actions persistantes ou frequentes quand le contexte s'y prete
-- Focus, hover, active, disabled et loading obligatoires
+---
 
-Checklist :
-- Le bouton primaire est-il le seul element dominant ?
-- Les boutons secondaires ressemblent-ils vraiment a des options secondaires ?
-- Le bouton est-il atteignable confortablement sur mobile ?
-- Sa position reduit-elle aussi la distance d'action, pas seulement sa taille ?
-- Le libelle annonce-t-il le resultat de l'action ?
+## Mapping by Component
 
-### Formulaires
+### Buttons
 
-Lois dominantes : Miller, Hick, Postel.
+Dominant Laws: Fitts, Von Restorff, Hick.
 
-Regles :
-- Label persistant obligatoire pour chaque champ
-- Grouper les champs par theme
-- Decouper en multi-step si le formulaire depasse 5 a 7 champs visibles
-- Validation au blur, sauf feedback positif non intrusif
-- Accepter les formats courants de saisie : espaces, tirets, casse, prefixes
-- Normaliser la saisie cote systeme, pas cote utilisateur
-- Afficher ensuite une valeur canonique claire
-- Message d'erreur = probleme + cause si utile + correction
+Rules:
+- Minimum interactive size: 44 x 44px
+- 1 primary button maximum in an action group
+- No equivalent double CTA
+- Text = precise action verb, not "OK" or "Submit"
+- Dangerous action visually separated from current action
+- Frequent actions in the thumb zone on mobile
+- Critical actions spatially isolated from ordinary actions
+- Edges and corners used for persistent or frequent actions when context allows
+- Focus, hover, active, disabled, and loading states mandatory
 
-Checklist :
-- Peut-on comprendre le champ sans placeholder ?
-- Les champs lies sont-ils proches les uns des autres ?
-- Les champs optionnels sont-ils evites ou reveles progressivement ?
-- L'utilisateur peut-il revenir en arriere sans perdre ses donnees ?
-- Un format humain courant est-il accepte meme s'il differe du format stocke ?
-- Chaque erreur dit-elle comment la resoudre ?
+Checklist:
+- Is the primary button the only dominant element?
+- Do secondary buttons really look like secondary options?
+- Is the button comfortably reachable on mobile?
+- Does its position also reduce action distance, not just its size?
+- Does the label announce the action result?
+
+### Forms
+
+Dominant Laws: Miller, Hick, Postel.
+
+Rules:
+- Mandatory persistent label for every field
+- Group fields by theme
+- Break into multi-step if the form exceeds 5 to 7 visible fields
+- Validation on blur, except non-intrusive positive feedback
+- Accept common input formats: spaces, dashes, case, prefixes
+- Normalize input on the system side, not the user side
+- Then display a clear canonical value
+- Error message = problem + cause if useful + correction
+
+Checklist:
+- Can the field be understood without a placeholder?
+- Are related fields close to each other?
+- Are optional fields avoided or revealed progressively?
+- Can the user go back without losing data?
+- Is a common human format accepted even if it differs from the stored format?
+- Does every error say how to solve it?
 
 ### Navigation
 
-Lois dominantes : Jakob, Hick, Gestalt.
+Dominant Laws: Jakob, Hick, Gestalt.
 
-Regles :
-- Utiliser les conventions : top nav, sidebar, tabs, breadcrumbs selon le contexte
-- Limiter les entrees visibles au premier niveau
-- Grouper les items par usage, pas par structure interne de l'entreprise
-- Signaler clairement l'emplacement actuel
-- Garder les actions globales et locales separees
+Rules:
+- Use conventions: top nav, sidebar, tabs, breadcrumbs according to context
+- Limit visible entries at the first level
+- Group items by usage, not by company internal structure
+- Clearly signal current location
+- Keep global and local actions separate
 
-Checklist :
-- Un utilisateur peut-il predire ou se trouve une fonction standard ?
-- Les items de navigation sont-ils organises en groupes evidents ?
-- Le niveau actif est-il visible sans dependance a la couleur seule ?
-- Les destinations rares sont-elles deplacees dans "Plus", settings ou recherche ?
+Checklist:
+- Can a user predict where a standard function is located?
+- Are navigation items organized into obvious groups?
+- Is the active level visible without dependence on color alone?
+- Are rare destinations moved to "More", settings, or search?
 
 ### Dashboard
 
-Lois dominantes : Hierarchie, Miller, Gestalt, Hick.
+Dominant Laws: Hierarchy, Miller, Gestalt, Hick.
 
-Regles :
-- Mettre les indicateurs decisionnels avant les donnees decoratives
-- Limiter les KPIs principaux a 3-5
-- Grouper les donnees par decision a prendre ; les donnees peuvent etre nombreuses si elles restent filtrees, scannables et hierarchisees
-- Aligner les nombres a droite, les labels a gauche
-- Eviter les cartes repetitives si une table ou une liste scannable est plus efficace
-- Autoriser un niveau 2 de hierarchie pour les signaux secondaires, sans concurrencer le signal principal de chaque zone
+Rules:
+- Put decision indicators before decorative data
+- Limit main KPIs to 3-5
+- Group data by decision to be made; data can be numerous if it remains filtered, scannable, and hierarchical
+- Right-align numbers, left-align labels
+- Avoid repetitive cards if a scannable table or list is more efficient
+- Allow a level 2 hierarchy for secondary signals, without competing with the main signal of each zone
 
-Checklist :
-- La question principale du dashboard est-elle evidente ?
-- Les donnees importantes dominent-elles les donnees secondaires ?
-- Chaque visualisation supporte-t-elle une decision concrete ?
-- Les filtres visibles sont-ils les plus utilises ?
-- Les vues expertes gardent-elles une structure de scan claire malgre la densite ?
+Checklist:
+- Is the dashboard's main question obvious?
+- Does important data dominate secondary data?
+- Does every visualization support a concrete decision?
+- Are the visible filters the most used?
+- Do expert views keep a clear scan structure despite density?
 
-### Feedback et etats
+### Feedback and States
 
-Lois dominantes : Doherty, Peak-End, Aesthetic-Usability.
+Dominant Laws: Doherty, Peak-End, Aesthetic-Usability.
 
-Regles :
-- Sous 300ms : pas forcement de feedback visuel
-- 300ms a 1s : spinner discret ou etat pending local
-- 1s a 3s : skeleton ou structure de contenu
-- Plus de 3s : progression, texte d'etat ou possibilite d'annuler
-- Prefetch, cache ou pre-rendu pour les actions frequentes et previsibles
-- Optimistic UI par defaut pour les actions non critiques et reversibles
-- Succes : confirmer l'action et montrer la prochaine etape
-- Erreur : expliquer sans jargon et proposer une action
+Rules:
+- Under 300ms: not necessarily visual feedback
+- 300ms to 1s: discreet spinner or local pending state
+- 1s to 3s: skeleton or content structure
+- Over 3s: progression, status text, or possibility to cancel
+- Prefetch, cache, or pre-rendering for frequent and predictable actions
+- Optimistic UI by default for non-critical and reversible actions
+- Success: confirm the action and show the next step
+- Error: explain without jargon and propose an action
 
-Checklist :
-- L'utilisateur sait-il que son action a ete prise en compte ?
-- Le chargement preserve-t-il la structure attendue ?
-- Le systeme peut-il eviter l'attente plutot que seulement l'habiller ?
-- La fin du flux laisse-t-elle une impression claire et rassurante ?
-- Les erreurs sont-elles actionnables ?
+Checklist:
+- Does the user know their action was taken into account?
+- Does loading preserve the expected structure?
+- Can the system avoid waiting rather than just dressing it up?
+- Does the flow end leave a clear and reassuring impression?
+- Are errors actionable?
 
-### Modales et dialogs
+### Modals and Dialogs
 
-Lois dominantes : Hick, Jakob, Fitts.
+Dominant Laws: Hick, Jakob, Fitts.
 
-Regles :
-- Une modale = une decision
-- Bouton de fermeture visible en haut a droite
-- Echap et clic overlay selon le niveau de risque
-- Focus trap obligatoire
-- Actions en bas, primaire clairement distinguee
-- Action destructive confirmee par un texte explicite
+Rules:
+- One modal = one decision
+- Visible close button in top right
+- Escape and overlay click according to risk level
+- Mandatory focus trap
+- Actions at the bottom, primary clearly distinguished
+- Destructive action confirmed by explicit text
 
-Checklist :
-- La modale demande-t-elle une seule chose ?
-- Peut-on la fermer de maniere conventionnelle ?
-- L'action dangereuse est-elle impossible a declencher par accident ?
-- Le focus clavier reste-t-il dans la modale ?
+Checklist:
+- Does the modal ask for only one thing?
+- Can it be closed conventionally?
+- Is the dangerous action impossible to trigger by accident?
+- Does keyboard focus stay in the modal?
 
 ---
 
-## Consolidation des lois redondantes
+## Consolidation of Redundant Laws
 
-Ne pas empiler les principes quand ils disent la meme chose.
+Do not stack principles when they say the same thing.
 
-| Phenomenes | Lois associees | Regle unique |
+| Phenomena | Associated Laws | Single Rule |
 |---|---|---|
-| Charge cognitive | Hick + Miller | Limiter les choix non structures ; grouper, filtrer ou rechercher le reste |
-| Attention | Von Restorff + hierarchie visuelle | 1 element dominant par zone de decision, avec niveau 2 autorise |
-| Organisation | Gestalt + espacement | Proximite = relation, distance = separation |
-| Confiance percue | Aesthetic-Usability + couleur + typographie | Execution propre, contraste lisible, rythme stable |
-| Rapidite percue | Doherty + feedback | Eviter l'attente par cache/prefetch/optimistic UI ; sinon montrer l'etat du systeme |
+| Cognitive load | Hick + Miller | Limit unstructured choices; group, filter, or search the rest |
+| Attention | Von Restorff + visual hierarchy | 1 dominant element per decision zone, with level 2 allowed |
+| Organization | Gestalt + spacing | Proximity = relationship, distance = separation |
+| Perceived trust | Aesthetic-Usability + color + typography | Clean execution, readable contrast, stable rhythm |
+| Perceived speed | Doherty + feedback | Avoid waiting by cache/prefetch/optimistic UI; otherwise show system state |
 
 ---
 
-## Liens avec les autres fichiers
+## Links with Other Files
 
-Le systeme doit etre imbrique, pas parallele.
+The system must be nested, not parallel.
 
-| Fichier | Role dans le systeme | Lois executees |
+| File | Role in the system | Executed Laws |
 |---|---|---|
-| `hierarchie-visuelle.md` | Prioriser ce qui doit etre vu | Von Restorff, Aesthetic-Usability |
-| `espacement-layout.md` | Grouper, separer, guider l'oeil | Gestalt, Miller |
-| `couleur-systeme.md` | Signaler statut, importance, accessibilite | Hierarchie, Aesthetic-Usability |
-| `composants.md` | Transformer les principes en elements reutilisables | Fitts, Hick, Postel, Doherty |
-| `lois-ux.md` | Reference theorique | Toutes, sans arbitrage de production |
+| `hierarchie-visuelle.md` | Prioritize what must be seen | Von Restorff, Aesthetic-Usability |
+| `espacement-layout.md` | Group, separate, guide the eye | Gestalt, Miller |
+| `couleur-systeme.md` | Signal status, importance, accessibility | Hierarchy, Aesthetic-Usability |
+| `composants.md` | Transform principles into reusable elements | Fitts, Hick, Postel, Doherty |
+| `lois-ux.md` | Theoretical reference | All, without production trade-offs |
 
-Regle d'usage :
-- Lire `lois-ux.md` pour comprendre
-- Utiliser ce fichier pour decider
-- Verifier `composants.md` pour implementer
+Usage Rule:
+- Read `lois-ux.md` to understand
+- Use this file to decide
+- Check `composants.md` to implement
 
 ---
 
-## Audit rapide avant livraison
+## Quick Audit Before Delivery
 
-Bloquant :
-- Plus d'un CTA primaire dans la meme decision
-- Cible interactive sous 44 x 44px sur touch
-- Champ sans label
-- Erreur sans solution
-- Navigation non conventionnelle sans justification forte
-- Loading de plus de 1s sans feedback
-- Contraste sous AA sur texte ou controle fonctionnel
-- Focus visible absent
-- Navigation clavier incomplete
-- Hierarchie illisible en grayscale
+Blocking:
+- More than one primary CTA in the same decision
+- Interactive target under 44 x 44px on touch
+- Field without label
+- Error without solution
+- Non-conventional navigation without strong justification
+- Loading over 1s without feedback
+- Contrast under AA on text or functional control
+- Visible focus absent
+- Incomplete keyboard navigation
+- Hierarchy unreadable in grayscale
 
-Majeur :
-- Plus de 5 choix visibles sans groupement, filtre, recherche ou hierarchie claire
-- Plusieurs elements visuellement dominants
-- Options avancees visibles par defaut
-- Contraste faible sur texte fonctionnel
-- Etats hover/focus/disabled/loading manquants
-- Flux sans debut clair, transition explicite ou fin exploitable
-- Interface dense sans parcours de scan clair
+Major:
+- More than 5 choices visible without grouping, filter, search, or clear hierarchy
+- Several visually dominant elements
+- Advanced options visible by default
+- Weak contrast on functional text
+- Missing hover/focus/disabled/loading states
+- Flow without clear beginning, explicit transition, or exploitable end
+- Dense interface without clear scan path
 
-Mineur :
-- Microcopy vague
-- Espacement incoherent entre groupes
-- Fin de flux plate ou peu informative
-- Animation decorative sans fonction
-- Lignes de texte courant trop longues
+Minor:
+- Vague microcopy
+- Inconsistent spacing between groups
+- Flat or uninformative flow end
+- Decorative animation without function
+- Body text lines too long
 
-Decision :
-- Tout bloquant doit etre corrige avant livraison
-- Les majeurs doivent etre corriges ou explicitement acceptes
-- Les mineurs peuvent entrer dans une passe de polish
+Decision:
+- Every blocking issue must be corrected before delivery
+- Major issues must be corrected or explicitly accepted
+- Minor issues can enter a polish pass

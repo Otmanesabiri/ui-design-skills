@@ -1,140 +1,140 @@
-# 01 — Processus & Décisions Design
+# 01 — Design Process & Decisions
 
-Sources : Refactoring UI ch.1 · Practical UI ch.1 (Fundamentals)
-
----
-
-## Par où commencer
-
-### Règle fondamentale : feature d'abord, layout ensuite
-Ne jamais commencer par "design l'app". Commencer par une feature concrète et fonctionnelle.
-
-**Mauvaise approche :**
-- Où va la navigation ?
-- Top nav ou sidebar ?
-- Où place-t-on le logo ?
-
-Ces questions sont prématurées. Sans avoir designé quelques features, tu n'as pas les informations pour y répondre.
-
-**Bonne approche :**
-Choisir la première feature à designer (ex : "rechercher un vol") et lister uniquement ce dont elle a besoin :
-- Champ ville de départ
-- Champ ville d'arrivée
-- Champ date aller
-- Champ date retour
-- Bouton de recherche
-
-Commencer par ça. Le layout émerge naturellement après.
+Sources: Refactoring UI ch.1 · Practical UI ch.1 (Fundamentals)
 
 ---
 
-## Travailler en basse fidélité
+## Where to Start
 
-### Pourquoi
-Dans les premières étapes, s'attarder sur les polices, les ombres et les couleurs est une perte de temps. Ces décisions dépendent du contenu et de la structure — qui ne sont pas encore définies.
+### Fundamental Rule: Feature First, Layout Second
+Never start with "design the app". Start with a concrete and functional feature.
 
-### Comment
-- Dessiner sur papier avec un Sharpie épais — impossible de s'attarder sur les détails
-- Designer en grayscale dans l'outil de design — force l'usage de l'espacement, du contraste et de la taille comme seuls leviers de hiérarchie
-- Les wireframes sont **jetables** — ne pas sur-investir dedans
+**Bad Approach:**
+- Where does the navigation go?
+- Top nav or sidebar?
+- Where do we put the logo?
 
-### Bénéfice du grayscale
-En grayscale, tu es forcé d'utiliser :
-- L'espacement pour créer de la séparation
-- Le contraste pour créer de l'importance
-- La taille pour signaler la hiérarchie
+These questions are premature. Without having designed some features, you don't have the information to answer them.
 
-Résultat : une interface avec une hiérarchie forte et claire, facile à enrichir avec de la couleur par la suite.
+**Good Approach:**
+Choose the first feature to design (e.g., "search for a flight") and list only what it needs:
+- Departure city field
+- Arrival city field
+- Departure date field
+- Return date field
+- Search button
 
----
-
-## Ne pas over-designer
-
-### Ne pas prévoir des features hypothétiques
-Designer uniquement ce dont les utilisateurs ont besoin aujourd'hui. Les features hypothétiques ("et si l'utilisateur veut faire X ?") alourdissent l'interface sans valeur prouvée.
-
-### Itérer rapidement
-Les maquettes statiques n'ont pas de valeur pour les utilisateurs. Les utiliser pour explorer des idées, puis les laisser derrière dès qu'une direction est validée. Passer à l'implémentation réelle le plus vite possible.
+Start with that. The layout emerges naturally afterwards.
 
 ---
 
-## Choisir une personnalité
+## Working in Low Fidelity
 
-Avant de choisir les couleurs et les polices, définir la personnalité de l'interface. La personnalité dicte les choix esthétiques.
+### Why
+In the early stages, focusing on fonts, shadows, and colors is a waste of time. These decisions depend on content and structure — which aren't defined yet.
 
-### Axes de personnalité
+### How
+- Draw on paper with a thick Sharpie — impossible to focus on details
+- Design in grayscale in the design tool — forces the use of spacing, contrast, and size as the only levers of hierarchy
+- Wireframes are **disposable** — do not over-invest in them
 
-| Personnalité | Typographie | Couleur | Border-radius |
+### Benefit of Grayscale
+In grayscale, you are forced to use:
+- Spacing to create separation
+- Contrast to create importance
+- Size to signal hierarchy
+
+Result: an interface with strong and clear hierarchy, easy to enrich with color afterwards.
+
+---
+
+## Don't Over-design
+
+### Don't Plan for Hypothetical Features
+Design only what users need today. Hypothetical features ("what if the user wants to do X?") clutter the interface without proven value.
+
+### Iterate Quickly
+Static mockups have no value for users. Use them to explore ideas, then leave them behind as soon as a direction is validated. Move to real implementation as quickly as possible.
+
+---
+
+## Choose a Personality
+
+Before choosing colors and fonts, define the interface's personality. Personality dictates aesthetic choices.
+
+### Personality Axes
+
+| Personality | Typography | Color | Border-radius |
 |---|---|---|---|
-| Élégant / classique | Serif | Or, noir, blanc | Petit (2-4px) |
-| Neutre / professionnel | Sans-serif neutre | Bleu, gris | Moyen (4-8px) |
-| Ludique / accessible | Sans-serif arrondi | Couleurs vives | Grand (8-16px+) |
-| Sécurisant / institutionnel | Sans-serif lisible | Bleu, vert | Moyen |
+| Elegant / Classic | Serif | Gold, Black, White | Small (2-4px) |
+| Neutral / Professional | Neutral Sans-serif | Blue, Gray | Medium (4-8px) |
+| Playful / Accessible | Rounded Sans-serif | Bright colors | Large (8-16px+) |
+| Secure / Institutional | Readable Sans-serif | Blue, Green | Medium |
 
-### Couleur et psychologie
-- **Bleu** : sûr, familier, universel — personne ne se plaint du bleu
-- **Or / Jaune foncé** : premium, sophistiqué, luxe
-- **Rose** : léger, décontracté, pas sérieux
-- **Vert** : nature, santé, succès, croissance
-- **Rouge** : danger, urgence, énergie
-- **Violet** : créativité, spiritualité, mystère
-
----
-
-## Limiter les choix
-
-### Le problème de la liberté totale
-Quand on a trop d'options, on perd du temps à décider. La solution est de définir des systèmes à l'avance qui contraignent les choix à un ensemble raisonnable.
-
-### Systèmes à définir en amont
-1. **Palette de couleurs** — 8-10 nuances par couleur, définies une fois
-2. **Échelle typographique** — 8-10 tailles fixes
-3. **Système d'espacement** — valeurs prédéfinies (4/8/16/24/32…)
-4. **Échelle de shadows** — 5 niveaux d'élévation
-5. **Border-radius** — 2-3 valeurs fixes
-
-Une fois ces systèmes définis, chaque décision se résume à "quelle valeur du système utiliser ?" plutôt que "quelle valeur inventer ?".
+### Color and Psychology
+- **Blue**: safe, familiar, universal — no one complains about blue
+- **Gold / Dark Yellow**: premium, sophisticated, luxury
+- **Pink**: light, casual, not serious
+- **Green**: nature, health, success, growth
+- **Red**: danger, urgency, energy
+- **Purple**: creativity, spirituality, mystery
 
 ---
 
-## Avoir une raison logique pour chaque détail
+## Limit Choices
 
-### Principe fondamental (Practical UI)
-L'importance du design UI est souvent réduite à "faire joli". C'est une erreur. Si une interface est bien designée, **chaque détail a une raison logique qui améliore l'utilisabilité**.
+### The Problem of Total Freedom
+When you have too many options, you waste time deciding. The solution is to define systems in advance that constrain choices to a reasonable set.
 
-Certains éléments sont purement décoratifs, mais même eux doivent avoir une justification : créer de la profondeur, guider l'œil, signaler une hiérarchie.
+### Systems to Define Upfront
+1. **Color Palette** — 8-10 shades per color, defined once
+2. **Typographic Scale** — 8-10 fixed sizes
+3. **Spacing System** — predefined values (4/8/16/24/32…)
+4. **Shadow Scale** — 5 elevation levels
+5. **Border-radius** — 2-3 fixed values
 
-### Question à se poser pour chaque élément
-> "Pourquoi cet élément est là ? Qu'est-ce qu'il communique ou améliore ?"
-
-Si la réponse est "parce que c'est joli", envisager de le supprimer.
-
----
-
-## Framework de décision quand deux options s'affrontent
-
-Évaluer dans cet ordre strict :
-
-1. **Utilisabilité** — Laquelle réduit le plus le risque de confusion ou d'erreur ?
-2. **Hiérarchie** — Laquelle communique mieux l'importance relative ?
-3. **Accessibilité** — Laquelle est utilisable par le plus grand nombre ?
-4. **Cohérence** — Laquelle respecte les patterns déjà établis dans l'interface ?
-5. **Esthétique** — Laquelle est la plus belle, à critères égaux sur les 4 points précédents ?
-
-L'esthétique est le **dernier critère**, pas le premier.
+Once these systems are defined, every decision comes down to "which system value to use?" rather than "what value to invent?".
 
 ---
 
-## Minimiser les risques d'utilisabilité (Practical UI)
+## Have a Logical Reason for Every Detail
 
-Baser les décisions de design sur le risque : **quelle est la probabilité qu'un utilisateur ait du mal avec cet élément ?**
+### Fundamental Principle (Practical UI)
+UI design importance is often reduced to "making it pretty". This is a mistake. If an interface is well-designed, **every detail has a logical reason that improves usability**.
 
-### Risques fréquents à identifier avant de finir un design
-- Texte gris clair sur fond blanc → risque de lisibilité pour les malvoyants
-- Icône sans label → risque de non-compréhension (surtout pour les troubles cognitifs)
-- Texte de titre en couleur → risque de confusion avec un lien
-- Champs de formulaire sans bordure visible → risque de non-identification comme champ interactif
-- Bouton sans état focus visible → risque d'inaccessibilité clavier
+Some elements are purely decorative, but even they must have a justification: creating depth, guiding the eye, signaling a hierarchy.
 
-### Process recommandé
-Avant tout test utilisateur, identifier et corriger les risques évidents. Le test utilisateur sert à révéler les risques subtils, pas les risques grossiers qui peuvent être résolus par le bon sens.
+### Question to Ask for Every Element
+> "Why is this element here? What does it communicate or improve?"
+
+If the answer is "because it's pretty", consider removing it.
+
+---
+
+## Decision Framework When Two Options Compete
+
+Evaluate in this strict order:
+
+1. **Usability** — Which one reduces the risk of confusion or error the most?
+2. **Hierarchy** — Which one better communicates relative importance?
+3. **Accessibility** — Which one is usable by the most people?
+4. **Consistency** — Which one respects patterns already established in the interface?
+5. **Aesthetics** — Which one is the most beautiful, given equal criteria on the previous 4 points?
+
+Aesthetics is the **last criterion**, not the first.
+
+---
+
+## Minimize Usability Risks (Practical UI)
+
+Base design decisions on risk: **what is the probability that a user will struggle with this element?**
+
+### Frequent Risks to Identify Before Finishing a Design
+- Light gray text on white background → readability risk for visually impaired
+- Icon without label → misunderstanding risk (especially for cognitive disorders)
+- Title text in color → confusion risk with a link
+- Form fields without visible border → risk of not identifying as interactive field
+- Button without visible focus state → keyboard inaccessibility risk
+
+### Recommended Process
+Before any user testing, identify and correct obvious risks. User testing serves to reveal subtle risks, not gross risks that can be resolved by common sense.

@@ -1,235 +1,235 @@
-# Antipatterns & Ethique UI
+# Antipatterns & UI Ethics
 
-Objectif : identifier et eviter les interfaces qui exploitent les biais cognitifs contre l'interet de l'utilisateur. Une interface persuasive peut guider. Une interface manipulatrice pousse l'utilisateur vers une action qu'il pourrait regretter.
+Objective: identify and avoid interfaces that exploit cognitive biases against the user's interest. A persuasive interface can guide. A manipulative interface pushes the user towards an action they might regret.
 
-Principe :
-- Persuasion acceptable : clarifie la valeur, reduit la friction, aide a decider
-- Manipulation interdite : cache, deforme, culpabilise, piege ou rend le refus difficile
-
----
-
-## Regle de base
-
-Une decision utilisateur doit etre :
-- Informee : consequences, couts et conditions visibles avant l'action
-- Libre : accepter et refuser sont tous deux accessibles
-- Reversible quand le risque est eleve
-- Comprehensible sans jargon
-- Non dependante d'une pression artificielle
-
-Si le design fonctionne seulement parce que l'utilisateur ne voit pas, ne comprend pas ou n'ose pas refuser, c'est un dark pattern.
+Principle:
+- Acceptable Persuasion: clarifies value, reduces friction, helps decide
+- Forbidden Manipulation: hides, distorts, shames, traps, or makes refusal difficult
 
 ---
 
-## Antipatterns critiques
+## Ground Rule
+
+A user decision must be:
+- Informed: consequences, costs, and conditions visible before action
+- Free: accepting and refusing are both accessible
+- Reversible when risk is high
+- Understandable without jargon
+- Not dependent on artificial pressure
+
+If the design only works because the user doesn't see, doesn't understand, or doesn't dare refuse, it's a dark pattern.
+
+---
+
+## Critical Antipatterns
 
 ### Confirmshaming
 
-Definition : formuler le refus de maniere culpabilisante ou humiliante.
+Definition: formulating refusal in a shaming or humiliating way.
 
-Exemples :
-- "Non merci, je prefere payer plus cher"
-- "Je ne veux pas progresser"
-- "Ignorer cette opportunite"
+Examples:
+- "No thanks, I prefer paying more"
+- "I don't want to improve"
+- "Ignore this opportunity"
 
-Correction :
-- Utiliser un refus neutre : "Non merci", "Continuer sans abonnement", "Plus tard"
+Fix:
+- Use a neutral refusal: "No thanks", "Continue without subscription", "Later"
 
 ### Hidden costs
 
-Definition : reveler les frais, taxes, conditions ou engagements seulement en fin de parcours.
+Definition: revealing fees, taxes, conditions, or commitments only at the end of the path.
 
-Correction :
-- Afficher le cout total avant l'action engageante
-- Expliquer les frais variables des qu'ils deviennent calculables
-- Ne pas utiliser le checkout comme moment de surprise
+Fix:
+- Display total cost before engaging action
+- Explain variable fees as soon as they become calculable
+- Do not use checkout as a surprise moment
 
 ### Roach motel
 
-Definition : entrer est simple, sortir est difficile.
+Definition: easy to enter, hard to exit.
 
-Cas typiques :
-- Inscription en 1 clic, desabonnement en support manuel
-- Suppression de compte cachee
-- Annulation derriere plusieurs confirmations asymetriques
+Typical cases:
+- 1-click signup, manual support cancellation
+- Hidden account deletion
+- Cancellation behind several asymmetrical confirmations
 
-Correction :
-- Sortie aussi accessible que l'entree
-- Annulation dans les settings attendus
-- Confirmation claire, sans friction punitive
+Fix:
+- Exit as accessible as entry
+- Cancellation in expected settings
+- Clear confirmation, without punitive friction
 
 ### Misdirection
 
-Definition : attirer l'attention vers une action benefique au business et loin de l'action importante pour l'utilisateur.
+Definition: drawing attention towards an action beneficial to the business and away from the action important to the user.
 
-Correction :
-- Hierarchie fondee sur l'importance utilisateur
-- Actions destructives ou engageantes visibles et explicites
-- Pas de couleur primaire pour masquer une option moins favorable
+Fix:
+- Hierarchy based on user importance
+- Destructive or engaging actions visible and explicit
+- No primary color to mask a less favorable option
 
 ### Disguised ads
 
-Definition : publicite ou contenu sponsorise presente comme contenu normal.
+Definition: ad or sponsored content presented as normal content.
 
-Correction :
-- Label "Sponsorise", "Publicite" ou equivalent visible
-- Style distinct du contenu editorial ou fonctionnel
-- Pas d'imitation de notification systeme
+Fix:
+- "Sponsored", "Advertisement", or equivalent label visible
+- Style distinct from editorial or functional content
+- No imitation of system notifications
 
 ### Trick questions
 
-Definition : formulation ambigue, double negation ou checkbox qui inverse l'intention.
+Definition: ambiguous formulation, double negation, or checkbox that reverses intention.
 
-Exemples :
-- "Decochez cette case si vous ne souhaitez pas ne pas recevoir..."
-- Consentement pre-coche
+Examples:
+- "Uncheck this box if you do not wish not to receive..."
+- Pre-checked consent
 
-Correction :
-- Phrase positive simple
-- Consentement opt-in explicite
-- Une case = une intention claire
+Fix:
+- Simple positive phrase
+- Explicit opt-in consent
+- One box = one clear intention
 
 ### Forced continuity
 
-Definition : convertir un essai gratuit en paiement sans rappel clair.
+Definition: converting a free trial into payment without a clear reminder.
 
-Correction :
-- Rappel avant facturation
-- Date et montant visibles
-- Annulation simple avant renouvellement
+Fix:
+- Reminder before billing
+- Date and amount visible
+- Easy cancellation before renewal
 
 ### Sneaking
 
-Definition : ajouter un produit, service, assurance ou option sans action explicite.
+Definition: adding a product, service, insurance, or option without explicit action.
 
-Correction :
-- Options additionnelles en opt-in
-- Resume clair avant paiement
-- Aucun ajout automatique au panier
+Fix:
+- Additional options in opt-in
+- Clear summary before payment
+- No automatic addition to cart
 
-### Scarcity ou urgency artificielle
+### Artificial Scarcity or Urgency
 
-Definition : fausse rarete ou faux compte a rebours pour accelerer la decision.
+Definition: fake scarcity or fake countdown to accelerate decision.
 
-Correction :
-- Utiliser l'urgence seulement si elle est reelle et verifiable
-- Expliquer la cause : stock, date limite, capacite
-- Ne pas reinitialiser un timer artificiellement
+Fix:
+- Use urgency only if it is real and verifiable
+- Explain the cause: stock, deadline, capacity
+- Do not reset a timer artificially
 
 ### Obstruction
 
-Definition : rendre une action utile inutilement longue ou confuse.
+Definition: making a useful action unnecessarily long or confusing.
 
-Cas typiques :
-- Fermer un compte
-- Exporter ses donnees
-- Refuser le tracking
-- Modifier un abonnement
+Typical cases:
+- Closing an account
+- Exporting data
+- Refusing tracking
+- Changing a subscription
 
-Correction :
-- Chemin direct
-- Libelles explicites
-- Pas d'etapes inutiles
+Fix:
+- Direct path
+- Explicit labels
+- No unnecessary steps
 
 ---
 
-## Patterns sensibles
+## Sensitive Patterns
 
-Ces patterns ne sont pas interdits, mais doivent etre controles.
+These patterns are not forbidden, but must be controlled.
 
 ### Defaults
 
-Acceptable si :
-- Le choix par defaut correspond a l'interet probable de l'utilisateur
-- Il est visible
-- Il est facile a changer
+Acceptable if:
+- The default choice corresponds to the user's probable interest
+- It is visible
+- It is easy to change
 
-Risque si :
-- Option payante cochee par defaut
-- Consentement donne par inaction
-- Choix recommande sans justification
+Risk if:
+- Paid option checked by default
+- Consent given by inaction
+- Recommended choice without justification
 
-### Recommandations
+### Recommendations
 
-Acceptable si :
-- La recommandation est expliquee
-- Les alternatives restent comparables
-- Les criteres sont utiles a l'utilisateur
+Acceptable if:
+- The recommendation is explained
+- Alternatives remain comparable
+- Criteria are useful to the user
 
-Risque si :
-- "Recommande" signifie seulement "plus rentable"
-- L'option mise en avant cache un engagement
+Risk if:
+- "Recommended" only means "more profitable"
+- The highlighted option hides a commitment
 
 ### Gamification
 
-Acceptable si :
-- Elle motive sans punir
-- Elle laisse le controle a l'utilisateur
-- Elle ne cree pas d'anxiete excessive
+Acceptable if:
+- It motivates without punishing
+- It leaves control to the user
+- It does not create excessive anxiety
 
-Risque si :
-- Streaks, pertes ou recompenses poussent a des comportements regrettables
-- Notifications culpabilisantes
+Risk if:
+- Streaks, losses, or rewards push to regrettable behaviors
+- Shaming notifications
 
-### Personnalisation
+### Personalization
 
-Acceptable si :
-- Les donnees utilisees sont pertinentes
-- Le controle est explicite
-- L'utilisateur peut modifier ou desactiver
+Acceptable if:
+- Data used is relevant
+- Control is explicit
+- User can modify or deactivate
 
-Risque si :
-- Profilage opaque
-- Prix ou options manipules selon vulnerabilite supposee
-
----
-
-## Checklist ethique avant livraison
-
-- L'utilisateur comprend-il ce qu'il accepte ?
-- Peut-il refuser sans humiliation ni friction excessive ?
-- Le cout total est-il visible avant engagement ?
-- Les consequences importantes sont-elles explicites ?
-- Le consentement est-il opt-in quand il concerne donnees, marketing ou paiement ?
-- L'annulation est-elle aussi trouvable que l'inscription ?
-- Les actions destructives demandent-elles confirmation ?
-- Les messages d'erreur aident-ils au lieu de blamer ?
-- Les options recommandees sont-elles justifiables cote utilisateur ?
-- Le design reste-t-il acceptable si l'utilisateur est fatigue, presse ou novice ?
+Risk if:
+- Opaque profiling
+- Prices or options manipulated according to supposed vulnerability
 
 ---
 
-## Red flags bloquants
+## Ethics Checklist Before Delivery
 
-- Consentement pre-coche pour tracking, marketing ou paiement
-- Frais caches jusqu'au dernier ecran
-- Refus formule de facon culpabilisante
-- Annulation cachee ou uniquement via support
-- Suppression de donnees sans confirmation explicite
-- Timer ou rarete artificielle
-- Publicite deguisee en contenu ou notification
-- Option payante ajoutee automatiquement
-
-Tout red flag doit etre corrige avant livraison.
+- Does the user understand what they are accepting?
+- Can they refuse without humiliation or excessive friction?
+- Is the total cost visible before engagement?
+- Are important consequences explicit?
+- Is consent opt-in when it concerns data, marketing, or payment?
+- Is cancellation as findable as signup?
+- Do destructive actions require confirmation?
+- Do error messages help instead of blaming?
+- Are recommended options justifiable on the user side?
+- Does the design remain acceptable if the user is tired, rushed, or novice?
 
 ---
 
-## Formulations recommandees
+## Blocking Red Flags
 
-| Situation | Eviter | Preferer |
+- Pre-checked consent for tracking, marketing, or payment
+- Hidden fees until the last screen
+- Refusal formulated in a shaming way
+- Hidden cancellation or only via support
+- Data deletion without explicit confirmation
+- Artificial timer or scarcity
+- Ad disguised as content or notification
+- Paid option added automatically
+
+Every red flag must be fixed before delivery.
+
+---
+
+## Recommended Formulations
+
+| Situation | Avoid | Prefer |
 |---|---|---|
-| Refus newsletter | Non, je ne veux pas d'avantages | Non merci |
-| Essai gratuit | Commencer | Commencer l'essai gratuit - puis 12 EUR/mois |
-| Suppression | OK | Supprimer definitivement |
-| Tracking | Ameliorer mon experience | Accepter les cookies d'analyse |
-| Annulation | Continuer | Garder mon abonnement |
+| Newsletter refusal | No, I don't want benefits | No thanks |
+| Free trial | Start | Start free trial - then 12 EUR/month |
+| Deletion | OK | Delete permanently |
+| Tracking | Improve my experience | Accept analysis cookies |
+| Cancellation | Continue | Keep my subscription |
 
 ---
 
-## Test simple
+## Simple Test
 
-Se poser cette question :
+Ask yourself this question:
 
-> Est-ce que je serais a l'aise d'expliquer ce choix de design a l'utilisateur concerne, en face a face ?
+> Would I be comfortable explaining this design choice to the concerned user, face to face?
 
-Si la reponse est non, le pattern doit etre modifie.
+If the answer is no, the pattern must be modified.

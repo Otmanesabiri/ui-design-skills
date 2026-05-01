@@ -1,12 +1,12 @@
-# 07 — Composants UI
+# 07 — UI Components
 
-Sources : Refactoring UI · Practical UI ch.6 (Forms) · Laws of UX (Fitts, Hick)
+Sources: Refactoring UI · Practical UI ch.6 (Forms) · Laws of UX (Fitts, Hick)
 
 ---
 
-## Boutons
+## Buttons
 
-### Anatomie d'un bon bouton
+### Anatomy of a Good Button
 
 ```css
 .btn-primary {
@@ -20,13 +20,13 @@ Sources : Refactoring UI · Practical UI ch.6 (Forms) · Laws of UX (Fitts, Hick
   min-height: 44px;       /* WCAG touch target */
   border-radius: 6px;
 
-  /* Typographie */
+  /* Typography */
   font-size: 14px;
   font-weight: 600;
   line-height: 1.2;
   white-space: nowrap;
 
-  /* Couleur */
+  /* Color */
   background: var(--color-primary-500);
   color: #fff;
   border: none;
@@ -37,52 +37,52 @@ Sources : Refactoring UI · Practical UI ch.6 (Forms) · Laws of UX (Fitts, Hick
 }
 ```
 
-### Tous les états (obligatoires)
+### All States (Mandatory)
 
-| État | Modification |
+| State | Modification |
 |------|-------------|
-| `default` | Couleur base, shadow sm |
-| `hover` | Couleur -100 (plus foncée), shadow md |
-| `focus` | Outline 2px couleur brand, offset 2px |
-| `active` | Couleur -200, shadow none (s'enfonce) |
-| `disabled` | Opacité 0.5, cursor not-allowed, pointer-events none |
-| `loading` | Spinner + texte "..." ou maintenir le texte original |
+| `default` | Base color, shadow sm |
+| `hover` | Color -100 (darker), shadow md |
+| `focus` | 2px brand color outline, 2px offset |
+| `active` | Color -200, shadow none (sinks) |
+| `disabled` | 0.5 opacity, cursor not-allowed, pointer-events none |
+| `loading` | Spinner + "..." text or maintain original text |
 
-### Taille des boutons
+### Button Sizes
 
-| Taille | Padding | Font-size | Usage |
+| Size | Padding | Font-size | Usage |
 |--------|---------|-----------|-------|
-| xs | 4px 10px | 12px | Actions dans des tables ou espaces compacts |
-| sm | 6px 14px | 13px | Actions secondaires inline |
-| md | 10px 20px | 14px | Bouton standard |
-| lg | 14px 28px | 16px | CTA principal, formulaires |
+| xs | 4px 10px | 12px | Actions in tables or compact spaces |
+| sm | 6px 14px | 13px | Inline secondary actions |
+| md | 10px 20px | 14px | Standard button |
+| lg | 14px 28px | 16px | Main CTA, forms |
 | xl | 18px 36px | 18px | Hero CTA |
 
-### Texte du bouton
-- **Verbe d'action précis** : "Créer un compte", "Envoyer le rapport", "Supprimer le fichier"
-- **Pas** : "OK", "Submit", "Confirmer" (trop vague)
-- **Capitalisation** : Sentence case de préférence ("Envoyer"), pas ALL CAPS
+### Button Text
+- **Precise Action Verb**: "Create an account", "Send report", "Delete file"
+- **Not**: "OK", "Submit", "Confirm" (too vague)
+- **Capitalization**: Sentence case preferred ("Send"), not ALL CAPS
 
 ---
 
-## Formulaires
+## Forms
 
-### Structure d'un formulaire
+### Form Structure
 
-**Ordre optimal des éléments :**
+**Optimal element order:**
 ```
-1. Titre/contexte (pourquoi ce formulaire)
-2. Champs regroupés par thème
-3. Helper text sous les champs complexes
-4. Validation inline immédiate
-5. Bouton de soumission (seul, primaire, en bas à droite)
-6. Lien/action secondaire (annuler, revenir) à gauche
+1. Title/context (why this form)
+2. Fields grouped by theme
+3. Helper text under complex fields
+4. Immediate inline validation
+5. Submission button (single, primary, bottom right)
+6. Secondary action/link (cancel, go back) on the left
 ```
 
 ### Labels
 
 ```css
-/* Toujours au-dessus du champ, pas à gauche (sauf cas spéciaux) */
+/* Always above the field, not to the left (except special cases) */
 .label {
   display: block;
   font-size: 14px;
@@ -92,15 +92,15 @@ Sources : Refactoring UI · Practical UI ch.6 (Forms) · Laws of UX (Fitts, Hick
 }
 ```
 
-**Eviter les placeholders comme seuls labels** — ils disparaissent dès que l'utilisateur commence à taper.
+**Avoid placeholders as only labels** — they disappear as soon as the user starts typing.
 
-### Champs de saisie (inputs)
+### Saisie Fields (inputs)
 
 ```css
 .input {
   width: 100%;
   padding: 10px 14px;
-  font-size: 16px;         /* ≥16px sur iOS pour éviter le zoom automatique */
+  font-size: 16px;         /* ≥16px on iOS to avoid automatic zoom */
   border: 1.5px solid hsl(220, 12%, 80%);
   border-radius: 6px;
   background: #fff;
@@ -124,19 +124,19 @@ Sources : Refactoring UI · Practical UI ch.6 (Forms) · Laws of UX (Fitts, Hick
 }
 ```
 
-### Validation et erreurs
+### Validation and Errors
 
-**Timing de validation :**
-- Valider **au blur** (quand l'utilisateur quitte le champ), pas au keystroke
-- Exception : feedback positif (✓) peut apparaître en temps réel une fois la valeur valide
+**Validation Timing:**
+- Validate **on blur** (when the user leaves the field), not on keystroke
+- Exception: positive feedback (✓) can appear in real-time once the value is valid
 
-**Message d'erreur :**
+**Error Message:**
 ```html
 <div class="field">
   <label for="email">Email</label>
   <input id="email" type="email" aria-describedby="email-error" />
   <p id="email-error" class="error-message" role="alert">
-    ✗ Veuillez entrer une adresse email valide
+    ✗ Please enter a valid email address
   </p>
 </div>
 ```
@@ -152,63 +152,63 @@ Sources : Refactoring UI · Practical UI ch.6 (Forms) · Laws of UX (Fitts, Hick
 }
 ```
 
-### Formulaires multi-étapes (Hick's Law)
+### Multi-step Forms (Hick's Law)
 
 ```
 Step 1/4 ─────────────────────
-Informations personnelles
-  Prénom    Nom
+Personal Information
+  First Name    Last Name
   Email
   
-               [Continuer →]
+               [Continue →]
 ```
 
-**Règles :**
-- Afficher le numéro d'étape et le total (`Étape 2 sur 4`)
-- Regrouper les champs liés dans la même étape
-- Permettre le retour en arrière sans perdre les données
-- Bouton "Continuer" uniquement, pas de "Sauvegarder" prématuré
+**Rules:**
+- Display step number and total (`Step 2 of 4`)
+- Group related fields in the same step
+- Allow going back without losing data
+- "Continue" button only, no premature "Save"
 
-### Champs optionnels
+### Optional Fields
 
-Éviter les champs optionnels. Utiliser des **opt-in progressifs** :
+Avoid optional fields. Use **progressive opt-ins**:
 
 ```
-// MAUVAIS
-[Téléphone (optionnel)]
+// BAD
+[Phone (optional)]
 
-// BON
-□ Recevoir des mises à jour par SMS
-  Si oui → [Téléphone] (champ revealed dynamiquement)
+// GOOD
+□ Receive updates by SMS
+  If yes → [Phone] (field revealed dynamically)
 ```
 
-### Attributs HTML importants
+### Important HTML Attributes
 
 ```html
-<!-- Toujours spécifier autocomplete pour les champs communs -->
+<!-- Always specify autocomplete for common fields -->
 <input type="email" autocomplete="email" />
 <input type="tel" autocomplete="tel" />
 <input type="text" autocomplete="given-name" />
 
-<!-- inputmode pour le clavier mobile adapté -->
-<input type="text" inputmode="numeric" />    <!-- chiffres uniquement -->
-<input type="text" inputmode="decimal" />    <!-- chiffres + virgule -->
-<input type="text" inputmode="tel" />        <!-- clavier téléphone -->
-<input type="text" inputmode="email" />      <!-- clavier email (@, .) -->
+<!-- inputmode for adapted mobile keyboard -->
+<input type="text" inputmode="numeric" />    <!-- digits only -->
+<input type="text" inputmode="decimal" />    <!-- digits + comma -->
+<input type="text" inputmode="tel" />        <!-- phone keyboard -->
+<input type="text" inputmode="email" />      <!-- email keyboard (@, .) -->
 ```
 
 ---
 
-## Tables de données et Composants Complexes
+## Data Tables and Complex Components
 
-Pour les vues très denses (Dashboards, Tables avec >10 colonnes), appliquer la **Loi de Miller** : l'humain ne peut traiter que ~7 éléments à la fois. La solution est le *Chunking* (regroupement visuel).
+For very dense views (Dashboards, Tables with >10 columns), apply **Miller's Law**: humans can only process ~7 items at a time. The solution is *Chunking* (visual grouping).
 
-### Chunking (Regroupement) dans les Tables
-Au lieu d'ajouter une colonne par donnée, fusionnez les données liées :
+### Chunking (Grouping) in Tables
+Instead of adding one column per piece of data, merge related data:
 ```html
-<!-- AVANT : 3 colonnes (Avatar | Nom | Email) -->
+<!-- BEFORE: 3 columns (Avatar | Name | Email) -->
 
-<!-- APRÈS : 1 colonne (Utilisateur) -->
+<!-- AFTER: 1 column (User) -->
 <td class="user-cell">
   <img src="avatar.jpg" class="avatar" />
   <div class="user-info">
@@ -218,25 +218,25 @@ Au lieu d'ajouter une colonne par donnée, fusionnez les données liées :
 </td>
 ```
 
-### Alignement
+### Alignment
 
-| Type de donnée | Alignement |
+| Data Type | Alignment |
 |---|---|
-| Texte, Utilisateurs, Liens | Gauche |
-| Nombres, montants, dates | **Droite** (facilite la comparaison visuelle) |
-| Status, badges, icônes | Centre |
-| Actions (boutons, menu `...`) | Centre ou droite |
-| Checkboxes de sélection | Centre |
+| Text, Users, Links | Left |
+| Numbers, amounts, dates | **Right** (facilitates visual comparison) |
+| Status, badges, icons | Center |
+| Actions (buttons, `...` menu) | Center or right |
+| Selection checkboxes | Center |
 
-### Gestion de la Complexité (Scroll & Filtres)
-- **Scroll horizontal :** Fixez (`position: sticky`) toujours la première colonne (l'identifiant clé) et le header de la table.
-- **Filtres :** Ne montrez pas 10 champs de filtres vides. Utilisez un bouton "Filtrer" qui ouvre un Popover/Drawer. Affichez les filtres actifs sous forme de "Tags" amovibles au-dessus de la table.
-- **Bulk Actions :** La barre d'actions groupées (Supprimer, Exporter) ne doit apparaître que lorsqu'au moins une ligne est sélectionnée, remplaçant souvent le header de la table ou flottant en bas de l'écran.
+### Managing Complexity (Scroll & Filters)
+- **Horizontal Scroll:** Always fix (`position: sticky`) the first column (key identifier) and the table header.
+- **Filters:** Do not show 10 empty filter fields. Use a "Filter" button that opens a Popover/Drawer. Display active filters as removable "Tags" above the table.
+- **Bulk Actions:** The bulk action bar (Delete, Export) should only appear when at least one row is selected, often replacing the table header or floating at the bottom of the screen.
 
-### Structure CSS recommandée
+### Recommended CSS Structure
 
 ```css
-/* En-têtes */
+/* Headers */
 th {
   font-size: 12px;
   font-weight: 600;
@@ -248,52 +248,52 @@ th {
   border-bottom: 1px solid hsl(220, 12%, 88%);
 }
 
-/* Lignes */
+/* Rows */
 td {
   padding: 14px 16px;
   font-size: 14px;
   border-bottom: 1px solid hsl(220, 12%, 93%);
 }
 
-/* Hover sur une ligne */
+/* Row Hover */
 tr:hover td {
   background: hsl(220, 14%, 98%);
 }
 ```
 
-### Tri des colonnes
+### Column Sorting
 
-Indiquer la colonne triée et sa direction :
+Indicate sorted column and its direction:
 ```html
 <th aria-sort="ascending">
-  Montant <svg class="sort-icon">↑</svg>
+  Amount <svg class="sort-icon">↑</svg>
 </th>
 ```
 
 ---
 
-## Modales
+## Modals
 
-### Anatomie
+### Anatomy
 
 ```
 ┌──────────────────────────────────┐
-│ Titre de la modale          [×]  │  ← Header
+│ Modal Title                 [×]  │  ← Header
 ├──────────────────────────────────┤
 │                                  │
-│  Contenu / question              │  ← Body (scrollable si long)
+│  Content / question              │  ← Body (scrollable if long)
 │                                  │
 ├──────────────────────────────────┤
-│ [Action secondaire]  [Primaire]  │  ← Footer, actions à droite
+│ [Secondary action]  [Primary]    │  ← Footer, actions on the right
 └──────────────────────────────────┘
 ```
 
-**Règles :**
-- Une modale = une seule décision ou action
-- Toujours 3 façons de fermer : bouton ×, clic overlay, touche Echap
-- Bloquer le scroll du fond quand la modale est ouverte (`body: overflow: hidden`)
-- Focus trap : la navigation clavier reste dans la modale
-- Ombre forte (`--shadow-xl`) pour signaler l'élévation
+**Rules:**
+- One modal = one single decision or action
+- Always 3 ways to close: × button, overlay click, Escape key
+- Block background scroll when modal is open (`body: overflow: hidden`)
+- Focus trap: keyboard navigation stays in the modal
+- Strong shadow (`--shadow-xl`) to signal elevation
 
 ### Overlay
 
@@ -302,46 +302,46 @@ Indiquer la colonne triée et sa direction :
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(2px);   /* optionnel, attention performance */
+  backdrop-filter: blur(2px);   /* optional, watch performance */
   z-index: 100;
 }
 ```
 
 ---
 
-## États d'interface
+## Interface States
 
-### État vide (Empty State)
+### Empty State
 
-Ne jamais laisser un espace blanc avec juste "Aucun résultat". Guider l'utilisateur.
+Never leave a white space with just "No results". Guide the user.
 
 ```
-     [Illustration ou icône]
+     [Illustration or icon]
      
-     Vous n'avez pas encore de projets
+     You don't have any projects yet
      
-     Commencez par créer votre premier projet
-     pour organiser vos tâches.
+     Start by creating your first project
+     to organize your tasks.
      
-         [Créer un projet]
+         [Create a project]
 ```
 
-**Composants :**
-- Illustration (optionnelle mais efficace)
-- Titre descriptif
-- Message d'explication
-- Action principale (bouton)
+**Components:**
+- Illustration (optional but effective)
+- Descriptive title
+- Explanation message
+- Main action (button)
 
-### État de chargement
+### Loading State
 
-| Durée estimée | Solution recommandée |
+| Estimated Duration | Recommended Solution |
 |---|---|
-| < 300ms | Rien (assez rapide) |
-| 300ms – 1s | Spinner discret |
+| < 300ms | Nothing (fast enough) |
+| 300ms – 1s | Discreet spinner |
 | 1s – 3s | Skeleton screen |
-| > 3s | Skeleton + texte d'état + % si possible |
+| > 3s | Skeleton + status text + % if possible |
 
-**Skeleton screen :**
+**Skeleton screen:**
 ```css
 .skeleton {
   background: linear-gradient(
@@ -361,27 +361,27 @@ Ne jamais laisser un espace blanc avec juste "Aucun résultat". Guider l'utilisa
 }
 ```
 
-### État d'erreur
+### Error State
 
-**Structure d'un bon message d'erreur :**
-1. Ce qui s'est passé (sans jargon technique)
-2. Pourquoi ça s'est passé (si pertinent)
-3. Comment y remédier (action concrète)
+**Structure of a good error message:**
+1. What happened (without technical jargon)
+2. Why it happened (if relevant)
+3. How to fix it (concrete action)
 
 ```
-✗ Connexion impossible
+✗ Connection failed
 
-Votre session a expiré. Cela arrive après 30 minutes d'inactivité.
+Your session has expired. This happens after 30 minutes of inactivity.
 
-[Se reconnecter]  ou  Contacter le support
+[Reconnect]  or  Contact support
 ```
 
-**Ne jamais afficher :**
+**Never display:**
 - `Error 500`
 - `Network error: ECONNREFUSED`
 - `Null pointer exception`
 
-### État de succès
+### Success State
 
 ```css
 .toast-success {
@@ -400,17 +400,17 @@ Votre session a expiré. Cela arrive après 30 minutes d'inactivité.
 
 ## Notifications & Toasts
 
-### Durée d'affichage recommandée
-- Toast informatif : **3-4 secondes**
-- Toast avec action (Annuler) : **6-8 secondes**
-- Toast d'erreur : **persistant jusqu'à fermeture manuelle**
+### Recommended Display Duration
+- Informational toast: **3-4 seconds**
+- Toast with action (Undo): **6-8 seconds**
+- Error toast: **persistent until manual close**
 
 ### Position
-- Desktop : coin en bas à droite ou en bas au centre
-- Mobile : en bas, au-dessus de la navigation
+- Desktop: bottom right corner or bottom center
+- Mobile: bottom, above navigation
 
-### Accessibilité
+### Accessibility
 ```html
-<div role="status" aria-live="polite">     <!-- pour les infos -->
-<div role="alert" aria-live="assertive">   <!-- pour les erreurs -->
+<div role="status" aria-live="polite">     <!-- for info -->
+<div role="alert" aria-live="assertive">   <!-- for errors -->
 ```
