@@ -2,6 +2,8 @@
 
 Sources : Refactoring UI ch.4 (Color) · Practical UI ch.3 (Colour)
 
+> **Note :** Ce fichier décrit les concepts stratégiques. Pour les formules mathématiques exactes et la génération programmatique de palettes (JS/CSS), voir `couleur-math.md`.
+
 ---
 
 ## HSL : le bon format
@@ -218,17 +220,18 @@ Bénéfices :
 
 ## Dark Mode : l'avantage du HSL
 
-Grâce à l'utilisation du HSL, créer un Dark Mode ne nécessite pas de recréer une palette de zéro. Il suffit d'**inverser la Lightness** tout en gardant la même Hue (Teinte) et Saturation.
+Grâce à l'utilisation du HSL, créer un Dark Mode est logique, mais **attention : il ne suffit pas de simplement inverser la Lightness**. 
 
-### Règle d'inversion :
-- `50` (Lightness ~97%) devient `900` (Lightness ~10%)
-- `100` devient `800`
-- `200` devient `700`
-- `300` devient `600`
-- `400` devient `500`
-- Et vice versa.
+### Règle du HSL Mirroring
+Une simple inversion (ex: `100` devient `800`) crée des couleurs trop saturées et agressives sur fond sombre.
+Il faut appliquer la méthode du **HSL Mirroring** :
+1. **Lightness** : Inverser (un fond très clair devient très sombre).
+2. **Saturation** : Réduire de 10% à 30% pour éviter la vibration optique.
+3. **Hue (Teinte)** : Décaler légèrement (15-30°) pour un rendu plus riche.
+
+> 👉 Pour les formules de calcul exactes du HSL Mirroring, consultez `couleur-math.md` et les principes d'élévation dans `mode-sombre.md`.
 
 ### Couleurs sémantiques en Dark Mode :
-Attention : Ne pas inverser les couleurs sémantiques (succès, erreur, brand) de la même façon que les gris. Un bouton primaire doit rester identifiable (souvent autour de 500-600 en lightness).
-- Assombrir légèrement les fonds d'alertes (ex: 50 -> 900)
-- Garder les textes d'alerte lisibles en augmentant leur lightness (ex: 700 -> 300)
+Attention : Ne pas inverser les couleurs sémantiques (succès, erreur, brand) de la même façon que les surfaces. Un bouton primaire doit rester identifiable (souvent autour de 500-600 en lightness).
+- Assombrir légèrement les fonds d'alertes.
+- Garder les textes d'alerte lisibles en augmentant leur lightness.
