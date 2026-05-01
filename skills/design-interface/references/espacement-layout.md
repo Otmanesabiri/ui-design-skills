@@ -2,6 +2,8 @@
 
 Sources : Refactoring UI ch.3 (Spacing & Layout) · Practical UI ch.4 (Layout and Spacing)
 
+> **Note :** Ce fichier décrit le système d'espacement statique et la théorie des grilles. Pour rendre ce système d'espacement fluide avec `clamp()` et créer des grilles mathématiques sans media queries, voir `responsive-math.md`.
+
 ---
 
 ## Système d'espacement

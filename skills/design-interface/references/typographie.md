@@ -2,6 +2,8 @@
 
 Sources : Refactoring UI ch.5 (Designing Text) · Practical UI ch.5 (Typography)
 
+> **Note :** Ce fichier décrit les principes de choix typographique et les échelles standards. Pour générer une échelle typographique mathématique personnalisée (Type Scale ratio) ou gérer un rythme vertical (Baseline Grid), voir `math-typographie.md`. Pour rendre ces polices fluides, voir `responsive-math.md`.
+
 ---
 
 ## Système de tailles (type scale)
