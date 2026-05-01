@@ -28,13 +28,16 @@ Sources: **Refactoring UI** - **Laws of UX (2nd ed.)** - **Practical UI**
 
 ---
 
-## File Architecture
+## File Architecture (Token Optimization)
 
-Read the reference file(s) that match the task.
-Don't load everything -- only read what you need.
+> **CRITICAL RULE FOR AI AGENTS:** 
+> 1. Always read `core-principles.md` first. It contains 90% of what you need.
+> 2. Rely on your context caching: once you know a principle, do not re-read the file.
+> 3. ONLY load other specific files if the user asks for exact tokens, mathematical formulas, or deep component reviews.
 
 | File | When to read it |
 |------|------------------|
+| `references/core-principles.md` | **[READ FIRST]** The 10 golden rules for 90% of tasks |
 | `references/processus-decisions.md` | Start a design, decide what to design first |
 | `references/hierarchie-visuelle.md` | Visual hierarchy, weight, emphasis, buttons |
 | `references/couleur-systeme.md` | Palette, contrast, HSL, color accessibility |
@@ -44,7 +47,9 @@ Don't load everything -- only read what you need.
 | `references/composants.md` | Buttons, forms, tables, modals, states |
 | `references/tokens.md` | Concrete values: colors, spacing, typography, shadows |
 | `references/antipatterns-ethique.md` | Common mistakes, dark patterns, and fixes |
-| `references/checklists.md` | Full review checklists by category |
+| `references/checklists-audit.md` | Quick audit before delivery, Red flags |
+| `references/checklists-composants.md` | Checklists for buttons, forms, modals, states |
+| `references/checklists-layout.md` | Checklists for global view, flow, and layout |
 | `references/mode-sombre.md` | HSL inversion, dark palette, dark mode design |
 | `references/math-typographie.md` | Type scale ratios, golden ratio, baseline grid |
 | `references/responsive-math.md` | clamp(), min(), max(), calc(), fluid grids |
@@ -69,12 +74,13 @@ Don't load everything -- only read what you need.
 
 ## Quick Routing
 
-**"Review this component"** -> `hierarchie-visuelle` + `composants` + `checklists`
+**"Review this component"** -> `hierarchie-visuelle` + `checklists-composants`
+**"General audit"** -> `checklists-audit` + `core-principles`
 **"Create a palette"** -> `couleur-systeme` + `tokens`
 **"Design this form"** -> `composants` + `espacement-layout`
 **"Which shadow should I use?"** -> `espacement-layout` + `tokens`
 **"Why doesn't this design work?"** -> `hierarchie-visuelle` + `antipatterns-ethique`
-**"Interface accessibility"** -> `couleur-systeme` + `checklists`
+**"Interface accessibility"** -> `couleur-systeme` + `checklists-audit`
 **"Justify a design decision"** -> `lois-ux`
 **"Add dark mode"** -> `mode-sombre` + `couleur-systeme`
 **"Harmonious type scale"** -> `math-typographie` + `typographie`
