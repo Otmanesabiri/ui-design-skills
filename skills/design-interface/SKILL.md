@@ -45,6 +45,11 @@ Ne charge pas tout — lis uniquement ce dont tu as besoin.
 | `references/antipatterns-ethique.md` | Erreurs fréquentes, Dark patterns et corrections |
 | `references/checklists.md` | Checklists de review complètes par catégorie |
 | `references/mode-sombre.md` | Inversion HSL, palette sombre, design de Dark Mode |
+| `references/math-typographie.md` | Type scale par ratio, Golden Ratio, baseline grid |
+| `references/responsive-math.md` | clamp(), min(), max(), calc(), grilles fluides |
+| `references/couleur-math.md` | Contrast ratio WCAG, palette HSL, OKLCH, dark mode |
+| `references/animations-math.md` | Cubic Bezier, spring, trigonométrie, durées |
+| `references/interactions-math.md` | Lerp, mapping, scroll vélocité, requestAnimationFrame |
 
 ---
 
@@ -71,3 +76,8 @@ Ne charge pas tout — lis uniquement ce dont tu as besoin.
 **"Accessibilité de l'interface"** → `couleur-systeme` + `checklists`
 **"Justifier une décision design"** → `lois-ux`
 **"Ajouter le mode sombre"** → `mode-sombre` + `couleur-systeme`
+**"Type scale harmonieuse"** → `math-typographie` + `typographie`
+**"Typographie / spacing fluide"** → `responsive-math` + `tokens`
+**"Contrast ratio exact"** → `couleur-math` + `couleur-systeme`
+**"Animer un composant"** → `animations-math`
+**"Effet scroll / parallax / cursor"** → `interactions-math`
