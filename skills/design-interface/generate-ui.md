@@ -13,6 +13,32 @@ References to use:
 
 ---
 
+## 0. Resolve the Page Contract
+
+**Before framing the feature, identify the page type.**
+
+Certain page types carry implicit structural expectations. Users have a mental model of what a "landing page" or "dashboard" contains (Jakob's Law). Omitting conventional sections creates a sense of incompleteness, even if all UX rules are respected.
+
+**Agent Instruction:** Match the user's request against the table below. Expand the default section list ONLY if the user explicitly restricts scope (e.g. "just the hero section"). If the page type is not listed, skip this step and proceed to Step 1.
+
+| Page Type | Implicit Sections (Convention) |
+|---|---|
+| **E-commerce Landing Page** | Hero, Product Grid, Features/Benefits, Social Proof (Testimonials or Logos), Promo/Urgency, Newsletter, Full Footer |
+| **SaaS Marketing Page** | Hero, Features, How it Works, Pricing, Testimonials, FAQ, CTA Band, Footer |
+| **Dashboard** | Header (title + actions), KPI Cards (3–5 max), Chart(s), Data Table, Empty/Error States |
+| **Checkout Page** | Progress Indicator, Shipping Form, Payment Form, Order Summary (sticky), Security Signals, CTA |
+| **Login / Auth Page** | Logo, Form (email + password), Forgot Password link, OAuth alternatives, Sign-up redirect |
+| **Blog / Article** | Header, Hero Image, Body Content, Table of Contents (if long), Author Bio, Related Articles |
+| **Profile / Settings** | Sidebar Navigation, Main Content Panel, Danger Zone (destructive actions isolated at bottom) |
+| **Empty / Onboarding** | Illustration or icon, Clear H1, Explanation body, Single primary CTA |
+
+**Output of Step 0:**
+- Confirmed page type
+- List of sections to build, in order
+- Sections explicitly excluded by user request (if any)
+
+---
+
 ## 1. Frame Before Drawing
 
 Do not start with "making a beautiful page". Start with the user task.

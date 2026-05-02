@@ -53,5 +53,5 @@
 }
 ```
 
-### Expected Result 👁️
-The form will be transformed into a structured view: two well-separated distinct blocks (card info, address). Fields will have readable labels above, and a generous height of 44px making input comfortable. Action buttons will be obvious: the "Pay" button will stand out massively thanks to its brand color (`--color-brand`), while the "Cancel" button will be discreet. Saising will be accompanied by a clear outline on focus, improving overall accessibility.
+### Expected Result
+The form will be transformed into a structured view: two well-separated distinct blocks (card info, address). Fields will have readable labels above, and a generous height of 44px making input comfortable. Action buttons will be obvious: the "Pay" button will stand out massively thanks to its brand color (`--color-brand`), while the "Cancel" button will be discreet. Typing will be accompanied by a clear outline on focus, improving overall accessibility.

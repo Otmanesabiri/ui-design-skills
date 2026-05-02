@@ -4,6 +4,16 @@
 
 ## Agent Response (Based on UI Skills)
 
+### 0. Page Contract Resolution
+
+- **Confirmed page type:** SaaS Dashboard
+- **Implicit sections to build (in order):**
+  1. Header (page title + primary action)
+  2. KPI Cards (3 max — Revenue, Active Users, Transactions)
+  3. Data Table (latest transactions)
+  4. Empty/Error states for each data zone
+- **No user restriction detected** — full contract applies.
+
 ### 1. Analysis and Hierarchy (Grayscale First)
 Before applying colors, we structure the view to prioritize information:
 1. **Global Titles and Actions:** At the top (H1 + Export button).
@@ -41,5 +51,5 @@ Before applying colors, we structure the view to prioritize information:
 - **Hick's Law:** The number of global actions is limited to one (Export).
 - **Chunking:** Statistics are grouped in distinct cards for easy reading.
 
-### 4. Expected Result 👁️
+### 4. Expected Result
 Visually, this produces an airy page with a very light gray background (`--color-bg-page`). The page title is clearly visible, as is the primary action button in brand color (`--color-brand`). Below, three white cards (`--color-bg-card`) with rounded corners stand out subtly thanks to a light shadow, each containing a prominent and readable numeric indicator.
