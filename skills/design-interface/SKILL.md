@@ -56,6 +56,9 @@ Sources: **Refactoring UI** - **Laws of UX (2nd ed.)** - **Practical UI**
 | `references/couleur-math.md` | Exact WCAG contrast ratios, HSL palette, OKLCH, dark mode |
 | `references/animations-math.md` | Cubic Bezier, springs, trigonometry, durations |
 | `references/interactions-math.md` | Lerp, mapping, scroll velocity, requestAnimationFrame |
+| `references/accessibilite-avancee.md` | ARIA, keyboard navigation, focus, reduced motion |
+| `references/i18n-rtl.md` | Multi-language, RTL logical properties, text expansion |
+| `references/data-visualization.md` | Charts, accessible colors, dense data tables |
 
 ---
 
@@ -88,3 +91,6 @@ Sources: **Refactoring UI** - **Laws of UX (2nd ed.)** - **Practical UI**
 **"Exact contrast ratio"** -> `couleur-math` + `couleur-systeme`
 **"Animate a component"** -> `animations-math`
 **"Scroll/parallax/cursor effect"** -> `interactions-math`
+**"Advanced accessibility / ARIA"** -> `accessibilite-avancee` + `core-principles`
+**"RTL or multi-language design"** -> `i18n-rtl`
+**"Design a chart or data table"** -> `data-visualization` + `couleur-systeme`
