@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start Your Free Trial — Forma</title>
+  <meta name="description" content="Join 1,400+ teams and get real-time revenue analytics in 4 minutes.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+
+<main class="signup-page">
+  <!-- ═══ LEFT PANEL: Social Proof & Value Prop (Aesthetic-Usability) ═══ -->
+  <section class="signup-sidebar" aria-hidden="true">
+    <div class="sidebar-content">
+      <a href="index.html" class="nav-logo">For<span>ma</span></a>
+      
+      <div class="sidebar-hero">
+        <h1 class="sidebar-title">The numbers you need.<br>Without the wait.</h1>
+        <p class="sidebar-text">Join 1,400+ e-commerce brands who stopped flying blind and started growing with real-time data.</p>
+      </div>
+
+      <div class="mini-testimonials">
+        <div class="mini-quote">
+          <p>"Forma is the first thing I check every morning. It's our source of truth."</p>
+          <span>— Sarah L., Head of Growth</span>
+        </div>
+      </div>
+
+      <div class="integration-icons">
+        <!-- Visual proof of connectivity -->
+        <div class="icon-bubble">S</div>
+        <div class="icon-bubble">St</div>
+        <div class="icon-bubble">M</div>
+        <div class="icon-bubble">G</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RIGHT PANEL: The Form (Frictionless / Miller's Law) ═══ -->
+  <section class="signup-main">
+    <div class="form-container">
+      <header class="form-header">
+        <h2>Start your 14-day free trial</h2>
+        <p>No credit card required. Setup takes < 4 minutes.</p>
+      </header>
+
+      <div class="oauth-buttons">
+        <button class="btn btn-ghost oauth-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          Continue with Google
+        </button>
+      </div>
+
+      <div class="divider">
+        <span>OR CONTINUE WITH EMAIL</span>
+      </div>
+
+      <form action="#" class="signup-form" id="signup-form">
+        <div class="form-group">
+          <label for="full-name">Full Name</label>
+          <input type="text" id="full-name" name="full-name" placeholder="John Doe" required>
+        </div>
+
+        <div class="form-group">
+          <label for="work-email">Work Email</label>
+          <input type="email" id="work-email" name="work-email" placeholder="john@company.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="At least 12 characters" required minlength="12">
+        </div>
+
+        <div class="form-terms">
+          <p>By creating an account, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+          Create my account
+        </button>
+      </form>
+
+      <footer class="form-footer">
+        <p>Already have an account? <a href="login.html">Log in</a></p>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<script>
+  // Simple validation feedback (Doherty Threshold: immediate feedback)
+  const form = document.getElementById('signup-form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    btn.textContent = 'Building your dashboard...';
+    btn.style.opacity = '0.7';
+    btn.disabled = true;
+    
+    // Simulating success state
+    setTimeout(() => {
+      window.location.href = '#success'; // Placeholder
+    }, 1500);
+  });
+</script>
+
+</body>
+</html>
