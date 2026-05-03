@@ -24,7 +24,7 @@ Think: Linear meets Vercel meets Stripe. Confident, minimal, fast.
 Mandatory constraints from the skill:
 - Apply the full Page Contract for SaaS Marketing Page (all 8 sections)
 - Design in grayscale mentally first, then apply brand color
-- Brand color: electric indigo — hsl(248, 90%, 62%)
+- Brand color: vibrant emerald (Life Color) — hsl(160, 90%, 48%)
 - All tokens from references/tokens.md (4px grid, HSL palette, shadow scale)
 - All UX laws enforced and cited in code comments
 - Micro-interactions on every interactive element (Doherty Threshold: < 400ms)
@@ -58,9 +58,9 @@ Sections locked by convention (Jakob's Law — users expect these):
 - **Kill it with:** Immediate product proof in the hero (not just words), real numbers
 
 ### Step 2 — Token Application
-- Brand: `hsl(248, 90%, 62%)` → indigo-500
-- Dark surface: `hsl(222, 20%, 9%)` (not pure black — blue-tinted per couleur-systeme.md)
-- Semantic gray scale: cool grays tinted with hsl(220) to match brand temperature
+- Brand: `hsl(160, 90%, 48%)` → emerald-500
+- Dark surface: `hsl(160, 12%, 9%)` (not pure black — emerald-tinted per couleur-systeme.md)
+- Semantic gray scale: emerald grays tinted with hsl(160) to match brand temperature
 - Typography: `clamp(52px, 7vw, 80px)` for hero H1, `--leading-none` (1.0)
 - Section gap: `--space-32` (128px) — breathing room signals confidence
 - Animations: `--ease-spring` on cards, `--ease-out` on page entries, all ≤ 300ms
@@ -88,6 +88,6 @@ Measurable signals:
 ## Actual Output
 
 > The HTML file produced by this prompt is saved at:
-> `examples/showcase-saas-output.html`
+> `examples/showcase-saas/index.html`
 >
 > Open it in a browser. This is what the skill delivers.
