@@ -30,35 +30,82 @@ Sources: **Refactoring UI** - **Laws of UX (2nd ed.)** - **Practical UI**
 
 ## File Architecture (Token Optimization)
 
-> **CRITICAL RULE FOR AI AGENTS:** 
-> 1. Always read `core-principles.md` first. It contains 90% of what you need.
-> 2. Rely on your context caching: once you know a principle, do not re-read the file.
-> 3. ONLY load other specific files if the user asks for exact tokens, mathematical formulas, or deep component reviews.
+> **CRITICAL RULES FOR AI AGENTS:**
+> 1. **Budget: Maximum 3 files per task.** Never load more than `core-principles` + 2 specific files.
+> 2. **NEVER load all files.** Total framework = ~50,000 tokens. Loading everything wastes quota.
+> 3. Always read `core-principles.md` FIRST. It covers 90% of design decisions.
+> 4. Use the **Quick Routing** section below to pick the right 1-2 files per task.
+> 5. **Cache rule:** Once you have read a file in this session, do NOT re-read it. Rely on context.
+> 6. For concrete CSS values (colors, spacing, shadows), reference `tokens.md` — do NOT memorize values from other files.
+> 7. **STRICT ISOLATION:** NEVER read files inside the `examples/` directory unless the user prompt explicitly includes keywords: "example", "template", "showcase", or "gold standard".
+
+### Tier 1 — Always Available (~630 tokens)
+
+Read on EVERY UI task. This is the only mandatory file.
+
+| File | Content |
+|------|---------|
+| `references/core-principles.md` | **[READ FIRST]** The 10 golden rules for 90% of tasks |
+
+### Tier 2 — Core References (load 1-2 via Quick Routing)
+
+Load only the files indicated by Quick Routing for the specific user task.
 
 | File | When to read it |
-|------|------------------|
-| `references/core-principles.md` | **[READ FIRST]** The 10 golden rules for 90% of tasks |
-| `references/processus-decisions.md` | Start a design, decide what to design first |
+|------|-----------------|
+| `references/composants.md` | Buttons, forms, tables, modals, states |
+| `references/tokens.md` | Concrete values: colors, spacing, typography, shadows |
+| `references/lois-ux.md` | UX psychology: Jakob, Fitts, Hick, Miller, etc. |
 | `references/hierarchie-visuelle.md` | Visual hierarchy, weight, emphasis, buttons |
 | `references/couleur-systeme.md` | Palette, contrast, HSL, color accessibility |
 | `references/typographie.md` | Fonts, scale, line-height, alignment |
 | `references/espacement-layout.md` | Spacing system, grids, shadows, depth |
-| `references/lois-ux.md` | UX psychology: Jakob, Fitts, Hick, Miller, etc. |
-| `references/composants.md` | Buttons, forms, tables, modals, states |
-| `references/tokens.md` | Concrete values: colors, spacing, typography, shadows |
+| `references/processus-decisions.md` | Start a design, decide what to design first |
 | `references/antipatterns-ethique.md` | Common mistakes, dark patterns, and fixes |
-| `references/checklists-audit.md` | Quick audit before delivery, Red flags |
-| `references/checklists-composants.md` | Checklists for buttons, forms, modals, states |
-| `references/checklists-layout.md` | Checklists for global view, flow, and layout |
-| `references/mode-sombre.md` | HSL inversion, dark palette, dark mode design |
-| `references/math-typographie.md` | Type scale ratios, golden ratio, baseline grid |
-| `references/responsive-math.md` | clamp(), min(), max(), calc(), fluid grids |
-| `references/couleur-math.md` | Exact WCAG contrast ratios, HSL palette, OKLCH, dark mode |
-| `references/animations-math.md` | Cubic Bezier, springs, trigonometry, durations |
-| `references/interactions-math.md` | Lerp, mapping, scroll velocity, requestAnimationFrame |
 | `references/accessibilite-avancee.md` | ARIA, keyboard navigation, focus, reduced motion |
-| `references/i18n-rtl.md` | Multi-language, RTL logical properties, text expansion |
-| `references/data-visualization.md` | Charts, accessible colors, dense data tables |
+
+### Tier 3 — Specialized References (load ONLY when explicitly needed)
+
+These files cover niche topics. Load only when the user specifically asks about the topic.
+
+| File | When to read it |
+|------|-----------------|
+| `references/checklists-audit.md` | Quick audit before delivery |
+| `references/checklists-composants.md` | Checklists for buttons, forms, modals |
+| `references/checklists-layout.md` | Checklists for global view, flow, layout |
+| `references/mode-sombre.md` | Dark mode design |
+| `references/math-typographie.md` | Type scale ratios, golden ratio |
+| `references/responsive-math.md` | clamp(), min(), max(), fluid grids |
+| `references/couleur-math.md` | WCAG contrast ratios, OKLCH |
+| `references/animations-math.md` | Cubic Bezier, springs, durations |
+| `references/interactions-math.md` | Lerp, scroll velocity, requestAnimationFrame |
+| `references/i18n-rtl.md` | Multi-language, RTL logical properties |
+| `references/data-visualization.md` | Charts, accessible colors, dense tables |
+
+### Tier 4 — Extensions (load ONLY when user explicitly asks)
+
+Advanced patterns. **Never preload these.** Only load when the task matches.
+
+| File | Trigger keywords |
+|------|-----------------|
+| `extensions/navigation-patterns.md` | "sidebar", "tabs", "breadcrumbs", "nav", "menu" |
+| `extensions/ux-writing.md` | "button label", "error message", "empty state", "copy" |
+| `extensions/performance-design.md` | "performance", "lighthouse", "CLS", "LCP", "speed" |
+| `extensions/search-patterns.md" | "search", "filter", "autocomplete" |
+| `extensions/icon-system.md` | "icon", "svg", "icon size" |
+| `extensions/mobile-patterns.md` | "mobile", "touch", "bottom sheet", "gesture" |
+| `extensions/media-guidelines.md` | "image", "avatar", "video", "aspect ratio", "alt text" |
+
+### Tier 5 — Gold Standard Examples (LOAD ONLY ON DEMAND)
+
+High-token files. **FORBIDDEN** for general design tasks. Load ONLY if user asks for examples.
+
+| File | Purpose |
+|------|---------|
+| `examples/example-generate-dashboard.md` | Full dashboard implementation reference |
+| `examples/example-generate-landing.md` | Full landing page implementation reference |
+| `examples/example-review-form.md` | Detailed form review and correction reference |
+| `examples/showcase-saas/` | Production-grade SaaS interface "Forma" |lt text" |
 
 ---
 
@@ -94,3 +141,10 @@ Sources: **Refactoring UI** - **Laws of UX (2nd ed.)** - **Practical UI**
 **"Advanced accessibility / ARIA"** -> `accessibilite-avancee` + `core-principles`
 **"RTL or multi-language design"** -> `i18n-rtl`
 **"Design a chart or data table"** -> `data-visualization` + `couleur-systeme`
+**"Build a navigation"** -> `navigation-patterns` + `lois-ux`
+**"Write button labels/errors"** -> `ux-writing` + `antipatterns-ethique`
+**"Optimize performance"** -> `performance-design` + `tokens`
+**"Build a search interface"** -> `search-patterns` + `composants`
+**"Choose/size icons"** -> `icon-system` + `accessibilite-avancee`
+**"Design for mobile"** -> `mobile-patterns` + `responsive-math`
+**"Handle images/avatars"** -> `media-guidelines` + `performance-design`
