@@ -46,15 +46,6 @@ Once installed, the agent will automatically reference the `.agents/` or `skills
 
 ---
 
-## 🏆 Showcase: The Gold Standard
-
-See the framework in action. These are not manual designs; they are results of AI agents following our strict constraints:
-
-*   **[SaaS Analytics Dashboard](skills/design-interface/examples/showcase-saas/index1.html)** — *Miller's Law chunking, 3D animations, and Doherty-compliant skeletons.*
-*   **[Premium E-commerce Landing](skills/design-interface/examples/showcase-saas/index.html)** — *Dark mode HSL mirroring and conversion-optimized hierarchy.*
-
----
-
 ## 🛠️ Advanced Extensions
 
 We've expanded the framework to cover complex real-world scenarios:
